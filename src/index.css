@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-slate-800 antialiased font-sans;
+    overflow-x: hidden;
+  }
+
+  /* Títulos con serifa elegante; números "lining" para que los precios se lean bien */
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-variant-numeric: lining-nums;
+    letter-spacing: -0.01em;
+  }
+
+  /* Foco visible para quien navega con teclado */
+  :focus-visible {
+    outline: 2px solid #b03a63;
+    outline-offset: 2px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf4f6;
+}
+::-webkit-scrollbar-thumb {
+  background: #d9a3b5;
+  border-radius: 6px;
+  border: 2px solid #fdf4f6;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b03a63;
+}
+
+/* Detalle dorado: línea fina con brillo bajo los títulos de sección */
+.gold-rule {
+  height: 2px;
+  width: 64px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #dfb04a, transparent);
+}
+
+/* Continuous Marquee Ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Gentle Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Shimmer Sweep Animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+/* Animated Gradient Background */
+@keyframes gradient-xy {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-flow {
+  background-size: 200% 200%;
+  animation: gradient-xy 8s ease infinite;
+}
+
+/* Glow Pulse */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(176, 58, 99, 0.35), 0 0 30px rgba(223, 176, 74, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(176, 58, 99, 0.6), 0 0 45px rgba(223, 176, 74, 0.35);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite;
+}
+
+/* Respeta a quien tiene activado "reducir movimiento" en su dispositivo */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
