@@ -94,7 +94,7 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
                   >
                     {product.name}
                   </h3>
-                  <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
+                  <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
                     {product.description}
                   </p>
                 </div>

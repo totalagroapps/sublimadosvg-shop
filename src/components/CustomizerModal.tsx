@@ -204,6 +204,9 @@ const CustomizerContent: React.FC<CustomizerContentProps> = ({ product, onClose,
                     Personalización Incluida
                   </span>
                 </div>
+                <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                  {product.description}
+                </p>
               </div>
 
               <button

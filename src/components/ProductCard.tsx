@@ -105,22 +105,22 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {/* Product Title */}
           <h3 
             onClick={() => onCustomize(product)}
-            className="font-heading font-bold text-sm text-slate-900 line-clamp-2 group-hover:text-rose-600 transition-colors cursor-pointer leading-snug"
+            className="font-heading font-bold text-sm text-slate-900 group-hover:text-rose-600 transition-colors cursor-pointer leading-snug"
           >
             {product.name}
           </h3>
 
           {/* Product Description */}
-          <p className="text-[11px] text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+          <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
             {product.description}
           </p>
 
           {/* Quick bullet points */}
-          <div className="mt-2 space-y-1">
-            {product.features.slice(0, 2).map((feat, idx) => (
-              <div key={idx} className="flex items-center gap-1.5 text-[10px] text-slate-600">
-                <Check className="w-3 h-3 text-emerald-600 shrink-0" />
-                <span className="truncate">{feat}</span>
+          <div className="mt-2.5 space-y-1.5">
+            {product.features.slice(0, 3).map((feat, idx) => (
+              <div key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-600">
+                <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="leading-tight">{feat}</span>
               </div>
             ))}
           </div>
