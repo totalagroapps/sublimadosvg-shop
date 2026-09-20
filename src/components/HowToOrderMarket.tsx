@@ -81,7 +81,7 @@ export const HowToOrderMarket: React.FC = () => {
             href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('¡Hola! Me gustaría hacer un pedido personalizado.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold text-sm shadow-xl shadow-emerald-950/40 hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-purple-800 to-indigo-950 hover:from-purple-900 hover:to-indigo-950 text-white font-extrabold text-sm shadow-xl shadow-purple-950/40 hover:scale-105 transition-all"
           >
             <span>Iniciar Pedido por WhatsApp</span>
             <ArrowRight className="w-4 h-4" />

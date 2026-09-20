@@ -20,7 +20,7 @@ export const DiscountBanner: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-amber-400 via-rose-500 to-purple-600 text-white py-6 px-4 shadow-inner relative overflow-hidden">
+    <section className="bg-gradient-to-r from-purple-600 via-pink-500 to-purple-800 text-white py-6 px-4 shadow-inner relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
         
         <div className="flex items-center gap-3 text-center sm:text-left">
@@ -68,7 +68,7 @@ export const DiscountBanner: React.FC = () => {
             href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(`¡Hola Viviana! Quiero aplicar el cupón *${coupon}* del 10% de descuento en mi primer pedido.`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md transition-all flex items-center gap-1"
+            className="px-3.5 py-2 rounded-xl bg-purple-800 hover:bg-purple-900 text-white font-extrabold text-xs shadow-md transition-all flex items-center gap-1"
           >
             <MessageCircle className="w-4 h-4" />
             <span className="hidden md:inline">Usar en WhatsApp</span>

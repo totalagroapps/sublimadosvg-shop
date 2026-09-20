@@ -10,7 +10,7 @@ export const CustomIdeaBanner: React.FC<CustomIdeaBannerProps> = ({ onOpenCustom
   return (
     <section className="py-12 sm:py-16 bg-slate-900 relative overflow-hidden">
       {/* Dynamic Background Glows */}
-      <div className="absolute inset-0 bg-gradient-to-r from-rose-600 via-pink-600 to-purple-800 opacity-90 animate-gradient-flow" />
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-700 via-pink-500 to-purple-900 opacity-90 animate-gradient-flow" />
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl pointer-events-none" />
 
@@ -61,7 +61,7 @@ export const CustomIdeaBanner: React.FC<CustomIdeaBannerProps> = ({ onOpenCustom
                 href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('¡Hola Viviana! Tengo una foto / idea para personalizar un producto. ¿Te la puedo enviar para ver cómo quedaría?')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-extrabold text-sm shadow-xl shadow-emerald-950/40 hover:scale-105 transition-all flex items-center gap-2"
+                className="px-6 py-3.5 rounded-full bg-purple-800 hover:bg-purple-900 text-white font-extrabold text-sm shadow-xl shadow-purple-950/40 hover:scale-105 transition-all flex items-center gap-2 border-2 border-purple-400/30"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>Enviar mi Foto por WhatsApp</span>

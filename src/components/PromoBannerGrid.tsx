@@ -137,7 +137,7 @@ export const PromoBannerGrid: React.FC<PromoBannerGridProps> = ({
                     href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(b.whatsappText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-md transition-colors"
+                    className="p-2 rounded-full bg-purple-800 hover:bg-purple-900 text-white shadow-md transition-colors"
                     title="Pedir combo por WhatsApp"
                   >
                     <MessageCircle className="w-4 h-4" />

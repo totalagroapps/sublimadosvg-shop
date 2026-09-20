@@ -143,7 +143,7 @@ export function App() {
   }, [products, wishlistIds]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-cream selection:bg-rose-600 selection:text-white font-sans text-slate-800 pb-16 sm:pb-0">
+    <div className="min-h-screen flex flex-col bg-cream selection:bg-purple-600 selection:text-white font-sans text-slate-800 pb-16 sm:pb-0">
       
       {/* 1. Marketplace Header */}
       <Navbar

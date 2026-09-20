@@ -48,7 +48,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
         
         {/* Floating Speech Bubble Tooltip */}
         {showTooltip && (
-          <div className="animate-float bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl border-2 border-emerald-400 max-w-xs text-slate-800 relative group transition-all duration-300">
+          <div className="animate-float bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl border-2 border-purple-300 max-w-xs text-slate-800 relative group transition-all duration-300">
             {/* Close button */}
             <button
               onClick={() => setShowTooltip(false)}
@@ -61,14 +61,14 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
             <div className="flex items-start gap-3">
               {/* Avatar with status indicator */}
               <div className="relative shrink-0">
-                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-500 shadow-sm">
+                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-purple-700 shadow-sm">
                   <img
                     src={STORE_CONFIG.logoPrincipal}
                     alt="Viviana - VG Personalizados"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full" />
+                <span className="absolute bottom-0 right-0 w-3 h-3 bg-purple-700 border-2 border-white rounded-full" />
               </div>
 
               {/* Message text */}
@@ -77,7 +77,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
                   <span className="font-heading font-extrabold text-xs text-slate-900">
                     Viviana Giraldo
                   </span>
-                  <span className="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1 rounded">
+                  <span className="text-[10px] text-purple-700 font-bold bg-purple-100 px-1 rounded">
                     En línea
                   </span>
                 </div>
@@ -86,39 +86,39 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
                 </p>
                 <button
                   onClick={handleWhatsAppClick}
-                  className="mt-1 text-[11px] font-extrabold text-emerald-600 hover:text-emerald-700 underline flex items-center gap-1"
+                  className="mt-1 text-[11px] font-extrabold text-purple-700 hover:text-purple-900 underline flex items-center gap-1"
                 >
-                  <Sparkles className="w-3 h-3 text-amber-500" />
+                  <Sparkles className="w-3 h-3 text-pink-500" />
                   <span>Chatear ahora mismo</span>
                 </button>
               </div>
             </div>
 
             {/* Little speech bubble arrow */}
-            <div className="absolute -bottom-2 right-8 w-4 h-4 bg-white border-r-2 border-b-2 border-emerald-400 rotate-45" />
+            <div className="absolute -bottom-2 right-8 w-4 h-4 bg-white border-r-2 border-b-2 border-purple-300 rotate-45" />
           </div>
         )}
 
         {/* Main Floating WhatsApp Pulse Button */}
         <button
           onClick={handleWhatsAppClick}
-          className="group relative flex items-center gap-3 px-4 py-3.5 rounded-full bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white shadow-2xl shadow-emerald-900/30 hover:shadow-emerald-500/50 hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-white/80"
+          className="group relative flex items-center gap-3 px-4 py-3.5 rounded-full bg-gradient-to-r from-purple-800 via-purple-900 to-indigo-950 hover:from-purple-900 hover:to-indigo-950 text-white shadow-2xl shadow-purple-950/40 hover:shadow-purple-700/50 hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-purple-300/40"
           aria-label="Abrir chat de WhatsApp"
         >
           {/* Animated Background Ring */}
-          <span className="absolute -inset-1 rounded-full bg-emerald-400/40 animate-ping pointer-events-none" />
-          <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 opacity-75 blur-sm group-hover:opacity-100 transition-opacity -z-10" />
+          <span className="absolute -inset-1 rounded-full bg-purple-600/40 animate-ping pointer-events-none" />
+          <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-600 to-violet-700 opacity-75 blur-sm group-hover:opacity-100 transition-opacity -z-10" />
 
           <div className="relative">
             <MessageCircle className="w-7 h-7 text-white animate-bounce" style={{ animationDuration: '3s' }} />
             {/* Unread badge */}
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[9px] font-extrabold rounded-full flex items-center justify-center border border-white">
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-pink-500 text-white text-[9px] font-extrabold rounded-full flex items-center justify-center border border-white">
               1
             </span>
           </div>
 
           <div className="text-left pr-1 leading-tight">
-            <span className="block text-[10px] text-emerald-100 font-bold uppercase tracking-wider">
+            <span className="block text-[10px] text-purple-200 font-bold uppercase tracking-wider">
               ¿Dudas? Escríbenos
             </span>
             <span className="font-heading font-extrabold text-sm text-white">
@@ -155,7 +155,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
         {/* Center Prominent WhatsApp Button */}
         <button
           onClick={handleWhatsAppClick}
-          className="relative -top-3 w-14 h-14 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 text-white p-3 shadow-xl shadow-emerald-500/40 border-4 border-white flex items-center justify-center active:scale-95 transition-transform"
+          className="relative -top-3 w-14 h-14 rounded-full bg-gradient-to-tr from-purple-800 via-purple-900 to-indigo-950 text-white p-3 shadow-xl shadow-purple-900/50 border-4 border-white flex items-center justify-center active:scale-95 transition-transform"
           aria-label="WhatsApp directo"
         >
           <MessageCircle className="w-6 h-6" />

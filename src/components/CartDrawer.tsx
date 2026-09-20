@@ -395,7 +395,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               <div className="space-y-2">
                 <button
                   onClick={handleCheckoutWhatsApp}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-200 hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-purple-800 hover:bg-purple-900 text-white font-bold text-sm sm:text-base shadow-lg shadow-purple-300/40 hover:shadow-xl transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Enviar Pedido a WhatsApp</span>

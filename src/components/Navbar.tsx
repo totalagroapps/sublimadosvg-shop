@@ -166,11 +166,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('¡Hola! Me gustaría hacer una consulta sobre un producto personalizado.')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 transition-all text-xs font-bold"
+              className="hidden lg:flex items-center gap-2 px-3 py-2 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-900 border border-purple-300 transition-all text-xs font-bold"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+              <MessageCircle className="w-4 h-4 text-purple-800 shrink-0" />
               <div className="text-left leading-tight">
-                <span className="block text-[10px] text-emerald-600 font-normal">Atención rápida</span>
+                <span className="block text-[10px] text-purple-700 font-normal">Atención rápida</span>
                 <span>WhatsApp</span>
               </div>
             </a>

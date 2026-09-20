@@ -131,7 +131,7 @@ export const FlashOffers: React.FC<FlashOffersProps> = ({ products, onCustomizeP
                         href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(`¡Hola VG Personalizados! Quiero aprovechar la Oferta Relámpago de: *${product.name}* a ${formatPrice(product.price)} (Descuento del ${discount}%).`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="py-2.5 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center justify-center gap-1 active:scale-95 shadow-sm"
+                        className="py-2.5 px-2 rounded-xl bg-purple-800 hover:bg-purple-900 text-white text-xs font-bold transition-all flex items-center justify-center gap-1 active:scale-95 shadow-sm"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
                         <span>Pedir a Wpp</span>

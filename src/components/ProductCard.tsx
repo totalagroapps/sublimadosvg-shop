@@ -156,7 +156,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
             <button
               onClick={handleQuickWhatsApp}
-              className="py-2.5 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-colors flex items-center justify-center gap-1 active:scale-95"
+              className="py-2.5 px-2 rounded-xl bg-purple-800 hover:bg-purple-900 text-white font-bold text-xs shadow-sm transition-colors flex items-center justify-center gap-1 active:scale-95"
               title="Pedir directamente a WhatsApp"
             >
               <MessageCircle className="w-3.5 h-3.5" />
