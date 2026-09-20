@@ -61,6 +61,18 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
       badge: 'A solo $20.000 COP ☕',
       gradient: 'from-purple-900/85 via-purple-800/55 to-slate-950/80',
     },
+    {
+      id: 'slide-mugs-magicos',
+      tag: '✨ Novedad: Efecto Térmico Sorpresa',
+      title: 'Descubre la magia con',
+      highlight: 'mugs mágicos personalizados',
+      subtitle: 'En frío es una taza negra sobria y con cualquier bebida caliente revela tus fotos y frases más especiales a solo $25.000.',
+      image: '/prod-mug-magico-fotos.jpg',
+      category: 'mugs',
+      ctaText: 'Ver Mugs Mágicos ($25.000)',
+      badge: 'A solo $25.000 COP ✨',
+      gradient: 'from-purple-950/90 via-purple-900/60 to-slate-950/85',
+    },
   ];
 
   // Auto-advance slides every 6 seconds
@@ -82,7 +94,7 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
   const current = slides[currentSlide];
 
   return (
-    <section className="bg-cream py-6 sm:py-8 border-b border-rose-200/80">
+    <section className="bg-cream py-6 sm:py-8 border-b border-purple-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           
@@ -171,7 +183,7 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
                   className={`h-2 rounded-full transition-all ${
-                    currentSlide === idx ? 'w-8 bg-rose-500' : 'w-2 bg-white/60 hover:bg-white'
+                    currentSlide === idx ? 'w-8 bg-purple-500' : 'w-2 bg-white/60 hover:bg-white'
                   }`}
                   aria-label={`Ir a diapositiva ${idx + 1}`}
                 />
@@ -218,21 +230,21 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
             </div>
 
             {/* Promo Card 2: Envíos & Garantía */}
-            <div className="rounded-2xl sm:rounded-3xl border border-rose-100 bg-white p-5 shadow-md flex flex-col justify-between hover:border-rose-300 transition-colors">
+            <div className="rounded-2xl sm:rounded-3xl border border-purple-200/90 bg-white/95 backdrop-blur-sm p-5 shadow-md flex flex-col justify-between hover:border-purple-400 transition-colors">
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-rose-600 font-extrabold text-xs">
-                  <Truck className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-purple-800 font-extrabold text-xs">
+                  <Truck className="w-4 h-4 text-purple-700" />
                   <span>DESPACHOS DESDE PEREIRA</span>
                 </div>
                 <h4 className="font-heading font-extrabold text-base text-slate-900 leading-tight">
                   Envíos Gratis en compras desde $120.000
                 </h4>
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Llegamos a Pereira, Dosquebradas, Eje Cafetero y toda Colombia con guía de rastreo.
                 </p>
               </div>
 
-              <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+              <div className="flex items-center justify-between mt-4 pt-3 border-t border-purple-100">
                 <div className="flex items-center gap-1 text-emerald-600 text-xs font-bold">
                   <ShieldCheck className="w-4 h-4" />
                   <span>Sublimación HD 100% Garantizada</span>
@@ -241,7 +253,7 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
                   href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hola! Quiero consultar los tiempos de envío a mi ciudad.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-bold text-rose-600 hover:text-rose-700 underline flex items-center gap-1"
+                  className="text-xs font-bold text-purple-800 hover:text-purple-950 underline flex items-center gap-1"
                 >
                   <span>Consultar</span>
                   <ArrowRight className="w-3 h-3" />

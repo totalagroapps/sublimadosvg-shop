@@ -494,7 +494,7 @@ const CustomizerContent: React.FC<CustomizerContentProps> = ({ product, onClose,
 
             <button
               onClick={handleAdd}
-              className="w-full py-3.5 px-6 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-rose-200 hover:shadow-xl transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+              className="w-full py-3.5 px-6 rounded-2xl bg-purple-800 hover:bg-purple-900 text-white font-bold text-sm sm:text-base shadow-lg shadow-purple-900/30 hover:shadow-xl transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
             >
               <ShoppingBag className="w-5 h-5" />
               <span>Agregar al Carrito de Compras</span>

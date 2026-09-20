@@ -46,19 +46,19 @@ export const CustomerReviews: React.FC = () => {
   ];
 
   return (
-    <section className="bg-rose-50/70 py-14 sm:py-20 border-b border-rose-100">
+    <section className="bg-cream py-14 sm:py-20 border-b border-purple-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Title */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold uppercase tracking-wider mb-2">
-            <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 border border-purple-300 text-purple-800 text-xs font-bold uppercase tracking-wider mb-2">
+            <Heart className="w-3.5 h-3.5 fill-pink-500 text-pink-500" />
             <span>Opiniones de Clientes Felices</span>
           </div>
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
             Lo que dicen quienes ya confiaron en nosotros
           </h2>
-          <p className="text-sm text-slate-500 mt-2">
+          <p className="text-sm text-slate-600 mt-2">
             Más de 500 detalles entregados en Pereira y toda Colombia creando sonrisas y momentos inolvidables.
           </p>
         </div>
@@ -68,7 +68,7 @@ export const CustomerReviews: React.FC = () => {
           {reviews.map((rev) => (
             <div
               key={rev.id}
-              className="rounded-3xl border border-rose-100 bg-white p-6 flex flex-col justify-between hover:shadow-2xl hover:border-rose-300 hover:scale-[1.02] transition-all duration-300 relative group"
+              className="rounded-3xl border border-purple-200/90 bg-white/95 backdrop-blur-sm p-6 flex flex-col justify-between hover:shadow-2xl hover:border-purple-400 hover:scale-[1.02] transition-all duration-300 relative group"
             >
               <div className="space-y-3">
                 {/* Rating & Date */}
@@ -88,7 +88,7 @@ export const CustomerReviews: React.FC = () => {
               </div>
 
               {/* Author & Product */}
-              <div className="pt-4 mt-4 border-t border-slate-200/60">
+              <div className="pt-4 mt-4 border-t border-purple-100">
                 <div className="flex items-center gap-1.5">
                   <span className="font-heading font-bold text-xs text-slate-900">
                     {rev.author}
@@ -100,7 +100,7 @@ export const CustomerReviews: React.FC = () => {
                 <div className="text-[11px] text-slate-400">
                   {rev.city}
                 </div>
-                <div className="mt-1 text-[10px] font-semibold text-rose-600 truncate bg-rose-50 px-2 py-0.5 rounded-md inline-block">
+                <div className="mt-1 text-[10px] font-semibold text-purple-800 truncate bg-purple-100 px-2 py-0.5 rounded-md inline-block">
                   {rev.product}
                 </div>
               </div>

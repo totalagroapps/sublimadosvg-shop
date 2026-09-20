@@ -28,17 +28,17 @@ export const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-cream border-b border-rose-100">
+    <section className="py-16 sm:py-20 bg-cream border-b border-purple-200/80">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-600 bg-rose-100/80 border border-rose-200 px-3 py-1 rounded-full mb-2">
-            <HelpCircle className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-purple-800 bg-purple-100 border border-purple-300 px-3 py-1 rounded-full mb-2">
+            <HelpCircle className="w-3.5 h-3.5 text-purple-700" />
             <span>Resolvemos tus dudas</span>
           </div>
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
             Preguntas Frecuentes
           </h2>
-          <p className="text-sm text-slate-500 mt-1">
+          <p className="text-sm text-slate-600 mt-1">
             Todo lo que necesitas saber sobre personalización, materiales y entregas.
           </p>
         </div>
@@ -47,16 +47,16 @@ export const FAQ: React.FC = () => {
           {faqs.map((faq, idx) => (
             <div
               key={idx}
-              className="border border-rose-100 rounded-2xl overflow-hidden bg-white shadow-sm hover:border-rose-300 transition-colors"
+              className="border border-purple-200/90 rounded-2xl overflow-hidden bg-white/95 shadow-sm hover:border-purple-400 transition-colors"
             >
             <button
               onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-              className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 font-heading font-bold text-sm sm:text-base text-slate-900 hover:text-rose-600 transition-colors"
+              className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 font-heading font-bold text-sm sm:text-base text-slate-900 hover:text-purple-800 transition-colors"
             >
               <span>{faq.q}</span>
               <ChevronDown
                 className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                  openIndex === idx ? 'rotate-180 text-rose-500' : ''
+                  openIndex === idx ? 'rotate-180 text-purple-600' : ''
                 }`}
               />
             </button>

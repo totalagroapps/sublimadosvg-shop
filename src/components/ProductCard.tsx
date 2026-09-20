@@ -30,7 +30,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     CATEGORIES.find((c) => c.id === product.category)?.name || product.category;
 
   return (
-    <div className="bg-white rounded-3xl border border-rose-100 overflow-hidden shadow-card hover:shadow-soft hover:border-rose-300 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between group">
+    <div className="bg-white/95 backdrop-blur-sm rounded-3xl border border-purple-200/90 overflow-hidden shadow-card hover:shadow-soft hover:border-purple-400 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between group">
       
       {/* Product Image Area */}
       <div 
@@ -47,7 +47,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Top Badges */}
         <div className="absolute top-2.5 left-2.5 flex flex-col gap-1.5 z-10">
           {discount > 0 && (
-            <span className="px-2 py-0.5 rounded-md bg-rose-600 text-white text-[10px] font-extrabold shadow-sm">
+            <span className="px-2 py-0.5 rounded-md bg-purple-700 text-white text-[10px] font-extrabold shadow-sm">
               -{discount}% OFF
             </span>
           )}
@@ -70,7 +70,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         >
           <Heart
             className={`w-4 h-4 transition-colors ${
-              isWishlisted ? 'text-rose-600 fill-rose-600' : 'text-slate-400 hover:text-rose-500'
+              isWishlisted ? 'text-pink-600 fill-pink-600' : 'text-slate-400 hover:text-pink-500'
             }`}
           />
         </button>
@@ -78,7 +78,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Bottom hover bar */}
         <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between pointer-events-none">
           <span className="px-2 py-0.5 rounded-md bg-white/95 backdrop-blur-md text-[10px] font-bold text-slate-700 shadow-sm flex items-center gap-1">
-            <Sparkles className="w-3 h-3 text-rose-500" />
+            <Sparkles className="w-3 h-3 text-purple-600" />
             <span>Personalizable</span>
           </span>
           <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50/95 backdrop-blur-md px-1.5 py-0.5 rounded-md shadow-sm">
@@ -92,7 +92,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div>
           {/* Category & Rating */}
           <div className="flex items-center justify-between text-[11px] text-slate-400 mb-1">
-            <span className="font-semibold text-rose-600 uppercase tracking-wider text-[10px]">
+            <span className="font-semibold text-purple-700 uppercase tracking-wider text-[10px]">
               {categoryName}
             </span>
             <div className="flex items-center gap-1 text-slate-600">
@@ -105,7 +105,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           {/* Product Title */}
           <h3 
             onClick={() => onCustomize(product)}
-            className="font-heading font-bold text-sm text-slate-900 group-hover:text-rose-600 transition-colors cursor-pointer leading-snug"
+            className="font-heading font-bold text-sm text-slate-900 group-hover:text-purple-800 transition-colors cursor-pointer leading-snug"
           >
             {product.name}
           </h3>
@@ -127,7 +127,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         {/* Pricing & Double Actions */}
-        <div className="pt-3 border-t border-slate-100 space-y-2.5">
+        <div className="pt-3 border-t border-purple-100 space-y-2.5">
           <div className="flex items-baseline justify-between">
             <div>
               <span className="font-heading font-extrabold text-xl text-slate-900">
@@ -148,9 +148,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="grid grid-cols-2 gap-1.5">
             <button
               onClick={() => onCustomize(product)}
-              className="py-2.5 px-2 rounded-xl bg-slate-900 hover:bg-rose-600 text-white font-bold text-xs shadow-sm transition-colors flex items-center justify-center gap-1 active:scale-95"
+              className="py-2.5 px-2 rounded-xl bg-slate-900 hover:bg-purple-800 text-white font-bold text-xs shadow-sm transition-colors flex items-center justify-center gap-1 active:scale-95"
             >
-              <Sparkles className="w-3.5 h-3.5 text-rose-300" />
+              <Sparkles className="w-3.5 h-3.5 text-purple-300" />
               <span>Personalizar</span>
             </button>
 

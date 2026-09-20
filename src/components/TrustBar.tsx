@@ -30,7 +30,7 @@ export const TrustBar: React.FC = () => {
   ];
 
   return (
-    <section className="bg-cream border-y border-rose-100 py-6">
+    <section className="bg-cream border-y border-purple-200/80 py-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((item, idx) => {
@@ -38,19 +38,19 @@ export const TrustBar: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/70 backdrop-blur-sm border border-rose-200/70 hover:bg-white hover:border-rose-300 shadow-sm transition-all"
+                className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/85 backdrop-blur-sm border border-purple-200/90 hover:bg-white hover:border-purple-400 shadow-sm transition-all"
               >
-                <div className="w-11 h-11 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-600 shrink-0 shadow-sm">
+                <div className="w-11 h-11 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-800 shrink-0 shadow-sm">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="space-y-0.5">
                   <h4 className="font-heading font-bold text-sm text-slate-900 leading-tight">
                     {item.title}
                   </h4>
-                  <p className="text-xs text-slate-500 leading-snug">
+                  <p className="text-xs text-slate-600 leading-snug">
                     {item.desc}
                   </p>
-                  <span className="inline-block text-[11px] font-extrabold text-rose-600">
+                  <span className="inline-block text-[11px] font-extrabold text-purple-800">
                     {item.highlight}
                   </span>
                 </div>

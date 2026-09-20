@@ -41,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-rose-100 shadow-card transition-all">
+    <header className="sticky top-0 z-40 bg-[#f7f2fc]/95 backdrop-blur-md border-b border-purple-200/80 shadow-sm transition-all">
       {/* Top Marketplace Announcement & Utility Strip */}
       <div className="bg-slate-900 text-white text-[11px] sm:text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
@@ -78,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => onSelectCategory('todos')}
               className="flex items-center gap-2.5 text-left group focus:outline-none"
             >
-              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-400 shadow-md shadow-rose-100 group-hover:scale-105 transition-transform bg-white shrink-0">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-400 shadow-md shadow-purple-100 group-hover:scale-105 transition-transform bg-white shrink-0">
                 <img
                   src={STORE_CONFIG.logoPrincipal}
                   alt="VG Personalizados"
@@ -87,8 +87,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
               <div className="leading-tight">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-heading font-extrabold text-lg sm:text-2xl tracking-tight text-slate-900 group-hover:text-rose-600 transition-colors">
-                    VG <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-violet-600">Personalizados</span>
+                  <span className="font-heading font-extrabold text-lg sm:text-2xl tracking-tight text-slate-900 group-hover:text-purple-800 transition-colors">
+                    VG <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 via-pink-600 to-violet-700">Personalizados</span>
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-500 font-medium hidden md:block">
@@ -103,21 +103,21 @@ export const Navbar: React.FC<NavbarProps> = ({
             onSubmit={handleSearchSubmit}
             className="hidden md:flex flex-1 max-w-2xl mx-2"
           >
-            <div className="relative flex w-full rounded-xl border-2 border-rose-500/80 bg-white overflow-visible shadow-sm focus-within:ring-2 focus-within:ring-rose-500/30">
+            <div className="relative flex w-full rounded-xl border-2 border-purple-400/90 bg-white overflow-visible shadow-sm focus-within:ring-2 focus-within:ring-purple-400/30">
               
               {/* Category Dropdown */}
-              <div className="relative shrink-0 border-r border-slate-200">
+              <div className="relative shrink-0 border-r border-purple-100">
                 <button
                   type="button"
                   onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
-                  className="h-full px-3 py-2 bg-slate-50 hover:bg-slate-100 text-xs font-bold text-slate-700 flex items-center gap-1.5 transition-colors focus:outline-none rounded-l-lg"
+                  className="h-full px-3 py-2 bg-purple-50/50 hover:bg-purple-100/60 text-xs font-bold text-slate-700 flex items-center gap-1.5 transition-colors focus:outline-none rounded-l-lg"
                 >
                   <span className="max-w-[110px] truncate">{selectedCategoryName}</span>
                   <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                 </button>
 
                 {categoryDropdownOpen && (
-                  <div className="absolute left-0 top-full mt-1 w-52 bg-white rounded-xl shadow-xl border border-slate-200 py-1.5 z-50">
+                  <div className="absolute left-0 top-full mt-1 w-52 bg-white rounded-xl shadow-xl border border-purple-200 py-1.5 z-50">
                     {CATEGORIES.map((cat) => (
                       <button
                         key={cat.id}
@@ -126,8 +126,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                           onSelectCategory(cat.id as ProductCategory);
                           setCategoryDropdownOpen(false);
                         }}
-                        className={`w-full text-left px-3 py-1.5 text-xs font-semibold hover:bg-rose-50 transition-colors flex items-center justify-between ${
-                          selectedCategory === cat.id ? 'text-rose-600 font-bold bg-rose-50/50' : 'text-slate-700'
+                        className={`w-full text-left px-3 py-1.5 text-xs font-semibold hover:bg-purple-50 transition-colors flex items-center justify-between ${
+                          selectedCategory === cat.id ? 'text-purple-900 font-bold bg-purple-100/60' : 'text-slate-700'
                         }`}
                       >
                         <span>{cat.name}</span>
@@ -140,7 +140,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Text input */}
               <input
                 type="text"
-                placeholder="¿Qué estás buscando? ej. Camisetas para eventos, Mugs, Agendas..."
+                placeholder="¿Qué estás buscando? ej. Camisetas para eventos, Mugs mágicos, Agendas..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 aria-label="Buscar productos"
@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="submit"
                 aria-label="Buscar"
-                className="px-4 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white flex items-center justify-center transition-colors rounded-r-lg"
+                className="px-4 bg-purple-800 hover:bg-purple-900 text-white flex items-center justify-center transition-colors rounded-r-lg"
               >
                 <Search className="w-4 h-4" />
               </button>
@@ -178,13 +178,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Wishlist Button */}
             <button
               onClick={onOpenWishlist}
-              className="p-2 sm:px-3 sm:py-2 rounded-xl hover:bg-slate-100 text-slate-700 transition-colors flex items-center gap-1.5 relative"
+              className="p-2 sm:px-3 sm:py-2 rounded-xl hover:bg-purple-100/60 text-slate-700 transition-colors flex items-center gap-1.5 relative"
               title="Ver favoritos"
             >
-              <Heart className={`w-5 h-5 ${wishlistCount > 0 ? 'text-rose-500 fill-rose-500' : 'text-slate-600'}`} />
+              <Heart className={`w-5 h-5 ${wishlistCount > 0 ? 'text-pink-600 fill-pink-600' : 'text-slate-600'}`} />
               <span className="hidden sm:inline text-xs font-bold text-slate-700">Favoritos</span>
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 sm:static sm:top-auto sm:right-auto px-1.5 py-0.5 bg-rose-600 text-white rounded-full text-[10px] font-extrabold">
+                <span className="absolute -top-1 -right-1 sm:static sm:top-auto sm:right-auto px-1.5 py-0.5 bg-pink-600 text-white rounded-full text-[10px] font-extrabold">
                   {wishlistCount}
                 </span>
               )}
@@ -193,12 +193,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Marketplace Cart Button with Total */}
             <button
               onClick={onOpenCart}
-              className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-rose-600 text-white transition-all shadow-md hover:shadow-lg active:scale-95"
+              className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-purple-800 text-white transition-all shadow-md hover:shadow-lg active:scale-95"
             >
               <div className="relative">
-                <ShoppingBag className="w-5 h-5 text-rose-300" />
+                <ShoppingBag className="w-5 h-5 text-purple-300" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-rose-600 text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-slate-900">
+                  <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-purple-700 text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-slate-900">
                     {cartCount}
                   </span>
                 )}
@@ -215,7 +215,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Abrir menú"
-              className="md:hidden p-2 rounded-xl hover:bg-slate-100 text-slate-700"
+              className="md:hidden p-2 rounded-xl hover:bg-purple-100/60 text-slate-700"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -224,16 +224,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         </div>
 
-        {/* Mobile Search input */}
-        <div className="md:hidden pb-3">
-          <div className="relative w-full">
+        {/* Mobile Search Input (visible only on small screens) */}
+        <div className="md:hidden pb-3 pt-1">
+          <div className="relative">
             <input
               type="text"
-              placeholder="Buscar camisetas, mugs, agendas..."
+              placeholder="Buscar camisetas, mugs mágicos, agendas..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               aria-label="Buscar productos"
-              className="w-full pl-9 pr-4 py-2 bg-slate-100 border border-slate-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/20"
+              className="w-full pl-9 pr-4 py-2 bg-white/90 border border-purple-200 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-400/30"
             />
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
@@ -241,7 +241,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Secondary Marketplace Department Ribbon */}
-      <nav className="bg-rose-50/70 border-t border-rose-100 hidden sm:block">
+      <nav className="bg-cream border-t border-purple-200/80 hidden sm:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-1 overflow-x-auto py-2 scrollbar-none text-xs">
             
@@ -254,8 +254,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => onSelectCategory(cat.id as ProductCategory)}
                     className={`whitespace-nowrap px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                       isSelected
-                        ? 'bg-rose-600 text-white shadow-sm'
-                        : 'text-slate-700 hover:bg-white hover:text-rose-600'
+                        ? 'bg-purple-800 text-white shadow-sm'
+                        : 'text-slate-800 hover:bg-white/80 hover:text-purple-800'
                     }`}
                   >
                     <span>{cat.name}</span>
@@ -268,9 +268,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="flex items-center gap-2 shrink-0">
               <a
                 href="#catalogo"
-                className="px-2.5 py-1 rounded-md bg-amber-100 text-amber-900 font-extrabold flex items-center gap-1 hover:bg-amber-200 transition-colors"
+                className="px-2.5 py-1 rounded-md bg-purple-200/70 text-purple-950 font-extrabold flex items-center gap-1 hover:bg-purple-200 transition-colors"
               >
-                <Flame className="w-3.5 h-3.5 text-rose-600" />
+                <Flame className="w-3.5 h-3.5 text-purple-700" />
                 <span>Ofertas Flash</span>
               </a>
             </div>

@@ -132,12 +132,12 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
       {/* ======================================================== */}
       {/* MOBILE STICKY BOTTOM DOCK (Navigation + Floating WhatsApp) */}
       {/* ======================================================== */}
-      <nav aria-label="Navegación móvil" className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-t border-slate-200 shadow-2xl px-2 py-1.5 flex items-center justify-around">
+      <nav aria-label="Navegación móvil" className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#f7f2fc]/95 backdrop-blur-lg border-t border-purple-200 shadow-2xl px-2 py-1.5 flex items-center justify-around">
         
         {/* Home */}
         <button
           onClick={handleScrollTop}
-          className="flex flex-col items-center gap-0.5 text-slate-600 hover:text-rose-600 p-1.5 focus:outline-none"
+          className="flex flex-col items-center gap-0.5 text-slate-700 hover:text-purple-800 p-1.5 focus:outline-none"
         >
           <Home className="w-5 h-5" />
           <span className="text-[10px] font-bold">Inicio</span>
@@ -146,7 +146,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
         {/* Catalog Search */}
         <button
           onClick={handleScrollCatalog}
-          className="flex flex-col items-center gap-0.5 text-slate-600 hover:text-rose-600 p-1.5 focus:outline-none"
+          className="flex flex-col items-center gap-0.5 text-slate-700 hover:text-purple-800 p-1.5 focus:outline-none"
         >
           <Search className="w-5 h-5" />
           <span className="text-[10px] font-bold">Buscar</span>
@@ -166,12 +166,12 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
         {/* Wishlist */}
         <button
           onClick={onOpenWishlist}
-          className="flex flex-col items-center gap-0.5 text-slate-600 hover:text-rose-600 p-1.5 relative focus:outline-none"
+          className="flex flex-col items-center gap-0.5 text-slate-700 hover:text-purple-800 p-1.5 relative focus:outline-none"
         >
-          <Heart className={`w-5 h-5 ${wishlistCount > 0 ? 'text-rose-500 fill-rose-500' : ''}`} />
+          <Heart className={`w-5 h-5 ${wishlistCount > 0 ? 'text-pink-600 fill-pink-600' : ''}`} />
           <span className="text-[10px] font-bold">Favoritos</span>
           {wishlistCount > 0 && (
-            <span className="absolute top-0 right-2 w-4 h-4 bg-rose-600 text-white rounded-full text-[9px] font-extrabold flex items-center justify-center border border-white">
+            <span className="absolute top-0 right-2 w-4 h-4 bg-pink-600 text-white rounded-full text-[9px] font-extrabold flex items-center justify-center border border-white">
               {wishlistCount}
             </span>
           )}
@@ -180,12 +180,12 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
         {/* Cart */}
         <button
           onClick={onOpenCart}
-          className="flex flex-col items-center gap-0.5 text-slate-600 hover:text-rose-600 p-1.5 relative focus:outline-none"
+          className="flex flex-col items-center gap-0.5 text-slate-700 hover:text-purple-800 p-1.5 relative focus:outline-none"
         >
-          <ShoppingBag className="w-5 h-5 text-slate-700" />
+          <ShoppingBag className="w-5 h-5 text-slate-800" />
           <span className="text-[10px] font-bold">Carrito</span>
           {cartCount > 0 && (
-            <span className="absolute top-0 right-2 w-4 h-4 bg-rose-600 text-white rounded-full text-[9px] font-extrabold flex items-center justify-center border border-white">
+            <span className="absolute top-0 right-2 w-4 h-4 bg-purple-700 text-white rounded-full text-[9px] font-extrabold flex items-center justify-center border border-white">
               {cartCount}
             </span>
           )}

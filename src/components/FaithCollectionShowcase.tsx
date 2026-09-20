@@ -24,11 +24,11 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
   const faithProducts = products.filter((p) => faithIds.includes(p.id));
 
   return (
-    <section className="bg-rose-50/70 py-12 sm:py-16 border-b border-rose-100">
+    <section className="bg-cream py-12 sm:py-16 border-b border-purple-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Curated Banner Card */}
-        <div className="relative rounded-3xl overflow-hidden shadow-lg bg-gradient-to-r from-rose-600 via-pink-600 to-purple-700 text-white p-6 sm:p-10 mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="relative rounded-3xl overflow-hidden shadow-lg bg-gradient-to-r from-purple-800 via-pink-600 to-indigo-900 text-white p-6 sm:p-10 mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl text-center md:text-left z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-amber-200 text-xs font-extrabold uppercase tracking-wider">
               <Heart className="w-3.5 h-3.5 fill-current" />
@@ -37,7 +37,7 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
             <h2 className="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-tight leading-tight">
               Colección Fe: Lleva tu mensaje a donde vayas
             </h2>
-            <p className="text-xs sm:text-base text-rose-100 leading-relaxed">
+            <p className="text-xs sm:text-base text-purple-100 leading-relaxed">
               Mugs, camisetas, agendas y vasos térmicos diseñados con versículos bíblicos y frases que fortalecen el corazón. Perfectos para tu uso diario o para bendecir a alguien especial.
             </p>
           </div>
@@ -47,9 +47,9 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
               href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('¡Hola! Quisiera cotizar el combo completo de la Colección Fe (Camiseta + Mug + Agenda). ¿Tienen precio especial?')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-full bg-white hover:bg-amber-100 text-rose-700 font-extrabold text-sm shadow-xl hover:scale-105 transition-all flex items-center gap-2"
+              className="px-6 py-3.5 rounded-full bg-white hover:bg-amber-100 text-purple-900 font-extrabold text-sm shadow-xl hover:scale-105 transition-all flex items-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 text-purple-700" />
+              <MessageCircle className="w-4 h-4 text-purple-800" />
               <span>Pedir Combo Fe por WhatsApp</span>
             </a>
           </div>
@@ -63,7 +63,7 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
           {faithProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-3xl border border-rose-100 overflow-hidden shadow-card hover:shadow-soft hover:border-rose-300 transition-all flex flex-col justify-between group"
+              className="bg-white/95 backdrop-blur-sm rounded-3xl border border-purple-200/90 overflow-hidden shadow-card hover:shadow-soft hover:border-purple-400 transition-all flex flex-col justify-between group"
             >
               <div 
                 onClick={() => onCustomizeProduct(product)}
@@ -91,16 +91,16 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
                   </div>
                   <h3
                     onClick={() => onCustomizeProduct(product)}
-                    className="font-heading font-bold text-sm text-slate-900 group-hover:text-rose-600 transition-colors cursor-pointer"
+                    className="font-heading font-bold text-sm text-slate-900 group-hover:text-purple-800 transition-colors cursor-pointer line-clamp-2"
                   >
                     {product.name}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-1 line-clamp-2">
                     {product.description}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 space-y-2">
+                <div className="pt-3 border-t border-purple-100 space-y-2">
                   <div className="flex items-baseline justify-between">
                     <span className="font-heading font-extrabold text-lg text-slate-900">
                       {formatPrice(product.price)}
@@ -115,9 +115,9 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       onClick={() => onCustomizeProduct(product)}
-                      className="py-2 px-2 rounded-xl bg-slate-900 hover:bg-rose-600 text-white text-[11px] font-bold transition-colors flex items-center justify-center gap-1"
+                      className="py-2 px-2 rounded-xl bg-slate-900 hover:bg-purple-800 text-white text-[11px] font-bold transition-colors flex items-center justify-center gap-1"
                     >
-                      <Sparkles className="w-3 h-3 text-rose-300" />
+                      <Sparkles className="w-3 h-3 text-purple-300" />
                       <span>Personalizar</span>
                     </button>
 

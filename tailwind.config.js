@@ -10,24 +10,24 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         heading: ['"Playfair Display"', 'Georgia', 'serif'],
       },
-      // Paleta VG: Morado Pastel & Rosa Pastel, con morado fuerte para acentos y WhatsApp
+      // Paleta VG: Morado Pastel de fondo (#ede5f7), Rosa Pastel & Acentos Morados Profundos
       colors: {
-        cream: '#faf5ff', // Fondo morado pastel muy suave y luminoso
+        cream: '#ede5f7', // Fondo morado pastel visible, cálido y acogedor en toda la página
         rose: {
-          50: '#fdf2f8', 100: '#fce7f3', 200: '#fbcfe8', 300: '#f9a8d4', 400: '#f472b6',
-          500: '#ec4899', 600: '#db2777', 700: '#be185d', 800: '#9d174d', 900: '#831843', 950: '#50072b',
+          50: '#fdf4f8', 100: '#fce7f3', 200: '#fad1e8', 300: '#f7abce', 400: '#f174ab',
+          500: '#e3478d', 600: '#ca2774', 700: '#a7195c', 800: '#89174c', 900: '#731742', 950: '#460626',
         },
         pink: {
           50: '#fdf4f9', 100: '#fce8f3', 200: '#fad1e8', 300: '#f6aed5', 400: '#ef7bbe',
           500: '#e34da0', 600: '#cc2d85', 700: '#aa1c6a', 800: '#8c1a56', 900: '#751a4a',
         },
         purple: {
-          50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe', 400: '#c084fc',
-          500: '#a855f7', 600: '#9333ea', 700: '#7e22ce', 800: '#6b21a8', 900: '#581c87', 950: '#3b0764',
+          50: '#f8f4fd', 100: '#ede5f7', 200: '#decbf5', 300: '#ccaef2', 400: '#b48bed',
+          500: '#9b64e5', 600: '#8338dc', 700: '#6c24be', 800: '#581c87', 900: '#421369', 950: '#2a0945',
         },
         violet: {
-          50: '#faf5ff', 100: '#f3e8ff', 200: '#e9d5ff', 300: '#d8b4fe', 400: '#c084fc',
-          500: '#a855f7', 600: '#9333ea', 700: '#7e22ce', 800: '#6b21a8', 900: '#581c87', 950: '#3b0764',
+          50: '#f8f4fd', 100: '#ede5f7', 200: '#decbf5', 300: '#ccaef2', 400: '#b48bed',
+          500: '#9b64e5', 600: '#8338dc', 700: '#6c24be', 800: '#581c87', 900: '#421369', 950: '#2a0945',
         },
         indigo: {
           50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8',
@@ -43,10 +43,10 @@ export default {
         red: {
           400: '#e5687f', 500: '#d4405c', 600: '#b93450',
         },
-        // Neutros limpios con sutil matiz lavanda pastel
+        // Neutros con matiz berenjena/lavanda para máxima legibilidad sobre fondo morado pastel
         slate: {
-          50: '#faf8fb', 100: '#f4f0f6', 200: '#eae2ee', 300: '#d6cbdb', 400: '#8e8194',
-          500: '#6c5f72', 600: '#534759', 700: '#423847', 800: '#2d2531', 900: '#1f1822', 950: '#140d17',
+          50: '#faf7fc', 100: '#f3eef8', 200: '#e5dceb', 300: '#cbbdd6', 400: '#8c7897',
+          500: '#665272', 600: '#4e3a5a', 700: '#3c2b46', 800: '#2a1d32', 900: '#1b1122', 950: '#110916',
         },
       },
       boxShadow: {

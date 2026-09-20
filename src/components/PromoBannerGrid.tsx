@@ -55,13 +55,13 @@ export const PromoBannerGrid: React.FC<PromoBannerGridProps> = ({
   ];
 
   return (
-    <section className="py-8 sm:py-10 bg-white border-b border-rose-100">
+    <section className="py-8 sm:py-10 bg-cream border-b border-purple-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section title */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <span className="text-xs font-extrabold uppercase tracking-wider text-rose-600 bg-rose-100/80 px-3 py-1 rounded-full border border-rose-200">
+            <span className="text-xs font-extrabold uppercase tracking-wider text-purple-800 bg-purple-100 px-3 py-1 rounded-full border border-purple-300">
               Especiales del Mes
             </span>
             <h2 className="font-heading font-extrabold text-xl sm:text-3xl text-slate-900 mt-1">
@@ -73,7 +73,7 @@ export const PromoBannerGrid: React.FC<PromoBannerGridProps> = ({
               onSelectCategory('todos');
               onExploreClick();
             }}
-            className="hidden sm:flex items-center gap-1.5 text-xs font-extrabold text-rose-600 hover:text-rose-700 underline"
+            className="hidden sm:flex items-center gap-1.5 text-xs font-extrabold text-purple-800 hover:text-purple-900 underline"
           >
             <span>Ver todo el catálogo</span>
             <ArrowRight className="w-4 h-4" />

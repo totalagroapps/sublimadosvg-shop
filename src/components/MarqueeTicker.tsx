@@ -5,6 +5,7 @@ export const MarqueeTicker: React.FC = () => {
   const items = [
     { icon: Sparkles, text: 'PERSONALIZACIÓN 100% GRATIS SIN RECARGO' },
     { icon: Truck, text: 'ENVÍOS DESDE PEREIRA A TODA COLOMBIA' },
+    { icon: Sparkles, text: 'MUGS MÁGICOS PERSONALIZADOS A $25.000 ✨' },
     { icon: Coffee, text: 'MUGS PERSONALIZADOS TRADICIONALES A $20.000' },
     { icon: Shirt, text: 'CAMISETAS PERSONALIZADAS PARA TUS EVENTOS A $25.000' },
     { icon: Gift, text: 'EMPAQUE ESPECIAL LISTO PARA REGALAR' },
@@ -13,7 +14,7 @@ export const MarqueeTicker: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-rose-600 via-pink-600 to-violet-700 text-white overflow-hidden py-2.5 shadow-md border-y border-rose-400/30 select-none">
+    <div className="bg-gradient-to-r from-purple-800 via-pink-600 to-purple-900 text-white overflow-hidden py-2.5 shadow-md border-y border-purple-400/30 select-none">
       <div className="flex whitespace-nowrap animate-marquee">
         {[...items, ...items, ...items, ...items].map((item, idx) => {
           const Icon = item.icon;
