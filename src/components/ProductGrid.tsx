@@ -2,12 +2,13 @@ import React, { useState, useMemo } from 'react';
 import type { Product, ProductCategory } from '../types';
 import { ProductCard } from './ProductCard';
 import { CATEGORIES } from '../data/products';
-import { SearchX, Sparkles, ArrowUpDown } from 'lucide-react';
+import { SearchX, Sparkles, ArrowUpDown, ArrowLeft } from 'lucide-react';
 
 interface ProductGridProps {
   products: Product[];
   selectedCategory: ProductCategory;
   onSelectCategory: (cat: ProductCategory) => void;
+  onGoHome?: () => void;
   searchQuery: string;
   onResetSearch: () => void;
   wishlistIds: string[];
@@ -21,6 +22,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   products,
   selectedCategory,
   onSelectCategory,
+  onGoHome,
   searchQuery,
   onResetSearch,
   wishlistIds,
@@ -29,6 +31,8 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
 }) => {
   const [sortBy, setSortBy] = useState<SortOption>('featured');
   const [priceFilter, setPriceFilter] = useState<string>('all');
+
+  const currentCategory = CATEGORIES.find((c) => c.id === selectedCategory);
 
   // Filter & sort products
   const processedProducts = useMemo(() => {
@@ -56,21 +60,44 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   }, [products, priceFilter, sortBy]);
 
   return (
-    <section id="catalogo" className="py-12 sm:py-16 bg-transparent border-b border-purple-200/80 scroll-mt-28">
+    <section id="catalogo" className="py-8 sm:py-12 bg-transparent border-b border-purple-200/80 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
+      {/* Navigation & Back to Home */}
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        {onGoHome && (
+          <button
+            onClick={onGoHome}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/95 hover:bg-white text-purple-900 font-extrabold text-xs sm:text-sm shadow-md border-2 border-purple-300 hover:border-pink-400 transition-all active:scale-95 group"
+          >
+            <ArrowLeft className="w-4 h-4 text-purple-600 group-hover:-translate-x-1 transition-transform" />
+            <span>← Volver a la Página Principal</span>
+          </button>
+        )}
+
+        <span className="text-xs font-bold text-purple-950 bg-white/80 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-purple-200/90 shadow-sm">
+          {processedProducts.length} producto{processedProducts.length !== 1 ? 's' : ''}
+        </span>
+      </div>
+
       {/* Marketplace Catalog Header */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
         <div>
           <div className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-purple-800 bg-purple-100 px-3 py-1 rounded-full mb-2 border border-purple-300">
             <Sparkles className="w-3.5 h-3.5 text-purple-700" />
-            <span>Mercado de Personalizados</span>
+            <span>{currentCategory?.name || 'Catálogo de Personalizados'}</span>
           </div>
           <h2 className="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-slate-900 tracking-tight">
-            Explora Todos Nuestros Productos
+            {selectedCategory === 'todos' ? 'Explora Todos Nuestros Productos' : currentCategory?.name}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 mt-1">
-            Vasos, camisetas, rompecabezas, mugs y regalos listos para personalizar con tus mejores fotos o mensajes.
+          <p className="text-xs sm:text-sm text-slate-700 mt-1">
+            {selectedCategory === 'camisetas'
+              ? 'Camisetas personalizadas para eventos familiares y cumpleaños con tallas para toda la familia a $25.000 COP.'
+              : selectedCategory === 'mugs-tradicionales'
+              ? 'Mugs tradicionales personalizados en cerámica de alta fidelidad para toda ocasión a $20.000 COP.'
+              : selectedCategory === 'mugs-magicos'
+              ? 'Mugs mágicos termosensibles que revelan tu foto o mensaje con líquido caliente a $25.000 COP.'
+              : 'Detalles y regalos personalizados con tus mejores fotos, frases y diseños.'}
           </p>
         </div>
 

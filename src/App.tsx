@@ -24,7 +24,8 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
 export function App() {
   const [products] = useState<Product[]>(INITIAL_PRODUCTS);
-  const [selectedCategory, setSelectedCategory] = useState<ProductCategory>('todos');
+  const [viewMode, setViewMode] = useState<'home' | 'catalog'>('home');
+  const [selectedCategory, setSelectedCategory] = useState<ProductCategory>('camisetas');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState<boolean>(false);
@@ -125,11 +126,18 @@ export function App() {
     }
   };
 
-  const handleExploreClick = () => {
-    const el = document.getElementById('catalogo');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const isViewingCatalog = viewMode === 'catalog' || searchQuery.trim().length > 0;
+
+  const handleSelectCategory = (cat: ProductCategory) => {
+    setSelectedCategory(cat);
+    setViewMode('catalog');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleGoHome = () => {
+    setViewMode('home');
+    setSearchQuery('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
@@ -143,7 +151,7 @@ export function App() {
   }, [products, wishlistIds]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#ede4f8] via-[#fbe8f4] via-[#f4e8ff] to-[#fbe8f4] selection:bg-purple-600 selection:text-white font-sans text-slate-800 pb-16 sm:pb-0">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#cfb8eb] via-[#f0c3e6] via-[#c4ace8] via-[#edbde2] to-[#cfb8eb] selection:bg-purple-600 selection:text-white font-sans text-slate-800 pb-16 sm:pb-0">
       
       {/* 1. Marketplace Header */}
       <Navbar
@@ -153,7 +161,8 @@ export function App() {
         onOpenCart={() => setIsCartOpen(true)}
         onOpenWishlist={() => setIsWishlistOpen(true)}
         selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
+        onSelectCategory={handleSelectCategory}
+        onGoHome={handleGoHome}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
       />
@@ -164,91 +173,56 @@ export function App() {
       {/* 3. Stories / Circular Category Row */}
       <CategoryBubbles
         selectedCategory={selectedCategory}
-        onSelectCategory={(cat) => {
-          setSelectedCategory(cat);
-          handleExploreClick();
-        }}
+        onSelectCategory={handleSelectCategory}
       />
 
       {/* Main Marketplace Sections */}
       <main className="flex-1">
-        
-        {/* 4. Marketplace Hero Slider & Side Banners */}
-        <MarketHero
-          onSelectCategory={(cat) => {
-            setSelectedCategory(cat);
-            handleExploreClick();
-          }}
-          onExploreClick={handleExploreClick}
-        />
+        {isViewingCatalog ? (
+          /* ======================================================== */
+          /* CATEGORY PRODUCTS VIEW (When a category is clicked)     */
+          /* ======================================================== */
+          <ProductGrid
+            products={filteredProducts}
+            selectedCategory={selectedCategory}
+            onSelectCategory={handleSelectCategory}
+            onGoHome={handleGoHome}
+            searchQuery={searchQuery}
+            onResetSearch={() => setSearchQuery('')}
+            wishlistIds={wishlistIds}
+            onToggleWishlist={handleToggleWishlist}
+            onCustomizeProduct={(product) => setCustomizingProduct(product)}
+          />
+        ) : (
+          /* ======================================================== */
+          /* CLEAN HOME PAGE (No products scattered on home page)     */
+          /* ======================================================== */
+          <>
+            {/* Marketplace Hero Slider & Side Banners */}
+            <MarketHero
+              onSelectCategory={handleSelectCategory}
+              onExploreClick={() => {
+                setViewMode('catalog');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            />
 
-        {/* 5. 3 Vibrant Promotional Banners: Parejas, Cumpleaños, Fe */}
-        <PromoBannerGrid
-          onSelectCategory={(cat) => {
-            setSelectedCategory(cat);
-            handleExploreClick();
-          }}
-          onExploreClick={handleExploreClick}
-        />
+            {/* Marketplace Trust Bar */}
+            <TrustBar />
 
-        {/* 6. Marketplace Trust Bar */}
-        <TrustBar />
-
-        {/* 7. Flash Offers Shelf (Vibrant Sunset Gradient + Live Countdown) */}
-        <FlashOffers
-          products={products}
-          onCustomizeProduct={(product) => setCustomizingProduct(product)}
-        />
-
-        {/* 8. Curated Faith Collection Shelf */}
-        <FaithCollectionShowcase
-          products={products}
-          onCustomizeProduct={(product) => setCustomizingProduct(product)}
-          onExploreCategory={(cat) => {
-            setSelectedCategory(cat as ProductCategory);
-            handleExploreClick();
-          }}
-        />
-
-        {/* 9. Mid-Page Interactive Callout Banner (Send Your Photo / Idea) */}
-        <CustomIdeaBanner
-          onOpenCustomizer={() => {
-            if (products.length > 0) setCustomizingProduct(products[0]);
-          }}
-        />
-
-        {/* 10. Main Product Catalog Shelf with Filters & Sorting */}
-        <ProductGrid
-          products={filteredProducts}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-          searchQuery={searchQuery}
-          onResetSearch={() => setSearchQuery('')}
-          wishlistIds={wishlistIds}
-          onToggleWishlist={handleToggleWishlist}
-          onCustomizeProduct={(product) => setCustomizingProduct(product)}
-        />
-
-        {/* 11. Welcome Coupon 10% OFF Banner */}
-        <DiscountBanner />
-
-        {/* 12. 4-Step Marketplace Ordering Guide */}
-        <HowToOrderMarket />
-
-        {/* 13. Verified Customer Reviews Wall */}
-        <CustomerReviews />
-
-        {/* 14. Frequently Asked Questions */}
-        <FAQ />
-
+            {/* Mid-Page Interactive Callout Banner (Send Your Photo / Idea) */}
+            <CustomIdeaBanner
+              onOpenCustomizer={() => {
+                if (products.length > 0) setCustomizingProduct(products[0]);
+              }}
+            />
+          </>
+        )}
       </main>
 
-      {/* 15. Comprehensive Marketplace Footer */}
+      {/* Comprehensive Marketplace Footer */}
       <Footer
-        onSelectCategory={(cat) => {
-          setSelectedCategory(cat);
-          handleExploreClick();
-        }}
+        onSelectCategory={handleSelectCategory}
       />
 
       {/* Interactive Customizer Modal */}
@@ -277,15 +251,17 @@ export function App() {
         onCustomizeProduct={(product) => setCustomizingProduct(product)}
       />
 
-      {/* 16. Enhanced Floating WhatsApp Button Widget & Mobile Bottom Dock */}
+      {/* Enhanced Floating WhatsApp Button Widget & Mobile Bottom Dock */}
       <FloatingWhatsApp
         cartCount={totalCartCount}
         wishlistCount={wishlistIds.length}
         onOpenCart={() => setIsCartOpen(true)}
         onOpenWishlist={() => setIsWishlistOpen(true)}
+        onGoHome={handleGoHome}
       />
 
     </div>
+  );
   );
 }
 

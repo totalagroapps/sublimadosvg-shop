@@ -9,7 +9,7 @@
 
   body {
     @apply text-slate-800 antialiased font-sans;
-    background: linear-gradient(180deg, #ede4f8 0%, #fbe7f4 20%, #f4e8ff 40%, #fce7f3 60%, #eee4f8 80%, #fbe8f4 100%);
+    background: linear-gradient(180deg, #cfb8eb 0%, #f0c3e6 20%, #c4ace8 40%, #edbde2 60%, #cbb1ea 80%, #f0c2e6 100%);
     background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;

@@ -7,6 +7,7 @@ interface FloatingWhatsAppProps {
   wishlistCount: number;
   onOpenCart: () => void;
   onOpenWishlist: () => void;
+  onGoHome?: () => void;
 }
 
 export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
@@ -14,6 +15,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
   wishlistCount,
   onOpenCart,
   onOpenWishlist,
+  onGoHome,
 }) => {
   const [showTooltip, setShowTooltip] = useState(true);
 
@@ -31,6 +33,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
   };
 
   const handleScrollTop = () => {
+    if (onGoHome) onGoHome();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

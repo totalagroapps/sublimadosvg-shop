@@ -11,6 +11,7 @@ interface NavbarProps {
   onOpenWishlist: () => void;
   selectedCategory: ProductCategory;
   onSelectCategory: (category: ProductCategory) => void;
+  onGoHome?: () => void;
   searchQuery: string;
   onSearchChange: (query: string) => void;
 }
@@ -23,6 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenWishlist,
   selectedCategory,
   onSelectCategory,
+  onGoHome,
   searchQuery,
   onSearchChange,
 }) => {
@@ -75,7 +77,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Brand & Official Logo */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <button
-              onClick={() => onSelectCategory('todos')}
+              onClick={() => {
+                if (onGoHome) onGoHome();
+                else onSelectCategory('todos');
+              }}
               className="flex items-center gap-2.5 text-left group focus:outline-none"
             >
               <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-400 shadow-md shadow-purple-200 group-hover:scale-105 transition-transform bg-white shrink-0">
