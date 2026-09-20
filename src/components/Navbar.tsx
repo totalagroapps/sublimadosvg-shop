@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Search, Menu, X, MessageCircle, Heart, ChevronDown, Flame } from 'lucide-react';
+import { ShoppingBag, Search, Menu, X, MessageCircle, Heart, ChevronDown } from 'lucide-react';
 import { STORE_CONFIG, CATEGORIES, formatPrice } from '../data/products';
 import type { ProductCategory } from '../types';
 
@@ -42,28 +42,28 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-gradient-to-r from-purple-200 via-pink-100 to-purple-200 backdrop-blur-md border-b-2 border-purple-300/80 shadow-md transition-all">
-      {/* Top Marketplace Announcement & Utility Strip */}
-      <div className="bg-slate-900 text-white text-[11px] sm:text-xs py-1.5 px-4">
+      {/* Top Marketplace Announcement & Utility Strip (Pastel palette) */}
+      <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 text-purple-950 border-b border-purple-200/90 text-[11px] sm:text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 truncate">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="font-semibold truncate">
-              📍 Taller en <strong>Pereira, Risaralda</strong> (Calle 9 #7-36) • Envíos a toda Colombia
+            <span className="inline-block w-2 h-2 rounded-full bg-pink-500 animate-ping" />
+            <span className="font-medium truncate text-purple-950">
+              📍 Taller en <strong className="text-purple-950 font-bold">Pereira, Risaralda</strong> (Calle 9 #7-36) • Envíos a toda Colombia
             </span>
           </div>
 
-          <div className="hidden sm:flex items-center gap-4 text-slate-300 shrink-0">
+          <div className="hidden sm:flex items-center gap-4 text-purple-800 shrink-0">
             <a
               href={`https://wa.me/${STORE_CONFIG.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-amber-300 flex items-center gap-1 transition-colors"
+              className="hover:text-pink-600 flex items-center gap-1 transition-colors font-semibold"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+              <MessageCircle className="w-3.5 h-3.5 text-pink-500" />
               <span>WhatsApp: {STORE_CONFIG.whatsappDisplay}</span>
             </a>
-            <span className="text-slate-600">|</span>
-            <span className="text-amber-300 font-bold">✨ {STORE_CONFIG.domain}</span>
+            <span className="text-purple-300">|</span>
+            <span className="text-purple-900 font-bold">✨ {STORE_CONFIG.domain}</span>
           </div>
         </div>
       </div>
@@ -87,8 +87,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
               <div className="leading-tight">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-heading font-extrabold text-lg sm:text-2xl tracking-tight text-slate-900 group-hover:text-purple-900 transition-colors">
-                    VG <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 via-pink-600 to-violet-700">Personalizados</span>
+                  <span className="font-heading font-extrabold text-lg sm:text-2xl tracking-tight">
+                    <span className="text-purple-600">V</span>
+                    <span className="text-pink-500">G</span>{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-fuchsia-600 to-pink-600">
+                      Personalizados
+                    </span>
                   </span>
                 </div>
                 <p className="text-[11px] text-purple-900/80 font-semibold hidden md:block">
@@ -125,6 +129,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                         onClick={() => {
                           onSelectCategory(cat.id as ProductCategory);
                           setCategoryDropdownOpen(false);
+                          const el = document.getElementById('catalogo');
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
                         }}
                         className={`w-full text-left px-3 py-1.5 text-xs font-semibold hover:bg-purple-50 transition-colors flex items-center justify-between ${
                           selectedCategory === cat.id ? 'text-purple-900 font-bold bg-purple-100/60' : 'text-slate-700'
@@ -240,44 +246,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Secondary Marketplace Department Ribbon */}
-      <nav className="bg-gradient-to-r from-purple-200/95 via-pink-100/95 to-purple-200/95 border-t border-purple-300/80 hidden sm:block shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-1 overflow-x-auto py-2 scrollbar-none text-xs">
-            
-            <div className="flex items-center gap-1">
-              {CATEGORIES.map((cat) => {
-                const isSelected = selectedCategory === cat.id;
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => onSelectCategory(cat.id as ProductCategory)}
-                    className={`whitespace-nowrap px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
-                      isSelected
-                        ? 'bg-gradient-to-r from-purple-800 to-pink-600 text-white shadow-md font-extrabold'
-                        : 'text-purple-950 hover:bg-white/80 hover:text-purple-900 font-bold'
-                    }`}
-                  >
-                    <span>{cat.name}</span>
-                  </button>
-                );
-              })}
-            </div>
 
-            {/* Right highlight tags */}
-            <div className="flex items-center gap-2 shrink-0">
-              <a
-                href="#catalogo"
-                className="px-2.5 py-1 rounded-md bg-pink-200/80 text-purple-950 font-extrabold border border-pink-300/80 flex items-center gap-1 hover:bg-pink-300 transition-colors"
-              >
-                <Flame className="w-3.5 h-3.5 text-purple-800" />
-                <span>Ofertas Flash</span>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </nav>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (

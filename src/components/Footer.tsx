@@ -73,8 +73,10 @@ export const Footer: React.FC<FooterProps> = ({ onSelectCategory }) => {
                 />
               </div>
               <div>
-                <span className="font-heading font-extrabold text-2xl text-white tracking-tight">
-                  VG <span className="text-rose-500">Personalizados</span>
+                <span className="font-heading font-extrabold text-2xl tracking-tight">
+                  <span className="text-purple-300">V</span>
+                  <span className="text-pink-400">G</span>{' '}
+                  <span className="text-rose-300">Personalizados</span>
                 </span>
                 <p className="text-[11px] text-slate-300 font-medium">
                   {STORE_CONFIG.slogan}
