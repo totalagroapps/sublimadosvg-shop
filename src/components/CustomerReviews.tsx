@@ -7,11 +7,11 @@ export const CustomerReviews: React.FC = () => {
       id: 1,
       author: 'Carolina Morales',
       city: 'Pereira, Risaralda',
-      product: 'Camisetas Temáticas Mickey "Mi Primer Añito"',
+      product: 'Camisetas Temáticas "Maria Paz" Ajolote & Familia',
       rating: 5,
       date: 'Hace 3 días',
       comment:
-        '¡Quedaron hermosas las camisetas para el cumpleaños de mi bebé! Pedí para el niño, papá y mamá. La tela es súper suave al tacto y el estampado quedó con colores vivos e impecables. La atención por WhatsApp fue de 10.',
+        '¡Quedaron hermosas las camisetas para el cumpleaños de mi hija! Pedí camiseta para la niña, papá y mamá. La tela es súper suave al tacto y el estampado quedó con colores vivos e impecables. La atención por WhatsApp fue de 10.',
     },
     {
       id: 2,
@@ -37,11 +37,11 @@ export const CustomerReviews: React.FC = () => {
       id: 4,
       author: 'Felipe & Valentina',
       city: 'Dosquebradas, Risaralda',
-      product: 'Camiseta Stitch "Ella es Mía" & Rompecabezas',
+      product: 'Camiseta Temática "Prima de Gabriela" & Rompecabezas',
       rating: 5,
       date: 'Hace 3 semanas',
       comment:
-        'Mandamos a hacer el rompecabezas con nuestra foto favorita de aniversario y las camisetas de Stitch. Todo llegó en tiempo récord y perfectamente empacado. Sin duda volveremos a comprar.',
+        'Mandamos a hacer el rompecabezas con nuestra foto familiar y las camisetas temáticas para el evento. Todo llegó en tiempo récord y perfectamente empacado. Sin duda volveremos a comprar.',
     },
   ];
 

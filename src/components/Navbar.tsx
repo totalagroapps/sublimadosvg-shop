@@ -140,7 +140,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Text input */}
               <input
                 type="text"
-                placeholder="¿Qué estás buscando? ej. Mugs de fe, Camisetas Mickey, Agendas..."
+                placeholder="¿Qué estás buscando? ej. Camisetas para eventos, Mugs, Agendas..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 aria-label="Buscar productos"
