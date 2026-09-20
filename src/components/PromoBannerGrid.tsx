@@ -55,7 +55,7 @@ export const PromoBannerGrid: React.FC<PromoBannerGridProps> = ({
   ];
 
   return (
-    <section className="py-8 sm:py-10 bg-cream border-b border-purple-200/80">
+    <section className="py-8 sm:py-10 bg-transparent border-b border-purple-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section title */}

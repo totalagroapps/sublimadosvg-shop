@@ -56,7 +56,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   }, [products, priceFilter, sortBy]);
 
   return (
-    <section id="catalogo" className="py-12 sm:py-16 bg-cream border-b border-purple-200/80 scroll-mt-28">
+    <section id="catalogo" className="py-12 sm:py-16 bg-transparent border-b border-purple-200/80 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       {/* Marketplace Catalog Header */}
@@ -143,8 +143,8 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
               onClick={() => onSelectCategory(cat.id as ProductCategory)}
               className={`whitespace-nowrap px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 isSelected
-                  ? 'bg-purple-800 text-white shadow-sm scale-[1.02]'
-                  : 'bg-white/90 border border-purple-200 text-slate-800 hover:bg-white hover:border-purple-400'
+                  ? 'bg-gradient-to-r from-purple-800 to-pink-600 text-white shadow-md scale-[1.02]'
+                  : 'bg-white/85 backdrop-blur-sm border border-purple-200/90 text-purple-950 hover:bg-white hover:border-purple-400'
               }`}
             >
               {cat.name}

@@ -120,10 +120,18 @@ export const Footer: React.FC<FooterProps> = ({ onSelectCategory }) => {
               </li>
               <li>
                 <button 
-                  onClick={() => onSelectCategory('mugs')}
-                  className="hover:text-rose-400 transition-colors"
+                  onClick={() => onSelectCategory('mugs-tradicionales')}
+                  className="hover:text-pink-300 transition-colors"
                 >
                   ☕ Mugs Tradicionales
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onSelectCategory('mugs-magicos')}
+                  className="hover:text-pink-300 transition-colors"
+                >
+                  ✨ Mugs Mágicos
                 </button>
               </li>
               <li>

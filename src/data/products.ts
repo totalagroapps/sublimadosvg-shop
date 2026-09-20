@@ -3,7 +3,8 @@ import type { Product } from '../types';
 export const CATEGORIES = [
   { id: 'todos', name: 'Todo el Catálogo', icon: 'Sparkles', image: '/logo-principal.webp' },
   { id: 'camisetas', name: 'Camisetas & Eventos', icon: 'Shirt', image: '/prod-camiseta-ajolote.jpg' },
-  { id: 'mugs', name: 'Mugs & Mágicos', icon: 'Coffee', image: '/prod-mug-magico-fotos.jpg' },
+  { id: 'mugs-tradicionales', name: 'Mugs Tradicionales', icon: 'Coffee', image: '/prod-mug-tradicional-foto.jpg' },
+  { id: 'mugs-magicos', name: 'Mugs Mágicos', icon: 'Sparkles', image: '/prod-mug-magico-fotos.jpg' },
   { id: 'agendas', name: 'Agendas & Cuadernos', icon: 'BookOpen', image: '/prod-agendas-fe.webp' },
   { id: 'cojines', name: 'Cojines', icon: 'Heart', image: '/prod-cojin-decorativo.webp' },
   { id: 'rompecabezas', name: 'Rompecabezas', icon: 'Puzzle', image: '/prod-rompecabezas-corazon.webp' },
@@ -110,7 +111,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-tradicional-foto',
     name: 'Mug Personalizado Tradicional (Con tus Fotos Especiales)',
-    category: 'mugs',
+    category: 'mugs-tradicionales',
     price: 20000,
     originalPrice: 25000,
     description: 'Mug personalizado tradicional en cerámica blanca AAA (11oz). Convierte tus mejores recuerdos en algo especial: estampa las fotos de tu familia, hijos, pareja o momentos inolvidables con nitidez fotográfica y acabado brillante de alta durabilidad. Apto para microondas y lavavajillas.',
@@ -132,7 +133,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-tradicional-frases',
     name: 'Mug Personalizado Tradicional (Frases que Inspiran)',
-    category: 'mugs',
+    category: 'mugs-tradicionales',
     price: 20000,
     originalPrice: 25000,
     description: 'Mug personalizado tradicional con frases que tocan el corazón y hacen la diferencia: "Gracias por cuidarme, enseñarme y llenarme de amor cada día". El detalle perfecto para consentir y agradecer a mamá, papá, abuelos, tíos o maestros en cualquier fecha especial.',
@@ -154,7 +155,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-tradicional-familia',
     name: 'Mug Personalizado Tradicional (Familia y Amigos)',
-    category: 'mugs',
+    category: 'mugs-tradicionales',
     price: 20000,
     originalPrice: 25000,
     description: 'Mug personalizado tradicional para sorprender a familia y mejores amigos ("Mejor Amiga", "Mejor Tía", "Súper Mamá"). Diseñado con fotos familiares y dedicatorias de amor y gratitud. Más que un mug, una emoción duradera para recordar todos los días.',
@@ -176,7 +177,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-tradicional-navidad',
     name: 'Mug Personalizado Tradicional (Edición Navidad)',
-    category: 'mugs',
+    category: 'mugs-tradicionales',
     price: 20000,
     originalPrice: 25000,
     description: 'Mug personalizado tradicional con temática navideña ("Merry Christmas", arbolitos en tonos festivos y detalles tiernos). Haz que esta Navidad sea inolvidable para las personas que más quieres con un regalo único y lleno de magia para disfrutar chocolate caliente.',
@@ -199,7 +200,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-magico-fotos',
     name: 'Mug Mágicos Personalizados (Con tus Fotos Especiales)',
-    category: 'mugs',
+    category: 'mugs-magicos',
     price: 25000,
     originalPrice: 35000,
     description: 'Mug mágico personalizado con efecto térmico revelador (11oz). En frío luce en un elegante color negro que oculta el diseño por completo, pero al verter café, té, chocolate o cualquier bebida caliente, ¡ocurre la magia! Revela gradualmente tus fotos favoritas de familia, pareja o momentos inolvidables con nitidez fotográfica HD.',
@@ -221,7 +222,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-magico-papa-foto',
     name: 'Mug Mágicos Personalizados ("¡Feliz Día! Papá Te Amo")',
-    category: 'mugs',
+    category: 'mugs-magicos',
     price: 25000,
     originalPrice: 35000,
     description: 'Mug mágico personalizado para papá con diseño "¡Feliz Día! Papá Te Amo" y espacio para tu foto familiar favorita. La taza negra cambia de color instantáneamente al contacto con café caliente, revelando la foto de sus hijos y un mensaje lleno de cariño para alegrar sus mañanas.',
@@ -243,7 +244,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-magico-padre-frase',
     name: 'Mug Mágicos Personalizados (El Mejor Padre del Mundo)',
-    category: 'mugs',
+    category: 'mugs-magicos',
     price: 25000,
     originalPrice: 35000,
     description: 'Mug mágico personalizado con dedicatoria "Gracias por ser el mejor padre del mundo". En frío es una taza negra sobria; al verter agua o café caliente, aparece mágicamente el homenaje especial para papá. El detalle perfecto para consentirlo en su día o cumpleaños.',
@@ -265,7 +266,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-magico-anime-amor',
     name: 'Mug Mágicos Personalizados (Edición Anime "Eres Mi Todo")',
-    category: 'mugs',
+    category: 'mugs-magicos',
     price: 25000,
     originalPrice: 35000,
     description: 'Mug mágico personalizado de amor con temática anime espacial ("Mi Amor - Eres mi todo"). El fondo negro se transforma con el calor revelando una ilustración romántica en colores vivos y de alto impacto. Sorprende a tu pareja en aniversarios, cumpleaños o fechas especiales.',
@@ -287,7 +288,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-vaso-termico-acero',
     name: 'Vaso Térmico de Acero Inoxidable (20oz)',
-    category: 'mugs',
+    category: 'mugs-tradicionales',
     price: 55000,
     originalPrice: 68000,
     description: 'Vaso térmico doble pared al vacío. Mantiene bebidas frías hasta 12h y calientes hasta 6h. Sublimación 360° nítida a todo color con acabado brillante o mate.',

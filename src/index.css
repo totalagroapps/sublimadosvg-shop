@@ -8,8 +8,10 @@
   }
 
   body {
-    @apply bg-cream text-slate-800 antialiased font-sans;
-    background-color: #ede5f7;
+    @apply text-slate-800 antialiased font-sans;
+    background: linear-gradient(180deg, #ede4f8 0%, #fbe7f4 20%, #f4e8ff 40%, #fce7f3 60%, #eee4f8 80%, #fbe8f4 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
     overflow-x: hidden;
   }
 

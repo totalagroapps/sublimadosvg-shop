@@ -12,7 +12,7 @@ export const CategoryBubbles: React.FC<CategoryBubblesProps> = ({
   onSelectCategory,
 }) => {
   return (
-    <section className="bg-cream border-b border-purple-200/80 py-4 sm:py-5">
+    <section className="bg-gradient-to-r from-purple-100/90 via-pink-100/80 to-purple-100/90 border-b border-purple-200/80 py-4 sm:py-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 overflow-x-auto pb-1 scrollbar-none">
           {CATEGORIES.map((cat) => {

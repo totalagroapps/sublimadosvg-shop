@@ -41,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#f7f2fc]/95 backdrop-blur-md border-b border-purple-200/80 shadow-sm transition-all">
+    <header className="sticky top-0 z-40 bg-gradient-to-r from-purple-200 via-pink-100 to-purple-200 backdrop-blur-md border-b-2 border-purple-300/80 shadow-md transition-all">
       {/* Top Marketplace Announcement & Utility Strip */}
       <div className="bg-slate-900 text-white text-[11px] sm:text-xs py-1.5 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
@@ -78,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => onSelectCategory('todos')}
               className="flex items-center gap-2.5 text-left group focus:outline-none"
             >
-              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-400 shadow-md shadow-purple-100 group-hover:scale-105 transition-transform bg-white shrink-0">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-amber-400 shadow-md shadow-purple-200 group-hover:scale-105 transition-transform bg-white shrink-0">
                 <img
                   src={STORE_CONFIG.logoPrincipal}
                   alt="VG Personalizados"
@@ -87,11 +87,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               </div>
               <div className="leading-tight">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-heading font-extrabold text-lg sm:text-2xl tracking-tight text-slate-900 group-hover:text-purple-800 transition-colors">
+                  <span className="font-heading font-extrabold text-lg sm:text-2xl tracking-tight text-slate-900 group-hover:text-purple-900 transition-colors">
                     VG <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 via-pink-600 to-violet-700">Personalizados</span>
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-500 font-medium hidden md:block">
+                <p className="text-[11px] text-purple-900/80 font-semibold hidden md:block">
                   {STORE_CONFIG.slogan}
                 </p>
               </div>
@@ -103,17 +103,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             onSubmit={handleSearchSubmit}
             className="hidden md:flex flex-1 max-w-2xl mx-2"
           >
-            <div className="relative flex w-full rounded-xl border-2 border-purple-400/90 bg-white overflow-visible shadow-sm focus-within:ring-2 focus-within:ring-purple-400/30">
+            <div className="relative flex w-full rounded-xl border-2 border-purple-500 bg-white/95 overflow-visible shadow-sm focus-within:ring-2 focus-within:ring-purple-400/40">
               
               {/* Category Dropdown */}
-              <div className="relative shrink-0 border-r border-purple-100">
+              <div className="relative shrink-0 border-r border-purple-200">
                 <button
                   type="button"
                   onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
-                  className="h-full px-3 py-2 bg-purple-50/50 hover:bg-purple-100/60 text-xs font-bold text-slate-700 flex items-center gap-1.5 transition-colors focus:outline-none rounded-l-lg"
+                  className="h-full px-3 py-2 bg-purple-100/70 hover:bg-purple-200/70 text-xs font-bold text-purple-950 flex items-center gap-1.5 transition-colors focus:outline-none rounded-l-lg"
                 >
                   <span className="max-w-[110px] truncate">{selectedCategoryName}</span>
-                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                  <ChevronDown className="w-3.5 h-3.5 text-purple-600" />
                 </button>
 
                 {categoryDropdownOpen && (
@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 type="submit"
                 aria-label="Buscar"
-                className="px-4 bg-purple-800 hover:bg-purple-900 text-white flex items-center justify-center transition-colors rounded-r-lg"
+                className="px-4 bg-gradient-to-r from-purple-800 to-pink-600 hover:from-purple-900 hover:to-pink-700 text-white flex items-center justify-center transition-colors rounded-r-lg font-bold"
               >
                 <Search className="w-4 h-4" />
               </button>
@@ -241,7 +241,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Secondary Marketplace Department Ribbon */}
-      <nav className="bg-cream border-t border-purple-200/80 hidden sm:block">
+      <nav className="bg-gradient-to-r from-purple-200/95 via-pink-100/95 to-purple-200/95 border-t border-purple-300/80 hidden sm:block shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-1 overflow-x-auto py-2 scrollbar-none text-xs">
             
@@ -254,8 +254,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => onSelectCategory(cat.id as ProductCategory)}
                     className={`whitespace-nowrap px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1.5 ${
                       isSelected
-                        ? 'bg-purple-800 text-white shadow-sm'
-                        : 'text-slate-800 hover:bg-white/80 hover:text-purple-800'
+                        ? 'bg-gradient-to-r from-purple-800 to-pink-600 text-white shadow-md font-extrabold'
+                        : 'text-purple-950 hover:bg-white/80 hover:text-purple-900 font-bold'
                     }`}
                   >
                     <span>{cat.name}</span>
@@ -268,9 +268,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="flex items-center gap-2 shrink-0">
               <a
                 href="#catalogo"
-                className="px-2.5 py-1 rounded-md bg-purple-200/70 text-purple-950 font-extrabold flex items-center gap-1 hover:bg-purple-200 transition-colors"
+                className="px-2.5 py-1 rounded-md bg-pink-200/80 text-purple-950 font-extrabold border border-pink-300/80 flex items-center gap-1 hover:bg-pink-300 transition-colors"
               >
-                <Flame className="w-3.5 h-3.5 text-purple-700" />
+                <Flame className="w-3.5 h-3.5 text-purple-800" />
                 <span>Ofertas Flash</span>
               </a>
             </div>

@@ -46,7 +46,7 @@ export const CustomerReviews: React.FC = () => {
   ];
 
   return (
-    <section className="bg-cream py-14 sm:py-20 border-b border-purple-200/80">
+    <section className="bg-transparent py-14 sm:py-20 border-b border-purple-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Title */}

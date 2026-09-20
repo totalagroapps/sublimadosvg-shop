@@ -24,7 +24,7 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
   const faithProducts = products.filter((p) => faithIds.includes(p.id));
 
   return (
-    <section className="bg-cream py-12 sm:py-16 border-b border-purple-200/80">
+    <section className="bg-transparent py-12 sm:py-16 border-b border-purple-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Curated Banner Card */}

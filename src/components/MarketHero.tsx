@@ -56,7 +56,7 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
       highlight: 'diseños que tocan el corazón',
       subtitle: 'Mugs tradicionales de cerámica AAA con tus fotos familiares, frases emotivas y dedicatorias a solo $20.000.',
       image: '/prod-mug-tradicional-foto.jpg',
-      category: 'mugs',
+      category: 'mugs-tradicionales',
       ctaText: 'Ver Mugs Tradicionales ($20.000)',
       badge: 'A solo $20.000 COP ☕',
       gradient: 'from-purple-900/85 via-purple-800/55 to-slate-950/80',
@@ -68,7 +68,7 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
       highlight: 'mugs mágicos personalizados',
       subtitle: 'En frío es una taza negra sobria y con cualquier bebida caliente revela tus fotos y frases más especiales a solo $25.000.',
       image: '/prod-mug-magico-fotos.jpg',
-      category: 'mugs',
+      category: 'mugs-magicos',
       ctaText: 'Ver Mugs Mágicos ($25.000)',
       badge: 'A solo $25.000 COP ✨',
       gradient: 'from-purple-950/90 via-purple-900/60 to-slate-950/85',
@@ -94,7 +94,7 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
   const current = slides[currentSlide];
 
   return (
-    <section className="bg-cream py-6 sm:py-8 border-b border-purple-200/80">
+    <section className="bg-transparent py-6 sm:py-8 border-b border-purple-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           
