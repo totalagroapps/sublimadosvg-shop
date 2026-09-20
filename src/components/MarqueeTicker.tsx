@@ -5,8 +5,8 @@ export const MarqueeTicker: React.FC = () => {
   const items = [
     { icon: Sparkles, text: 'PERSONALIZACIÓN 100% GRATIS SIN RECARGO' },
     { icon: Truck, text: 'ENVÍOS DESDE PEREIRA A TODA COLOMBIA' },
-    { icon: Coffee, text: 'MUGS CON PROPÓSITO & CERÁMICA AAA' },
-    { icon: Shirt, text: 'CAMISETAS TEMÁTICAS CUMPLEAÑOS & PAREJAS' },
+    { icon: Coffee, text: 'MUGS PERSONALIZADOS TRADICIONALES A $20.000' },
+    { icon: Shirt, text: 'CAMISETAS PERSONALIZADAS PARA TUS EVENTOS A $25.000' },
     { icon: Gift, text: 'EMPAQUE ESPECIAL LISTO PARA REGALAR' },
     { icon: ShieldCheck, text: 'SUBLIMACIÓN HD TACTO CERO' },
     { icon: Heart, text: 'DETALLES QUE CREAN EMOCIONES' },

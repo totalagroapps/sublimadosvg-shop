@@ -16,7 +16,7 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
   // Filter faith items
   const faithIds = [
     'prod-camiseta-fe-cristo',
-    'prod-mugs-fe-proposito',
+    'prod-mug-tradicional-frases',
     'prod-agenda-personalizada-fe',
     'prod-vaso-termico-acero',
   ];
