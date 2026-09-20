@@ -193,12 +193,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Marketplace Cart Button with Total */}
             <button
               onClick={onOpenCart}
-              className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-purple-800 text-white transition-all shadow-md hover:shadow-lg active:scale-95"
+              className="flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-gradient-to-r from-purple-700 to-violet-700 hover:from-purple-800 hover:to-violet-800 text-white transition-all shadow-md hover:shadow-lg active:scale-95 border border-purple-400/30"
             >
               <div className="relative">
-                <ShoppingBag className="w-5 h-5 text-purple-300" />
+                <ShoppingBag className="w-5 h-5 text-purple-200" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-purple-700 text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-slate-900">
+                  <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-pink-500 text-white text-[10px] font-extrabold flex items-center justify-center border-2 border-white">
                     {cartCount}
                   </span>
                 )}

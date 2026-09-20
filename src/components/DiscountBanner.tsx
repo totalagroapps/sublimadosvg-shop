@@ -68,7 +68,7 @@ export const DiscountBanner: React.FC = () => {
             href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(`¡Hola Viviana! Quiero aplicar el cupón *${coupon}* del 10% de descuento en mi primer pedido.`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-2 rounded-xl bg-purple-800 hover:bg-purple-900 text-white font-extrabold text-xs shadow-md transition-all flex items-center gap-1"
+            className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-extrabold text-xs shadow-md transition-all flex items-center gap-1"
           >
             <MessageCircle className="w-4 h-4" />
             <span className="hidden md:inline">Usar en WhatsApp</span>

@@ -115,9 +115,9 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       onClick={() => onCustomizeProduct(product)}
-                      className="py-2 px-2 rounded-xl bg-slate-900 hover:bg-purple-800 text-white text-[11px] font-bold transition-colors flex items-center justify-center gap-1"
+                      className="py-2 px-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-sm shadow-purple-500/20"
                     >
-                      <Sparkles className="w-3 h-3 text-purple-300" />
+                      <Sparkles className="w-3 h-3 text-purple-200" />
                       <span>Personalizar</span>
                     </button>
 
@@ -125,9 +125,9 @@ export const FaithCollectionShowcase: React.FC<FaithCollectionShowcaseProps> = (
                       href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(`¡Hola VG Personalizados! Me interesa ordenar de la Colección Fe: *${product.name}* a ${formatPrice(product.price)}.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-2 px-2 rounded-xl bg-purple-800 hover:bg-purple-900 text-white text-[11px] font-bold transition-all flex items-center justify-center gap-1"
+                      className="py-2 px-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white text-[11px] font-bold transition-all flex items-center justify-center gap-1 shadow-sm shadow-pink-500/20"
                     >
-                      <MessageCircle className="w-3 h-3" />
+                      <MessageCircle className="w-3 h-3 text-white" />
                       <span>Pedir a Wpp</span>
                     </a>
                   </div>

@@ -121,9 +121,9 @@ export const FlashOffers: React.FC<FlashOffersProps> = ({ products, onCustomizeP
                     <div className="grid grid-cols-2 gap-1.5 pt-1">
                       <button
                         onClick={() => onCustomizeProduct(product)}
-                        className="py-2.5 px-2 rounded-xl bg-slate-900 hover:bg-rose-600 text-white text-xs font-bold transition-all flex items-center justify-center gap-1 active:scale-95"
+                        className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-xs font-bold transition-all flex items-center justify-center gap-1 active:scale-95 shadow-sm shadow-purple-500/20"
                       >
-                        <Sparkles className="w-3.5 h-3.5 text-rose-400" />
+                        <Sparkles className="w-3.5 h-3.5 text-purple-200" />
                         <span>Personalizar</span>
                       </button>
 
@@ -131,9 +131,9 @@ export const FlashOffers: React.FC<FlashOffersProps> = ({ products, onCustomizeP
                         href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(`¡Hola VG Personalizados! Quiero aprovechar la Oferta Relámpago de: *${product.name}* a ${formatPrice(product.price)} (Descuento del ${discount}%).`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="py-2.5 px-2 rounded-xl bg-purple-800 hover:bg-purple-900 text-white text-xs font-bold transition-all flex items-center justify-center gap-1 active:scale-95 shadow-sm"
+                        className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white text-xs font-bold transition-all flex items-center justify-center gap-1 active:scale-95 shadow-sm shadow-pink-500/20"
                       >
-                        <MessageCircle className="w-3.5 h-3.5" />
+                        <MessageCircle className="w-3.5 h-3.5 text-white" />
                         <span>Pedir a Wpp</span>
                       </a>
                     </div>

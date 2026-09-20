@@ -61,7 +61,7 @@ export const CustomIdeaBanner: React.FC<CustomIdeaBannerProps> = ({ onOpenCustom
                 href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('¡Hola Viviana! Tengo una foto / idea para personalizar un producto. ¿Te la puedo enviar para ver cómo quedaría?')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-full bg-purple-800 hover:bg-purple-900 text-white font-extrabold text-sm shadow-xl shadow-purple-950/40 hover:scale-105 transition-all flex items-center gap-2 border-2 border-purple-400/30"
+                className="px-6 py-3.5 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-extrabold text-sm shadow-xl shadow-purple-500/30 hover:scale-105 transition-all flex items-center gap-2 border-2 border-white/40"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>Enviar mi Foto por WhatsApp</span>

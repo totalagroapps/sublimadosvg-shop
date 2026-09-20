@@ -83,18 +83,18 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
                         onCustomizeProduct(p);
                         onClose();
                       }}
-                      className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-rose-600 text-white text-[11px] font-bold transition-colors flex items-center gap-1"
+                      className="px-2.5 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-[11px] font-bold transition-colors flex items-center gap-1 shadow-sm"
                     >
-                      <Sparkles className="w-3 h-3 text-rose-400" />
+                      <Sparkles className="w-3 h-3 text-purple-200" />
                       <span>Personalizar</span>
                     </button>
                     <a
                       href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(`¡Hola VG Personalizados! Tengo en mis favoritos el producto: *${p.name}* a ${formatPrice(p.price)}. ¿Cómo acordamos el diseño?`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-bold transition-colors flex items-center gap-1"
+                      className="px-2.5 py-1 rounded-lg bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white text-[11px] font-bold transition-colors flex items-center gap-1 shadow-sm"
                     >
-                      <MessageCircle className="w-3 h-3" />
+                      <MessageCircle className="w-3 h-3 text-white" />
                       <span>Pedir</span>
                     </a>
                   </div>

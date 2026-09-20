@@ -386,7 +386,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             {step === 'cart' ? (
               <button
                 onClick={() => setStep('checkout')}
-                className="w-full py-3.5 px-6 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm sm:text-base shadow-md transition-all flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold text-sm sm:text-base shadow-md shadow-purple-500/20 transition-all flex items-center justify-center gap-2"
               >
                 <span>Continuar al Pedido</span>
                 <ArrowRight className="w-4 h-4" />
@@ -395,7 +395,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               <div className="space-y-2">
                 <button
                   onClick={handleCheckoutWhatsApp}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-purple-800 hover:bg-purple-900 text-white font-bold text-sm sm:text-base shadow-lg shadow-purple-300/40 hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white font-bold text-sm sm:text-base shadow-lg shadow-purple-500/25 hover:shadow-xl transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Enviar Pedido a WhatsApp</span>

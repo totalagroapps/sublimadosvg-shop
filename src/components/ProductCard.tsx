@@ -148,18 +148,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="grid grid-cols-2 gap-1.5">
             <button
               onClick={() => onCustomize(product)}
-              className="py-2.5 px-2 rounded-xl bg-slate-900 hover:bg-purple-800 text-white font-bold text-xs shadow-sm transition-colors flex items-center justify-center gap-1 active:scale-95"
+              className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold text-xs shadow-sm shadow-purple-500/20 transition-all flex items-center justify-center gap-1 active:scale-95"
             >
-              <Sparkles className="w-3.5 h-3.5 text-purple-300" />
+              <Sparkles className="w-3.5 h-3.5 text-purple-200" />
               <span>Personalizar</span>
             </button>
 
             <button
               onClick={handleQuickWhatsApp}
-              className="py-2.5 px-2 rounded-xl bg-purple-800 hover:bg-purple-900 text-white font-bold text-xs shadow-sm transition-colors flex items-center justify-center gap-1 active:scale-95"
+              className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-xs shadow-sm shadow-pink-500/20 transition-all flex items-center justify-center gap-1 active:scale-95"
               title="Pedir directamente a WhatsApp"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
+              <MessageCircle className="w-3.5 h-3.5 text-white" />
               <span>Pedir a Wpp</span>
             </button>
           </div>

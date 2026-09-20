@@ -147,7 +147,7 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
                   href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(`¡Hola VG Personalizados! Me interesa ordenar sobre la promoción: ${current.tag}. ¿Cómo acordamos el diseño?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-purple-800 hover:bg-purple-900 text-white text-xs sm:text-sm font-bold shadow-md hover:scale-105 transition-all flex items-center gap-1.5"
+                  className="px-4 sm:px-5 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 hover:from-purple-700 hover:via-pink-600 hover:to-purple-700 text-white text-xs sm:text-sm font-bold shadow-md hover:scale-105 transition-all flex items-center gap-1.5"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span className="hidden sm:inline">Pedir a WhatsApp</span>
