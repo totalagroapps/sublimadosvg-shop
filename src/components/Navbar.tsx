@@ -281,7 +281,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               href={`https://wa.me/${STORE_CONFIG.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-2"
+              className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Chatear por WhatsApp ({STORE_CONFIG.whatsappDisplay})</span>

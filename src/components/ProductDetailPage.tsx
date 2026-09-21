@@ -379,14 +379,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     <span className="text-base text-slate-400 line-through">
                       {formatPrice(product.originalPrice)}
                     </span>
-                    <span className="px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-xs font-extrabold">
+                    <span className="px-2 py-0.5 rounded-md bg-pink-100 text-pink-800 text-xs font-extrabold">
                       Ahorras {formatPrice(product.originalPrice - product.price)}
                     </span>
                   </div>
                 )}
 
                 <div className="w-full text-xs font-bold text-purple-700 flex items-center gap-1.5 pt-1">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <CheckCircle2 className="w-4 h-4 text-purple-600" />
                   <span>Incluye diseño personalizado, fotos y nombres sin costo adicional</span>
                 </div>
               </div>
@@ -412,7 +412,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                       key={idx}
                       className="flex items-start gap-2 p-2.5 rounded-xl bg-slate-50/80 border border-slate-100 text-xs text-slate-700"
                     >
-                      <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-pink-500 shrink-0 mt-0.5" />
                       <span className="font-medium leading-tight">{feat}</span>
                     </div>
                   ))}
@@ -524,8 +524,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                           className="w-12 h-12 rounded-lg object-cover border border-purple-200"
                         />
                         <div>
-                          <p className="text-xs font-bold text-emerald-700 flex items-center gap-1">
-                            <Check className="w-3.5 h-3.5" />
+                          <p className="text-xs font-bold text-purple-800 flex items-center gap-1">
+                            <Check className="w-3.5 h-3.5 text-purple-600" />
                             <span>Foto cargada correctamente</span>
                           </p>
                           <p className="text-[11px] text-slate-400">
@@ -672,7 +672,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 <button
                   type="button"
                   onClick={handleWhatsAppOrder}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-600/25 transition-all flex items-center justify-center gap-2.5 active:scale-[0.98]"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 hover:from-pink-600 hover:via-rose-600 hover:to-pink-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-pink-500/25 transition-all flex items-center justify-center gap-2.5 active:scale-[0.98]"
                 >
                   <MessageCircle className="w-5 h-5 text-white" />
                   <span>Pedir directamente por WhatsApp</span>
@@ -690,8 +690,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
                 {/* Feedback notification when added to cart */}
                 {isAddedNotice && (
-                  <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center justify-center gap-2 animate-bounce">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <div className="p-3 rounded-xl bg-purple-50 border border-purple-200 text-purple-900 text-xs font-bold flex items-center justify-center gap-2 animate-bounce">
+                    <CheckCircle2 className="w-4 h-4 text-purple-600" />
                     <span>¡Producto añadido al carrito con tus personalizaciones!</span>
                   </div>
                 )}
@@ -708,7 +708,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 </div>
 
                 <div className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
                   <div>
                     <span className="font-bold block text-slate-900">Aprobación Previa</span>
                     <span className="text-[11px] text-slate-500">Te enviamos vista previa</span>

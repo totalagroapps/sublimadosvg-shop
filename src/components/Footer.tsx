@@ -98,7 +98,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectCategory }) => {
                 href={`https://wa.me/${STORE_CONFIG.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-md"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white text-xs font-bold transition-all shadow-md"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Atención por WhatsApp ({STORE_CONFIG.whatsappDisplay})</span>
