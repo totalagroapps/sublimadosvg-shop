@@ -63,6 +63,18 @@ export const BoutiqueHero: React.FC<BoutiqueHeroProps> = ({
       accent: 'from-purple-700 to-indigo-600',
     },
     {
+      id: 'mugs-silicona',
+      category: 'mugs-silicona' as ProductCategory,
+      title: 'Mugs con Tapa de Silicona y Asa Corazón',
+      tag: 'Tapa Térmica & Asa Corazón ❤️',
+      price: '$25.000 COP',
+      description: 'Mug en cerámica con tapa y base protectora de silicona más asa en corazón. Evita salpicaduras y cuida tus mesas.',
+      image: '/prod-mug-silicona-imparable.jpg',
+      badge: 'Nuevo Lanzamiento',
+      icon: Coffee,
+      accent: 'from-pink-500 to-purple-600',
+    },
+    {
       id: 'mugs-tradicionales',
       category: 'mugs-tradicionales' as ProductCategory,
       title: 'Mugs Tradicionales de Cerámica AAA',

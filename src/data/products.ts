@@ -2,10 +2,11 @@ import type { Product } from '../types';
 
 export const CATEGORIES = [
   { id: 'todos', name: 'Todo el Catálogo', icon: 'Sparkles', image: '/logo-principal.webp' },
-  { id: 'camisetas', name: 'Camisetas & Eventos', icon: 'Shirt', image: '/prod-camiseta-ajolote.jpg' },
+  { id: 'mugs-silicona', name: 'Mug Tapa de Silicona', icon: 'Coffee', image: '/prod-mug-silicona-imparable.jpg' },
   { id: 'mugs-tradicionales', name: 'Mugs Tradicionales', icon: 'Coffee', image: '/prod-mug-tradicional-foto.jpg' },
   { id: 'mugs-magicos', name: 'Mugs Mágicos', icon: 'Sparkles', image: '/prod-mug-magico-fotos.jpg' },
   { id: 'termos', name: 'Termos Inteligentes', icon: 'Flame', image: '/prod-termo-papa.jpg' },
+  { id: 'camisetas', name: 'Camisetas & Eventos', icon: 'Shirt', image: '/prod-camiseta-ajolote.jpg' },
   { id: 'agendas', name: 'Agendas & Cuadernos', icon: 'BookOpen', image: '/prod-agendas-fe.webp' },
   { id: 'cojines', name: 'Cojines', icon: 'Heart', image: '/prod-cojin-decorativo.webp' },
   { id: 'rompecabezas', name: 'Rompecabezas', icon: 'Puzzle', image: '/prod-rompecabezas-corazon.webp' },
@@ -134,7 +135,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-tapa-silicona-imparable',
     name: 'Mug Personalizado Tapa de Silicona ("En Modo Imparable")',
-    category: 'mugs-tradicionales',
+    category: 'mugs-silicona',
     price: 25000,
     originalPrice: 32000,
     description: 'Mug personalizado en cerámica premium AAA (11oz) con tapa térmica y base de silicona, además de una encantadora asa en forma de corazón. La tapa de silicona conserva el calor de tu café o té y evita salpicaduras, mientras que la base antideslizante protege tus superficies y amortigua golpes. Personalizable con diseño Flork "En Modo: Imparable", fotos o dedicatorias.',
@@ -146,6 +147,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Sublimación permanente a todo color con tus fotos o dedicatorias',
     ],
     image: '/prod-mug-silicona-imparable.jpg',
+    gallery: ['/prod-mug-silicona-imparable.jpg', '/prod-mug-silicona-blanco.jpg'],
     mockupType: 'mug',
     badge: 'Tapa Silicona & Corazón ❤️',
     rating: 5.0,
@@ -158,7 +160,7 @@ export const INITIAL_PRODUCTS: Product[] = [
   {
     id: 'prod-mug-tapa-silicona-blanco',
     name: 'Mug Personalizado Tapa de Silicona (Personalízalo Desde Cero)',
-    category: 'mugs-tradicionales',
+    category: 'mugs-silicona',
     price: 25000,
     originalPrice: 32000,
     description: 'Mug personalizado con tapa y base de silicona listo para personalizar desde cero con tus fotos, logos corporativos, nombres o dedicatorias. Cuenta con tapa hermética para evitar derrames, base de silicona que cuida tus superficies y asa en forma de corazón. El mug ideal para oficina, estudio o regalar a alguien especial.',
@@ -170,6 +172,7 @@ export const INITIAL_PRODUCTS: Product[] = [
       'Incluye asesoría y diseño previo sin costo adicional',
     ],
     image: '/prod-mug-silicona-blanco.jpg',
+    gallery: ['/prod-mug-silicona-blanco.jpg', '/prod-mug-silicona-imparable.jpg'],
     mockupType: 'mug',
     badge: 'Personaliza Desde Cero ✨',
     rating: 5.0,

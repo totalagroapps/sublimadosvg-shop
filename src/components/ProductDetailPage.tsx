@@ -59,6 +59,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   const [quantity, setQuantity] = useState<number>(1);
   const [isAddedNotice, setIsAddedNotice] = useState<boolean>(false);
   const [activeImageTab, setActiveImageTab] = useState<'product' | 'custom'>('product');
+  const [selectedGalleryImage, setSelectedGalleryImage] = useState<string>(product.image);
+
+  React.useEffect(() => {
+    setSelectedGalleryImage(product.image);
+    setActiveImageTab('product');
+  }, [product.id, product.image]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -242,7 +248,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             {/* Main Image Container */}
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-slate-50 border border-purple-100 shadow-md group">
               <img
-                src={activeImageTab === 'custom' && uploadedImage ? uploadedImage : product.image}
+                src={activeImageTab === 'custom' && uploadedImage ? uploadedImage : selectedGalleryImage}
                 alt={product.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -316,6 +322,34 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   <Eye className="w-3.5 h-3.5" />
                   <span>Tu Foto Subida</span>
                 </button>
+              </div>
+            )}
+
+            {/* Gallery Thumbnails if product has multiple images */}
+            {product.gallery && product.gallery.length > 1 && (
+              <div className="pt-1">
+                <span className="text-[11px] font-bold text-slate-500 block mb-1.5 uppercase tracking-wider">
+                  Vistas del producto:
+                </span>
+                <div className="flex items-center gap-2.5 overflow-x-auto pb-1">
+                  {product.gallery.map((img, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => {
+                        setSelectedGalleryImage(img);
+                        setActiveImageTab('product');
+                      }}
+                      className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 transition-all shrink-0 ${
+                        selectedGalleryImage === img && activeImageTab === 'product'
+                          ? 'border-purple-600 ring-2 ring-purple-300 shadow-md scale-105'
+                          : 'border-purple-200/80 hover:border-purple-400 opacity-75 hover:opacity-100'
+                      }`}
+                    >
+                      <img src={img} alt={`${product.name} foto ${idx + 1}`} className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
 

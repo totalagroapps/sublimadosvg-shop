@@ -108,7 +108,10 @@ export function App() {
   // Filter products by category and search
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
-      const matchesCategory = selectedCategory === 'todos' || p.category === selectedCategory;
+      const matchesCategory =
+        selectedCategory === 'todos' ||
+        p.category === selectedCategory ||
+        (selectedCategory === 'mugs-tradicionales' && p.category === 'mugs-silicona');
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !q ||

@@ -1,4 +1,4 @@
-export type ProductCategory = 'todos' | 'camisetas' | 'mugs' | 'mugs-tradicionales' | 'mugs-magicos' | 'termos' | 'agendas' | 'cojines' | 'rompecabezas' | 'regalos';
+export type ProductCategory = 'todos' | 'camisetas' | 'mugs' | 'mugs-tradicionales' | 'mugs-magicos' | 'mugs-silicona' | 'termos' | 'agendas' | 'cojines' | 'rompecabezas' | 'regalos';
 
 export type MockupType = 'mug' | 'tshirt' | 'puzzle' | 'tumbler' | 'pillow';
 
@@ -11,6 +11,7 @@ export interface Product {
   description: string;
   features: string[];
   image: string;
+  gallery?: string[];
   mockupType: MockupType;
   availableColors?: { name: string; hex: string }[];
   availableSizes?: string[];

@@ -93,6 +93,8 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
           <p className="text-xs sm:text-sm text-slate-700 mt-1">
             {selectedCategory === 'camisetas'
               ? 'Camisetas personalizadas para eventos familiares y cumpleaños con tallas para toda la familia a $25.000 COP.'
+              : selectedCategory === 'mugs-silicona'
+              ? 'Mugs personalizados con tapa y base de silicona térmica y asa en forma de corazón a $25.000 COP. Conserva la temperatura, evita salpicaduras y cuida tus mesas.'
               : selectedCategory === 'mugs-tradicionales'
               ? 'Mugs tradicionales personalizados en cerámica blanca AAA a $20.000 COP. Productos para personalizar desde cero con tus fotos, dedicatorias o diseños.'
               : selectedCategory === 'mugs-magicos'

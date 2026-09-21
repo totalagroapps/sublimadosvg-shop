@@ -122,6 +122,14 @@ export const Footer: React.FC<FooterProps> = ({ onSelectCategory }) => {
               </li>
               <li>
                 <button 
+                  onClick={() => onSelectCategory('mugs-silicona')}
+                  className="hover:text-pink-300 transition-colors"
+                >
+                  💖 Mugs Tapa de Silicona
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => onSelectCategory('mugs-tradicionales')}
                   className="hover:text-pink-300 transition-colors"
                 >
