@@ -30,11 +30,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     CATEGORIES.find((c) => c.id === product.category)?.name || product.category;
 
   return (
-    <div className="bg-white/95 backdrop-blur-sm rounded-3xl border border-purple-200/90 overflow-hidden shadow-card hover:shadow-soft hover:border-purple-400 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between group">
+    <div 
+      onClick={() => onCustomize(product)}
+      className="bg-white/95 backdrop-blur-sm rounded-3xl border border-purple-200/90 overflow-hidden shadow-card hover:shadow-soft hover:border-purple-400 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+    >
       
       {/* Product Image Area */}
       <div 
-        onClick={() => onCustomize(product)}
         className="relative aspect-square bg-slate-50 overflow-hidden cursor-pointer"
       >
         <img

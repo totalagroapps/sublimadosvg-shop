@@ -9,20 +9,20 @@ import { MarketHero } from './components/MarketHero';
 import { TrustBar } from './components/TrustBar';
 import { CustomIdeaBanner } from './components/CustomIdeaBanner';
 import { ProductGrid } from './components/ProductGrid';
+import { ProductDetailPage } from './components/ProductDetailPage';
 import { Footer } from './components/Footer';
-import { CustomizerModal } from './components/CustomizerModal';
 import { CartDrawer } from './components/CartDrawer';
 import { WishlistModal } from './components/WishlistModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
 export function App() {
   const [products] = useState<Product[]>(INITIAL_PRODUCTS);
-  const [viewMode, setViewMode] = useState<'home' | 'catalog'>('home');
+  const [viewMode, setViewMode] = useState<'home' | 'catalog' | 'product'>('home');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory>('camisetas');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState<boolean>(false);
-  const [customizingProduct, setCustomizingProduct] = useState<Product | null>(null);
 
   // Wishlist state saved in localStorage
   const [wishlistIds, setWishlistIds] = useState<string[]>(() => {
@@ -67,6 +67,40 @@ export function App() {
       console.warn('Could not save cart to localStorage', e);
     }
   }, [cartItems]);
+
+  // Synchronize hash routing with state (#producto-xxx, #categoria-xxx, #catalogo)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#producto-')) {
+        const prodId = hash.replace('#producto-', '');
+        const found = products.find((p) => p.id === prodId);
+        if (found) {
+          setSelectedProduct(found);
+          setViewMode('product');
+          return;
+        }
+      } else if (hash.startsWith('#categoria-')) {
+        const catId = hash.replace('#categoria-', '') as ProductCategory;
+        setSelectedCategory(catId);
+        setSelectedProduct(null);
+        setViewMode('catalog');
+        return;
+      } else if (hash === '#catalogo') {
+        setSelectedProduct(null);
+        setViewMode('catalog');
+        return;
+      } else if (hash === '' || hash === '#inicio' || hash === '#home') {
+        setSelectedProduct(null);
+        setViewMode('home');
+        return;
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, [products]);
 
   // Filter products by category and search
   const filteredProducts = useMemo(() => {
@@ -121,15 +155,34 @@ export function App() {
 
   const isViewingCatalog = viewMode === 'catalog' || searchQuery.trim().length > 0;
 
+  // Open product detail page
+  const handleOpenProduct = (product: Product) => {
+    setSelectedProduct(product);
+    setViewMode('product');
+    window.location.hash = `producto-${product.id}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleSelectCategory = (cat: ProductCategory) => {
     setSelectedCategory(cat);
+    setSelectedProduct(null);
     setViewMode('catalog');
+    window.location.hash = `categoria-${cat}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleGoHome = () => {
     setViewMode('home');
+    setSelectedProduct(null);
     setSearchQuery('');
+    window.location.hash = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackFromProduct = () => {
+    setSelectedProduct(null);
+    setViewMode('catalog');
+    window.location.hash = `categoria-${selectedCategory}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -163,15 +216,31 @@ export function App() {
       {/* 2. Colorful Animated Marquee Ticker */}
       <MarqueeTicker />
 
-      {/* 3. Stories / Circular Category Row */}
-      <CategoryBubbles
-        selectedCategory={selectedCategory}
-        onSelectCategory={handleSelectCategory}
-      />
+      {/* 3. Stories / Circular Category Row (shown on home and catalog) */}
+      {viewMode !== 'product' && (
+        <CategoryBubbles
+          selectedCategory={selectedCategory}
+          onSelectCategory={handleSelectCategory}
+        />
+      )}
 
       {/* Main Marketplace Sections */}
       <main className="flex-1">
-        {isViewingCatalog ? (
+        {viewMode === 'product' && selectedProduct ? (
+          /* ======================================================== */
+          /* DEDICATED PRODUCT DETAIL PAGE (Full view with all info)  */
+          /* ======================================================== */
+          <ProductDetailPage
+            product={selectedProduct}
+            allProducts={products}
+            isWishlisted={wishlistIds.includes(selectedProduct.id)}
+            onToggleWishlist={handleToggleWishlist}
+            onAddToCart={handleAddToCart}
+            onBack={handleBackFromProduct}
+            onSelectCategory={handleSelectCategory}
+            onSelectProduct={handleOpenProduct}
+          />
+        ) : isViewingCatalog ? (
           /* ======================================================== */
           /* CATEGORY PRODUCTS VIEW (When a category is clicked)     */
           /* ======================================================== */
@@ -184,7 +253,7 @@ export function App() {
             onResetSearch={() => setSearchQuery('')}
             wishlistIds={wishlistIds}
             onToggleWishlist={handleToggleWishlist}
-            onCustomizeProduct={(product) => setCustomizingProduct(product)}
+            onCustomizeProduct={handleOpenProduct}
           />
         ) : (
           /* ======================================================== */
@@ -196,6 +265,7 @@ export function App() {
               onSelectCategory={handleSelectCategory}
               onExploreClick={() => {
                 setViewMode('catalog');
+                window.location.hash = 'catalogo';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             />
@@ -206,7 +276,7 @@ export function App() {
             {/* Mid-Page Interactive Callout Banner (Send Your Photo / Idea) */}
             <CustomIdeaBanner
               onOpenCustomizer={() => {
-                if (products.length > 0) setCustomizingProduct(products[0]);
+                if (products.length > 0) handleOpenProduct(products[0]);
               }}
             />
           </>
@@ -216,13 +286,6 @@ export function App() {
       {/* Comprehensive Marketplace Footer */}
       <Footer
         onSelectCategory={handleSelectCategory}
-      />
-
-      {/* Interactive Customizer Modal */}
-      <CustomizerModal
-        product={customizingProduct}
-        onClose={() => setCustomizingProduct(null)}
-        onAddToCart={handleAddToCart}
       />
 
       {/* Slide-over Cart Drawer */}
@@ -241,7 +304,10 @@ export function App() {
         onClose={() => setIsWishlistOpen(false)}
         wishlistProducts={wishlistProducts}
         onRemoveFromWishlist={handleToggleWishlist}
-        onCustomizeProduct={(product) => setCustomizingProduct(product)}
+        onCustomizeProduct={(product) => {
+          setIsWishlistOpen(false);
+          handleOpenProduct(product);
+        }}
       />
 
       {/* Enhanced Floating WhatsApp Button Widget & Mobile Bottom Dock */}
