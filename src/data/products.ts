@@ -3,8 +3,8 @@ import type { Product } from '../types';
 export const CATEGORIES = [
   { id: 'todos', name: 'Todo el Catálogo', icon: 'Sparkles', image: '/logo-principal.webp' },
   { id: 'camisetas', name: 'Camisetas & Eventos', icon: 'Shirt', image: '/prod-camiseta-ajolote.jpg' },
-  { id: 'mugs-tradicionales', name: 'Mugs Tradicionales', icon: 'Coffee', image: '/prod-mug-tradicional-foto.jpg' },
-  { id: 'mugs-magicos', name: 'Mugs Mágicos', icon: 'Sparkles', image: '/prod-mug-magico-fotos.jpg' },
+  { id: 'mugs-tradicionales', name: 'Mugs Tradicionales', icon: 'Coffee', image: '/prod-mug-blanco-personalizar.jpg' },
+  { id: 'mugs-magicos', name: 'Mugs Mágicos', icon: 'Sparkles', image: '/prod-mug-negro-personalizar.jpg' },
   { id: 'agendas', name: 'Agendas & Cuadernos', icon: 'BookOpen', image: '/prod-agendas-fe.webp' },
   { id: 'cojines', name: 'Cojines', icon: 'Heart', image: '/prod-cojin-decorativo.webp' },
   { id: 'rompecabezas', name: 'Rompecabezas', icon: 'Puzzle', image: '/prod-rompecabezas-corazon.webp' },
@@ -109,6 +109,28 @@ export const INITIAL_PRODUCTS: Product[] = [
 
   // --- MUGS PERSONALIZADOS TRADICIONALES ---
   {
+    id: 'prod-mug-tradicional-personalizar-cero',
+    name: 'Mug Personalizado Tradicional (Personalízalo Desde Cero)',
+    category: 'mugs-tradicionales',
+    price: 20000,
+    originalPrice: 25000,
+    description: 'Este es el producto para personalizar desde cero: mug tradicional en cerámica blanca premium AAA (11oz) listo para estampar con tus propias fotos, frases, dedicatorias, logos o el diseño que desees. Incluye asesoría y diseño personalizado sin costo adicional.',
+    features: [
+      'Producto para personalizar desde cero con tus fotos o diseño',
+      'Cerámica blanca premium AAA de 11 oz de alto brillo',
+      'Sublimación HD a todo color que no se borra ni se cae',
+      'Apto para microondas y lavavajillas',
+    ],
+    image: '/prod-mug-blanco-personalizar.jpg',
+    mockupType: 'mug',
+    badge: 'Personaliza Desde Cero ✨',
+    rating: 5.0,
+    reviewsCount: 265,
+    availableColors: [
+      { name: 'Blanco Clásico', hex: '#ffffff' },
+    ],
+  },
+  {
     id: 'prod-mug-tradicional-foto',
     name: 'Mug Personalizado Tradicional (Con tus Fotos Especiales)',
     category: 'mugs-tradicionales',
@@ -197,6 +219,28 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
   },
   // --- MUGS MÁGICOS PERSONALIZADOS ---
+  {
+    id: 'prod-mug-magico-personalizar-cero',
+    name: 'Mug Mágicos Personalizados (Personalízalo Desde Cero)',
+    category: 'mugs-magicos',
+    price: 25000,
+    originalPrice: 35000,
+    description: 'Este es el producto para personalizar desde cero: mug mágico en cerámica negra termoactiva AAA (11oz). En frío luce en elegante color negro mate que oculta el diseño por completo, y al verter café, chocolate o bebidas calientes, ¡ocurre la magia! Revela tu diseño, fotos y dedicatorias creados totalmente a tu gusto desde cero.',
+    features: [
+      'Producto para personalizar desde cero con efecto revelador térmico',
+      'Cerámica negra premium AAA de 11 oz sensible al calor',
+      'Revela gradualmente tus fotos y mensajes al contacto con calor',
+      'El regalo sorpresa más emotivo e inolvidable',
+    ],
+    image: '/prod-mug-negro-personalizar.jpg',
+    mockupType: 'mug',
+    badge: 'Personaliza Desde Cero ✨',
+    rating: 5.0,
+    reviewsCount: 220,
+    availableColors: [
+      { name: 'Negro Mágico a Color', hex: '#18181b' },
+    ],
+  },
   {
     id: 'prod-mug-magico-fotos',
     name: 'Mug Mágicos Personalizados (Con tus Fotos Especiales)',

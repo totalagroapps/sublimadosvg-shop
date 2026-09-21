@@ -94,9 +94,9 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
             {selectedCategory === 'camisetas'
               ? 'Camisetas personalizadas para eventos familiares y cumpleaños con tallas para toda la familia a $25.000 COP.'
               : selectedCategory === 'mugs-tradicionales'
-              ? 'Mugs tradicionales personalizados en cerámica de alta fidelidad para toda ocasión a $20.000 COP.'
+              ? 'Mugs tradicionales personalizados en cerámica blanca AAA a $20.000 COP. Productos para personalizar desde cero con tus fotos, dedicatorias o diseños.'
               : selectedCategory === 'mugs-magicos'
-              ? 'Mugs mágicos termosensibles que revelan tu foto o mensaje con líquido caliente a $25.000 COP.'
+              ? 'Mugs mágicos personalizados termosensibles a $25.000 COP. Productos para personalizar desde cero que revelan tu diseño con bebidas calientes.'
               : 'Detalles y regalos personalizados con tus mejores fotos, frases y diseños.'}
           </p>
         </div>
