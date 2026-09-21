@@ -5,7 +5,10 @@ import { INITIAL_PRODUCTS } from './data/products';
 import { Navbar } from './components/Navbar';
 import { MarqueeTicker } from './components/MarqueeTicker';
 import { CategoryBubbles } from './components/CategoryBubbles';
-import { MarketHero } from './components/MarketHero';
+import { BoutiqueHero } from './components/BoutiqueHero';
+import { BentoCategoryGrid } from './components/BentoCategoryGrid';
+import { MagicFeatureShowcase } from './components/MagicFeatureShowcase';
+import { HowItWorksSteps } from './components/HowItWorksSteps';
 import { TrustBar } from './components/TrustBar';
 import { CustomIdeaBanner } from './components/CustomIdeaBanner';
 import { ProductGrid } from './components/ProductGrid';
@@ -216,8 +219,8 @@ export function App() {
       {/* 2. Colorful Animated Marquee Ticker */}
       <MarqueeTicker />
 
-      {/* 3. Stories / Circular Category Row (shown on home and catalog) */}
-      {viewMode !== 'product' && (
+      {/* 3. Stories / Circular Category Row (shown on catalog view for quick switching) */}
+      {viewMode === 'catalog' && (
         <CategoryBubbles
           selectedCategory={selectedCategory}
           onSelectCategory={handleSelectCategory}
@@ -257,28 +260,41 @@ export function App() {
           />
         ) : (
           /* ======================================================== */
-          /* CLEAN HOME PAGE (No products scattered on home page)     */
+          /* ORIGINAL BOUTIQUE HOME PAGE                              */
           /* ======================================================== */
           <>
-            {/* Marketplace Hero Slider & Side Banners */}
-            <MarketHero
+            {/* 1. Original Boutique Editorial Hero */}
+            <BoutiqueHero
               onSelectCategory={handleSelectCategory}
-              onExploreClick={() => {
+              onExploreCatalog={() => {
                 setViewMode('catalog');
                 window.location.hash = 'catalogo';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             />
 
-            {/* Marketplace Trust Bar */}
-            <TrustBar />
+            {/* 2. Modern Bento Grid Categories Showcase */}
+            <BentoCategoryGrid
+              onSelectCategory={handleSelectCategory}
+            />
 
-            {/* Mid-Page Interactive Callout Banner (Send Your Photo / Idea) */}
+            {/* 3. Interactive Magic Product Demonstration (Mug Mágico & Termo LED) */}
+            <MagicFeatureShowcase
+              onSelectCategory={handleSelectCategory}
+            />
+
+            {/* 4. Cómo Funciona la Magia en 3 Pasos */}
+            <HowItWorksSteps />
+
+            {/* 5. Interactive Callout: Cotizar / Diseñar desde Cero */}
             <CustomIdeaBanner
               onOpenCustomizer={() => {
                 if (products.length > 0) handleOpenProduct(products[0]);
               }}
             />
+
+            {/* 6. Boutique Trust Bar */}
+            <TrustBar />
           </>
         )}
       </main>
