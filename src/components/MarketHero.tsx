@@ -73,6 +73,18 @@ export const MarketHero: React.FC<MarketHeroProps> = ({ onSelectCategory, onExpl
       badge: 'A solo $25.000 COP ✨',
       gradient: 'from-purple-950/90 via-purple-900/60 to-slate-950/85',
     },
+    {
+      id: 'slide-termos',
+      tag: '🌡️ Innovación: Pantalla Táctil LED',
+      title: 'Tu bebida perfecta con',
+      highlight: 'termos inteligentes personalizados',
+      subtitle: 'Acero inoxidable 304 de 500ml con sensor táctil de temperatura LED en la tapa y tus fotos o dedicatorias a $35.000.',
+      image: '/prod-termo-papa.jpg',
+      category: 'termos',
+      ctaText: 'Ver Termos Inteligentes ($35.000)',
+      badge: 'Sensor Digital LED 500ml 🌡️',
+      gradient: 'from-pink-950/90 via-purple-900/60 to-slate-950/85',
+    },
   ];
 
   // Auto-advance slides every 6 seconds

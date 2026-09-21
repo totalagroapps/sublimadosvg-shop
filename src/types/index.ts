@@ -1,4 +1,4 @@
-export type ProductCategory = 'todos' | 'camisetas' | 'mugs' | 'mugs-tradicionales' | 'mugs-magicos' | 'agendas' | 'cojines' | 'rompecabezas' | 'regalos';
+export type ProductCategory = 'todos' | 'camisetas' | 'mugs' | 'mugs-tradicionales' | 'mugs-magicos' | 'termos' | 'agendas' | 'cojines' | 'rompecabezas' | 'regalos';
 
 export type MockupType = 'mug' | 'tshirt' | 'puzzle' | 'tumbler' | 'pillow';
 

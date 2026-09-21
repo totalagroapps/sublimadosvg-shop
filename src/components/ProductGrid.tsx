@@ -97,6 +97,8 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
               ? 'Mugs tradicionales personalizados en cerámica blanca AAA a $20.000 COP. Productos para personalizar desde cero con tus fotos, dedicatorias o diseños.'
               : selectedCategory === 'mugs-magicos'
               ? 'Mugs mágicos personalizados termosensibles a $25.000 COP. Productos para personalizar desde cero que revelan tu diseño con bebidas calientes.'
+              : selectedCategory === 'termos'
+              ? 'Termos inteligentes en acero inoxidable con sensor digital de temperatura LED a $35.000 COP. Personalízalos desde cero con fotos y frases.'
               : 'Detalles y regalos personalizados con tus mejores fotos, frases y diseños.'}
           </p>
         </div>
