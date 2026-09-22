@@ -5,8 +5,10 @@ import { INITIAL_PRODUCTS } from './data/products';
 import { Navbar } from './components/Navbar';
 import { MarqueeTicker } from './components/MarqueeTicker';
 import { CategoryBubbles } from './components/CategoryBubbles';
-import { BoutiqueHero } from './components/BoutiqueHero';
-import { BentoCategoryGrid } from './components/BentoCategoryGrid';
+import { EditorialLookbookHero } from './components/EditorialLookbookHero';
+import { InteractiveHotspotScene } from './components/InteractiveHotspotScene';
+import { EditorialCollectionSlider } from './components/EditorialCollectionSlider';
+import { EditorialWorkshopStory } from './components/EditorialWorkshopStory';
 import { MagicFeatureShowcase } from './components/MagicFeatureShowcase';
 import { HowItWorksSteps } from './components/HowItWorksSteps';
 import { TrustBar } from './components/TrustBar';
@@ -267,26 +269,29 @@ export function App() {
           /* ORIGINAL BOUTIQUE HOME PAGE                              */
           /* ======================================================== */
           <>
-            {/* 1. Original Boutique Editorial Hero */}
-            <BoutiqueHero
-              onSelectCategory={handleSelectCategory}
-              onExploreCatalog={() => {
-                setViewMode('catalog');
-                window.location.hash = 'catalogo';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+            {/* 1. Lookbook Editorial Hero con Composición Asimétrica */}
+            <EditorialLookbookHero
+              products={products}
+              onSelectProduct={handleOpenProduct}
+              onExploreProducts={() => {
+                const el = document.getElementById('productos-inicio');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              onSelectProduct={handleOpenProduct}
-              products={products}
             />
 
-            {/* 2. Modern Bento Grid Categories Showcase with Clickable Product Names */}
-            <BentoCategoryGrid
-              onSelectCategory={handleSelectCategory}
-              onSelectProduct={handleOpenProduct}
+            {/* 2. Escena Interactiva con Puntos Mágicos (Hotspots) */}
+            <InteractiveHotspotScene
               products={products}
+              onSelectProduct={handleOpenProduct}
             />
 
-            {/* 3. Catálogo de Productos con Nombres, Fotos y Descripciones en la Página Principal */}
+            {/* 3. Pasarela de Colección Numerada (#01 - #10) */}
+            <EditorialCollectionSlider
+              products={products}
+              onSelectProduct={handleOpenProduct}
+            />
+
+            {/* 4. Catálogo de Productos con Nombres, Fotos y Descripciones en la Página Principal */}
             <HomeFeaturedProducts
               products={products}
               onSelectProduct={handleOpenProduct}
@@ -300,22 +305,25 @@ export function App() {
               onToggleWishlist={handleToggleWishlist}
             />
 
-            {/* 3. Interactive Magic Product Demonstration (Mug Mágico & Termo LED) */}
+            {/* 5. Demostración Interactiva del Efecto Térmico (Mug Mágico & Termo LED) */}
             <MagicFeatureShowcase
               onSelectCategory={handleSelectCategory}
             />
 
-            {/* 4. Cómo Funciona la Magia en 3 Pasos */}
+            {/* 6. El Manifiesto y Credenciales del Taller en Pereira */}
+            <EditorialWorkshopStory />
+
+            {/* 7. Cómo Funciona la Magia en 3 Pasos */}
             <HowItWorksSteps />
 
-            {/* 5. Interactive Callout: Cotizar / Diseñar desde Cero */}
+            {/* 8. Interactive Callout: Cotizar / Diseñar desde Cero */}
             <CustomIdeaBanner
               onOpenCustomizer={() => {
                 if (products.length > 0) handleOpenProduct(products[0]);
               }}
             />
 
-            {/* 6. Boutique Trust Bar */}
+            {/* 9. Boutique Trust Bar */}
             <TrustBar />
           </>
         )}
