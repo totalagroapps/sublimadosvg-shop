@@ -13,6 +13,7 @@ import { TrustBar } from './components/TrustBar';
 import { CustomIdeaBanner } from './components/CustomIdeaBanner';
 import { ProductGrid } from './components/ProductGrid';
 import { ProductDetailPage } from './components/ProductDetailPage';
+import { HomeFeaturedProducts } from './components/HomeFeaturedProducts';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { WishlistModal } from './components/WishlistModal';
@@ -274,11 +275,29 @@ export function App() {
                 window.location.hash = 'catalogo';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
+              onSelectProduct={handleOpenProduct}
+              products={products}
             />
 
-            {/* 2. Modern Bento Grid Categories Showcase */}
+            {/* 2. Modern Bento Grid Categories Showcase with Clickable Product Names */}
             <BentoCategoryGrid
               onSelectCategory={handleSelectCategory}
+              onSelectProduct={handleOpenProduct}
+              products={products}
+            />
+
+            {/* 3. Catálogo de Productos con Nombres, Fotos y Descripciones en la Página Principal */}
+            <HomeFeaturedProducts
+              products={products}
+              onSelectProduct={handleOpenProduct}
+              onSelectCategory={handleSelectCategory}
+              onViewAllCatalog={() => {
+                setViewMode('catalog');
+                window.location.hash = 'catalogo';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              wishlistIds={wishlistIds}
+              onToggleWishlist={handleToggleWishlist}
             />
 
             {/* 3. Interactive Magic Product Demonstration (Mug Mágico & Termo LED) */}

@@ -153,7 +153,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold text-xs shadow-sm shadow-purple-500/20 transition-all flex items-center justify-center gap-1 active:scale-95"
             >
               <Sparkles className="w-3.5 h-3.5 text-purple-200" />
-              <span>Personalizar</span>
+              <span>Ver & Personalizar</span>
             </button>
 
             <button

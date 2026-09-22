@@ -11,17 +11,21 @@ import {
   Coffee,
   Shirt,
 } from 'lucide-react';
-import type { ProductCategory } from '../types';
+import type { ProductCategory, Product } from '../types';
 import { STORE_CONFIG } from '../data/products';
 
 interface BoutiqueHeroProps {
   onSelectCategory: (cat: ProductCategory) => void;
   onExploreCatalog: () => void;
+  onSelectProduct?: (product: Product) => void;
+  products?: Product[];
 }
 
 export const BoutiqueHero: React.FC<BoutiqueHeroProps> = ({
   onSelectCategory,
   onExploreCatalog,
+  onSelectProduct,
+  products = [],
 }) => {
   const [activeHighlight, setActiveHighlight] = useState(0);
 
@@ -203,7 +207,14 @@ export const BoutiqueHero: React.FC<BoutiqueHeroProps> = ({
 
             {/* Main Interactive Showcase Card */}
             <div 
-              onClick={() => onSelectCategory(current.category)}
+              onClick={() => {
+                const match = products.find((p) => p.category === current.category);
+                if (match && onSelectProduct) {
+                  onSelectProduct(match);
+                } else {
+                  onSelectCategory(current.category);
+                }
+              }}
               className="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-purple-200/90 shadow-2xl p-5 sm:p-6 transition-all duration-500 hover:border-purple-400 cursor-pointer group flex flex-col justify-between"
             >
               
@@ -235,7 +246,7 @@ export const BoutiqueHero: React.FC<BoutiqueHeroProps> = ({
 
                 {/* Interactive Click Hint */}
                 <div className="absolute bottom-3 right-3 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-purple-950 text-xs font-bold shadow-md flex items-center gap-1 group-hover:bg-purple-700 group-hover:text-white transition-colors">
-                  <span>Ver productos</span>
+                  <span>Ver fotos y descripción</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
@@ -251,7 +262,7 @@ export const BoutiqueHero: React.FC<BoutiqueHeroProps> = ({
               </div>
 
               {/* Showcase Selector Pills */}
-              <div className="grid grid-cols-4 gap-1.5 pt-4 mt-3 border-t border-purple-100">
+              <div className="grid grid-cols-5 gap-1 pt-4 mt-3 border-t border-purple-100">
                 {heroShowcases.map((item, idx) => {
                   const isActive = activeHighlight === idx;
                   const Icon = item.icon;
@@ -270,7 +281,7 @@ export const BoutiqueHero: React.FC<BoutiqueHeroProps> = ({
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5" />
-                      <span className="truncate max-w-[65px]">{item.title.split(' ')[0]}</span>
+                      <span className="truncate max-w-[60px]">{item.title.split(' ')[0]}</span>
                     </button>
                   );
                 })}

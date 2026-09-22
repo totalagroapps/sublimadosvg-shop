@@ -1,12 +1,18 @@
 import React from 'react';
 import { ArrowRight, Sparkles, Coffee, Shirt, Flame, BookOpen, Check } from 'lucide-react';
-import type { ProductCategory } from '../types';
+import type { ProductCategory, Product } from '../types';
 
 interface BentoCategoryGridProps {
   onSelectCategory: (cat: ProductCategory) => void;
+  onSelectProduct?: (product: Product) => void;
+  products?: Product[];
 }
 
-export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCategory }) => {
+export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({
+  onSelectCategory,
+  onSelectProduct,
+  products = [],
+}) => {
   return (
     <section className="py-10 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,6 +109,39 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
               </div>
             </div>
 
+            {/* Clickable Product Names */}
+            <div className="mt-4 pt-3 border-t border-purple-100">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-purple-900/80 block mb-2">
+                Productos disponibles (toca para ver fotos y descripción):
+              </span>
+              <div className="flex flex-col gap-1.5">
+                {products
+                  .filter((p) => p.category === 'mugs-magicos')
+                  .slice(0, 3)
+                  .map((p) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProduct?.(p);
+                      }}
+                      className="w-full flex items-center justify-between gap-2 p-2 rounded-xl bg-purple-50/80 hover:bg-pink-100/90 text-left transition-all border border-purple-200/70 group/item active:scale-[0.98]"
+                    >
+                      <div className="flex items-center gap-2 truncate">
+                        <span className="w-2 h-2 rounded-full bg-pink-500 shrink-0" />
+                        <span className="text-xs font-bold text-slate-800 group-hover/item:text-purple-900 truncate">
+                          {p.name}
+                        </span>
+                      </div>
+                      <span className="text-[11px] font-extrabold text-purple-900 shrink-0 bg-white/95 px-2 py-0.5 rounded-md border border-purple-200 shadow-sm">
+                        ${p.price.toLocaleString('es-CO')}
+                      </span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+
             <div className="mt-4 pt-3 border-t border-purple-100 flex items-center justify-between text-xs font-bold text-purple-800 group-hover:text-purple-950">
               <span>Explorar Mugs Mágicos</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -173,6 +212,38 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
               </div>
             </div>
 
+            {/* Clickable Product Names */}
+            <div className="mt-4 pt-3 border-t border-pink-100">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-pink-950/80 block mb-2">
+                Productos disponibles (toca para ver fotos y descripción):
+              </span>
+              <div className="flex flex-col gap-1.5">
+                {products
+                  .filter((p) => p.category === 'mugs-silicona')
+                  .map((p) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProduct?.(p);
+                      }}
+                      className="w-full flex items-center justify-between gap-2 p-2 rounded-xl bg-pink-50/80 hover:bg-purple-100/90 text-left transition-all border border-pink-200/70 group/item active:scale-[0.98]"
+                    >
+                      <div className="flex items-center gap-2 truncate">
+                        <span className="w-2 h-2 rounded-full bg-purple-600 shrink-0" />
+                        <span className="text-xs font-bold text-slate-800 group-hover/item:text-purple-900 truncate">
+                          {p.name}
+                        </span>
+                      </div>
+                      <span className="text-[11px] font-extrabold text-purple-900 shrink-0 bg-white/95 px-2 py-0.5 rounded-md border border-purple-200 shadow-sm">
+                        ${p.price.toLocaleString('es-CO')}
+                      </span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+
             <div className="mt-4 pt-3 border-t border-purple-100 flex items-center justify-between text-xs font-bold text-pink-700 group-hover:text-pink-900">
               <span>Ver Mugs Tapa de Silicona</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -217,6 +288,36 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
               </div>
             </div>
 
+            {/* Clickable Product Names */}
+            <div className="mt-3 pt-2.5 border-t border-purple-100">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-pink-900/80 block mb-1.5">
+                Modelos destacados:
+              </span>
+              <div className="flex flex-col gap-1.5">
+                {products
+                  .filter((p) => p.category === 'camisetas')
+                  .slice(0, 3)
+                  .map((p) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProduct?.(p);
+                      }}
+                      className="w-full flex items-center justify-between gap-2 p-1.5 rounded-lg bg-purple-50/80 hover:bg-pink-100/90 text-left transition-all border border-purple-200/70 group/item active:scale-[0.98]"
+                    >
+                      <span className="text-xs font-bold text-slate-800 group-hover/item:text-purple-900 truncate">
+                        {p.name}
+                      </span>
+                      <span className="text-[10px] font-extrabold text-purple-900 shrink-0 bg-white px-1.5 py-0.5 rounded border border-purple-200 shadow-sm">
+                        ${p.price.toLocaleString('es-CO')}
+                      </span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+
             <div className="mt-4 pt-3 border-t border-purple-100 flex items-center justify-between text-xs font-bold text-pink-700 group-hover:text-pink-900">
               <span>Ver Camisetas Familiares</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -224,7 +325,7 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
           </div>
 
           {/* ========================================================== */}
-          {/* CARD 3: TERMOS INTELIGENTES (Tecnológico, span 4)          */}
+          {/* CARD 4: TERMOS INTELIGENTES (Tecnológico, span 4)          */}
           {/* ========================================================== */}
           <div
             onClick={() => onSelectCategory('termos')}
@@ -258,6 +359,36 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
               </div>
             </div>
 
+            {/* Clickable Product Names */}
+            <div className="mt-3 pt-2.5 border-t border-purple-100">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-purple-900/80 block mb-1.5">
+                Modelos destacados:
+              </span>
+              <div className="flex flex-col gap-1.5">
+                {products
+                  .filter((p) => p.category === 'termos')
+                  .slice(0, 3)
+                  .map((p) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProduct?.(p);
+                      }}
+                      className="w-full flex items-center justify-between gap-2 p-1.5 rounded-lg bg-purple-50/80 hover:bg-pink-100/90 text-left transition-all border border-purple-200/70 group/item active:scale-[0.98]"
+                    >
+                      <span className="text-xs font-bold text-slate-800 group-hover/item:text-purple-900 truncate">
+                        {p.name}
+                      </span>
+                      <span className="text-[10px] font-extrabold text-purple-900 shrink-0 bg-white px-1.5 py-0.5 rounded border border-purple-200 shadow-sm">
+                        ${p.price.toLocaleString('es-CO')}
+                      </span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+
             <div className="mt-4 pt-3 border-t border-purple-100 flex items-center justify-between text-xs font-bold text-purple-800">
               <span>Ver Termos Inteligentes</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -265,7 +396,7 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
           </div>
 
           {/* ========================================================== */}
-          {/* CARD 4: MUGS TRADICIONALES (span 4)                        */}
+          {/* CARD 5: MUGS TRADICIONALES (span 4)                        */}
           {/* ========================================================== */}
           <div
             onClick={() => onSelectCategory('mugs-tradicionales')}
@@ -299,6 +430,36 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
               </div>
             </div>
 
+            {/* Clickable Product Names */}
+            <div className="mt-3 pt-2.5 border-t border-rose-100">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-rose-950/80 block mb-1.5">
+                Modelos destacados:
+              </span>
+              <div className="flex flex-col gap-1.5">
+                {products
+                  .filter((p) => p.category === 'mugs-tradicionales')
+                  .slice(0, 3)
+                  .map((p) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProduct?.(p);
+                      }}
+                      className="w-full flex items-center justify-between gap-2 p-1.5 rounded-lg bg-rose-50/80 hover:bg-purple-100/90 text-left transition-all border border-rose-200/70 group/item active:scale-[0.98]"
+                    >
+                      <span className="text-xs font-bold text-slate-800 group-hover/item:text-rose-950 truncate">
+                        {p.name}
+                      </span>
+                      <span className="text-[10px] font-extrabold text-purple-900 shrink-0 bg-white px-1.5 py-0.5 rounded border border-rose-200 shadow-sm">
+                        ${p.price.toLocaleString('es-CO')}
+                      </span>
+                    </button>
+                  ))}
+              </div>
+            </div>
+
             <div className="mt-4 pt-3 border-t border-purple-100 flex items-center justify-between text-xs font-bold text-rose-700">
               <span>Ver Mugs Tradicionales</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
@@ -306,7 +467,7 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
           </div>
 
           {/* ========================================================== */}
-          {/* CARD 5: AGENDAS, COJINES & REGALOS (span 4)                */}
+          {/* CARD 6: AGENDAS, COJINES & REGALOS (span 4)                */}
           {/* ========================================================== */}
           <div
             onClick={() => onSelectCategory('agendas')}
@@ -337,6 +498,36 @@ export const BentoCategoryGrid: React.FC<BentoCategoryGridProps> = ({ onSelectCa
                   alt="Agendas personalizadas"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+              </div>
+            </div>
+
+            {/* Clickable Product Names */}
+            <div className="mt-3 pt-2.5 border-t border-purple-100">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-purple-900/80 block mb-1.5">
+                Modelos destacados:
+              </span>
+              <div className="flex flex-col gap-1.5">
+                {products
+                  .filter((p) => ['agendas', 'cojines', 'rompecabezas', 'regalos'].includes(p.category))
+                  .slice(0, 3)
+                  .map((p) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProduct?.(p);
+                      }}
+                      className="w-full flex items-center justify-between gap-2 p-1.5 rounded-lg bg-purple-50/80 hover:bg-pink-100/90 text-left transition-all border border-purple-200/70 group/item active:scale-[0.98]"
+                    >
+                      <span className="text-xs font-bold text-slate-800 group-hover/item:text-purple-900 truncate">
+                        {p.name}
+                      </span>
+                      <span className="text-[10px] font-extrabold text-purple-900 shrink-0 bg-white px-1.5 py-0.5 rounded border border-purple-200 shadow-sm">
+                        ${p.price.toLocaleString('es-CO')}
+                      </span>
+                    </button>
+                  ))}
               </div>
             </div>
 
