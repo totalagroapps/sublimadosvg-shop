@@ -5,7 +5,7 @@ import { INITIAL_PRODUCTS } from './data/products';
 import { Navbar } from './components/Navbar';
 import { MarqueeTicker } from './components/MarqueeTicker';
 import { CategoryBubbles } from './components/CategoryBubbles';
-import { TopCatalogBanner } from './components/TopCatalogBanner';
+import { MainTopHeroBanner } from './components/MainTopHeroBanner';
 import { HeroCarousel } from './components/HeroCarousel';
 import { HeroDescriptionSection } from './components/HeroDescriptionSection';
 import { EditorialWorkshopStory } from './components/EditorialWorkshopStory';
@@ -333,8 +333,8 @@ export function App() {
           /* EDITORIAL BOUTIQUE HOME PAGE WITH CINEMATIC FILM REEL    */
           /* ======================================================== */
           <>
-            {/* 1. Botón llamativo de Catálogo al principio de la página */}
-            <TopCatalogBanner
+            {/* 1. Banner Principal de Personalizados con Imágenes y Botón de Catálogo */}
+            <MainTopHeroBanner
               onOpenCatalog={handleOpenCatalog}
             />
 
