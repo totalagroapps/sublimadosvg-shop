@@ -27,7 +27,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
     'prod-camiseta-ajolote-cumple',
     'prod-agenda-planifica-fe',
     'prod-mug-tapa-silicona-blanco',
-    'prod-rompecabezas-corazon',
+    'prod-rompecabezas-a4',
     'prod-cojin-familia-amor',
     'prod-termo-mascotas',
   ];
