@@ -76,7 +76,10 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
                       href={`#producto-${p.id}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={() => onClose()}
+                      onClick={() => {
+                        onCustomizeProduct(p);
+                        onClose();
+                      }}
                       className="hover:text-purple-700 hover:underline"
                     >
                       {p.name}
@@ -91,6 +94,7 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => {
+                        onCustomizeProduct(p);
                         onClose();
                       }}
                       className="px-2.5 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-[11px] font-bold transition-colors flex items-center gap-1 shadow-sm"
