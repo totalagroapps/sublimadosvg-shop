@@ -121,10 +121,7 @@ export const CinematicFilmReel: React.FC<CinematicFilmReelProps> = ({
               href="#catalogo"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => {
-                // If user wants to open catalog in another page or switch
-                onOpenCatalog();
-              }}
+              onClick={() => onOpenCatalog()}
               className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 hover:from-purple-800 hover:to-pink-700 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all active:scale-95 group"
             >
               <Grid className="w-4 h-4 text-pink-200 group-hover:rotate-12 transition-transform" />
@@ -305,9 +302,7 @@ export const CinematicFilmReel: React.FC<CinematicFilmReelProps> = ({
             href="#catalogo"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => {
-              onOpenCatalog();
-            }}
+            onClick={() => onOpenCatalog()}
             className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 hover:from-purple-800 hover:to-pink-700 text-white font-black text-sm sm:text-base shadow-lg shadow-purple-500/25 hover:scale-105 active:scale-95 transition-all group shrink-0"
           >
             <Grid className="w-5 h-5 text-pink-200 group-hover:rotate-12 transition-transform" />
