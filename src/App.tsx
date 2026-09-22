@@ -5,8 +5,8 @@ import { INITIAL_PRODUCTS } from './data/products';
 import { Navbar } from './components/Navbar';
 import { MarqueeTicker } from './components/MarqueeTicker';
 import { CategoryBubbles } from './components/CategoryBubbles';
-import { EditorialLookbookHero } from './components/EditorialLookbookHero';
-import { CinematicFilmReel } from './components/CinematicFilmReel';
+import { HeroCarousel } from './components/HeroCarousel';
+import { HeroDescriptionSection } from './components/HeroDescriptionSection';
 import { EditorialWorkshopStory } from './components/EditorialWorkshopStory';
 import { MagicFeatureShowcase } from './components/MagicFeatureShowcase';
 import { HowItWorksSteps } from './components/HowItWorksSteps';
@@ -332,17 +332,14 @@ export function App() {
           /* EDITORIAL BOUTIQUE HOME PAGE WITH CINEMATIC FILM REEL    */
           /* ======================================================== */
           <>
-            {/* 1. Lookbook Editorial Hero con Botón a Catálogo de Personalizados */}
-            <EditorialLookbookHero
+            {/* 1. Carrusel de productos al inicio de la página */}
+            <HeroCarousel
               products={products}
               onSelectProduct={handleOpenProduct}
-              onExploreProducts={handleOpenCatalog}
             />
 
-            {/* 2. Rollo Cinematográfico 35mm / Película Horizontal con Avance y Botón de Catálogo */}
-            <CinematicFilmReel
-              products={products}
-              onSelectProduct={handleOpenProduct}
+            {/* 2. Descripción de la tienda y botón Ver catálogo de personalizados */}
+            <HeroDescriptionSection
               onOpenCatalog={handleOpenCatalog}
             />
 
