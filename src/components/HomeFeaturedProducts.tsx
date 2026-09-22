@@ -70,7 +70,7 @@ export const HomeFeaturedProducts: React.FC<HomeFeaturedProductsProps> = ({
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-700 mt-2 leading-relaxed">
-            Haz clic en el nombre o foto de cualquiera de los productos para ver sus <strong>imágenes reales</strong>, <strong>descripción completa</strong>, características y opciones para estampar con tus fotos o dedicatorias.
+            Haz clic en el nombre o foto de cualquiera de los productos para abrirlo en otra página con sus <strong>imágenes reales</strong>, <strong>descripción completa</strong>, características y opciones para estampar con tus fotos o dedicatorias.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export const HomeFeaturedProducts: React.FC<HomeFeaturedProductsProps> = ({
           <div className="flex items-center gap-2 text-xs text-purple-950 font-bold bg-white/80 backdrop-blur-sm px-3.5 py-1.5 rounded-xl border border-purple-200 shadow-sm">
             <Eye className="w-3.5 h-3.5 text-pink-500" />
             <span>
-              Mostrando {displayedProducts.length} producto{displayedProducts.length !== 1 ? 's' : ''} — Toca cualquier producto para ver su información completa
+              Mostrando {displayedProducts.length} producto{displayedProducts.length !== 1 ? 's' : ''} — Toca cualquier producto para abrirlo en otra página
             </span>
           </div>
 

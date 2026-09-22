@@ -90,10 +90,13 @@ export const EditorialCollectionSlider: React.FC<EditorialCollectionSliderProps>
           {collectionProducts.map((product, index) => {
             const serialNumber = String(index + 1).padStart(2, '0');
             return (
-              <div
+              <a
                 key={product.id}
+                href={`#producto-${product.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => onSelectProduct(product)}
-                className="w-72 sm:w-80 shrink-0 snap-start bg-white/95 backdrop-blur-md rounded-3xl border-2 border-purple-200/90 overflow-hidden shadow-card hover:shadow-2xl hover:border-purple-400 hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col justify-between group"
+                className="w-72 sm:w-80 shrink-0 snap-start bg-white/95 backdrop-blur-md rounded-3xl border-2 border-purple-200/90 overflow-hidden shadow-card hover:shadow-2xl hover:border-purple-400 hover:scale-[1.02] transition-all duration-300 cursor-pointer flex flex-col justify-between group text-slate-800"
               >
                 {/* Photo Top Container */}
                 <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
@@ -158,7 +161,7 @@ export const EditorialCollectionSlider: React.FC<EditorialCollectionSliderProps>
                     </span>
                   </div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>

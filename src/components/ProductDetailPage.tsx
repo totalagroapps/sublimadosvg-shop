@@ -32,6 +32,7 @@ interface ProductDetailPageProps {
   onBack: () => void;
   onSelectCategory: (category: ProductCategory) => void;
   onSelectProduct: (product: Product) => void;
+  onGoHome?: () => void;
 }
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
@@ -43,6 +44,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   onBack,
   onSelectCategory,
   onSelectProduct,
+  onGoHome,
 }) => {
   // State for customization options
   const [selectedSize, setSelectedSize] = useState<string | undefined>(
@@ -64,7 +66,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   React.useEffect(() => {
     setSelectedGalleryImage(product.image);
     setActiveImageTab('product');
-  }, [product.id, product.image]);
+    const prevTitle = document.title;
+    document.title = `${product.name} | VG Personalizados Pereira`;
+    return () => {
+      document.title = prevTitle;
+    };
+  }, [product.id, product.image, product.name]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -206,7 +213,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           {/* Breadcrumbs */}
           <nav className="hidden sm:flex items-center gap-2 text-xs font-medium text-slate-600 bg-white/70 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-purple-100">
             <button
-              onClick={onBack}
+              onClick={onGoHome || onBack}
               className="hover:text-purple-700 transition-colors"
             >
               Inicio
@@ -821,10 +828,13 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {relatedProducts.map((relProduct) => (
-              <div
+              <a
                 key={relProduct.id}
+                href={`#producto-${relProduct.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => onSelectProduct(relProduct)}
-                className="bg-white/95 rounded-3xl border border-purple-200/90 overflow-hidden shadow-card hover:shadow-soft hover:border-purple-400 hover:scale-[1.02] transition-all cursor-pointer p-3 flex flex-col justify-between group"
+                className="bg-white/95 rounded-3xl border border-purple-200/90 overflow-hidden shadow-card hover:shadow-soft hover:border-purple-400 hover:scale-[1.02] transition-all cursor-pointer p-3 flex flex-col justify-between group text-slate-800"
               >
                 <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-50 mb-3">
                   <img
@@ -860,7 +870,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     </span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

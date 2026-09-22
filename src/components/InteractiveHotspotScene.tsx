@@ -129,22 +129,30 @@ export const InteractiveHotspotScene: React.FC<InteractiveHotspotSceneProps> = (
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-500/30 rounded-full blur-3xl pointer-events-none" />
 
             {/* Stage Central Composition with current product image */}
-            <div className="relative z-10 w-full max-w-sm sm:max-w-md aspect-square rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40">
+            <a
+              href={`#producto-${activeProduct.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => onSelectProduct(activeProduct)}
+              className="relative z-10 w-full max-w-sm sm:max-w-md aspect-square rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl bg-black/40 group/stage block"
+              title={`Ver ${activeProduct.name} en otra página`}
+            >
               <img
                 src={activeProduct.image}
                 alt={activeProduct.name}
-                className="w-full h-full object-cover transition-all duration-700 animate-fadeIn"
+                className="w-full h-full object-cover transition-all duration-700 animate-fadeIn group-hover/stage:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-pink-300 block mb-1">
-                  Pieza en exhibición
+                  Pieza en exhibición · Toca para abrir
                 </span>
-                <h4 className="font-heading font-extrabold text-base sm:text-lg leading-tight drop-shadow">
-                  {activeProduct.name}
+                <h4 className="font-heading font-extrabold text-base sm:text-lg leading-tight drop-shadow flex items-center justify-between">
+                  <span>{activeProduct.name}</span>
+                  <ArrowRight className="w-4 h-4 text-pink-400 group-hover/stage:translate-x-1 transition-transform" />
                 </h4>
               </div>
-            </div>
+            </a>
 
             {/* Hotspots Positioned Over Stage */}
             {hotspots.map((h) => {
@@ -232,16 +240,18 @@ export const InteractiveHotspotScene: React.FC<InteractiveHotspotSceneProps> = (
                 </div>
               </div>
 
-              {/* Action Button: Opens dedicated product page */}
+              {/* Action Button: Opens dedicated product page in new tab */}
               <div className="pt-4 border-t border-purple-100">
-                <button
-                  type="button"
+                <a
+                  href={`#producto-${activeProduct.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => onSelectProduct(activeProduct)}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 hover:from-purple-800 hover:to-pink-700 text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all active:scale-95 group"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 hover:from-purple-800 hover:to-pink-700 text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all active:scale-95 group text-center"
                 >
                   <span>Ver Fotos en Detalle &amp; Personalizar</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
-                </button>
+                </a>
               </div>
 
             </div>

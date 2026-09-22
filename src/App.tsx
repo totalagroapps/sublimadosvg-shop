@@ -23,9 +23,51 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
 export function App() {
   const [products] = useState<Product[]>(INITIAL_PRODUCTS);
-  const [viewMode, setViewMode] = useState<'home' | 'catalog' | 'product'>('home');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<ProductCategory>('camisetas');
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(() => {
+    try {
+      const hash = window.location.hash;
+      if (hash.startsWith('#producto-')) {
+        const prodId = hash.replace('#producto-', '');
+        return INITIAL_PRODUCTS.find((p) => p.id === prodId) || null;
+      }
+    } catch {
+      // fallback
+    }
+    return null;
+  });
+
+  const [selectedCategory, setSelectedCategory] = useState<ProductCategory>(() => {
+    try {
+      const hash = window.location.hash;
+      if (hash.startsWith('#producto-')) {
+        const prodId = hash.replace('#producto-', '');
+        const found = INITIAL_PRODUCTS.find((p) => p.id === prodId);
+        if (found) return found.category;
+      } else if (hash.startsWith('#categoria-')) {
+        return hash.replace('#categoria-', '') as ProductCategory;
+      }
+    } catch {
+      // fallback
+    }
+    return 'camisetas';
+  });
+
+  const [viewMode, setViewMode] = useState<'home' | 'catalog' | 'product'>(() => {
+    try {
+      const hash = window.location.hash;
+      if (hash.startsWith('#producto-')) {
+        const prodId = hash.replace('#producto-', '');
+        const found = INITIAL_PRODUCTS.find((p) => p.id === prodId);
+        if (found) return 'product';
+      } else if (hash.startsWith('#categoria-') || hash === '#catalogo') {
+        return 'catalog';
+      }
+    } catch {
+      // fallback
+    }
+    return 'home';
+  });
+
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState<boolean>(false);
@@ -83,6 +125,7 @@ export function App() {
         const found = products.find((p) => p.id === prodId);
         if (found) {
           setSelectedProduct(found);
+          setSelectedCategory(found.category);
           setViewMode('product');
           return;
         }
@@ -164,12 +207,19 @@ export function App() {
 
   const isViewingCatalog = viewMode === 'catalog' || searchQuery.trim().length > 0;
 
-  // Open product detail page
+  // Open product detail page in a separate page (new tab)
   const handleOpenProduct = (product: Product) => {
-    setSelectedProduct(product);
-    setViewMode('product');
-    window.location.hash = `producto-${product.id}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const targetUrl = `${window.location.origin}${window.location.pathname}#producto-${product.id}`;
+    const newWindow = window.open(targetUrl, '_blank', 'noopener,noreferrer');
+
+    // Fallback if browser popup blocker interferes: open in current tab
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      setSelectedProduct(product);
+      setSelectedCategory(product.category);
+      setViewMode('product');
+      window.location.hash = `producto-${product.id}`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleSelectCategory = (cat: ProductCategory) => {
@@ -190,8 +240,8 @@ export function App() {
 
   const handleBackFromProduct = () => {
     setSelectedProduct(null);
-    setViewMode('catalog');
-    window.location.hash = `categoria-${selectedCategory}`;
+    setViewMode('home');
+    window.location.hash = '';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -248,6 +298,7 @@ export function App() {
             onBack={handleBackFromProduct}
             onSelectCategory={handleSelectCategory}
             onSelectProduct={handleOpenProduct}
+            onGoHome={handleGoHome}
           />
         ) : isViewingCatalog ? (
           /* ======================================================== */

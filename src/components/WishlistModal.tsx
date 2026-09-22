@@ -72,22 +72,32 @@ export const WishlistModal: React.FC<WishlistModalProps> = ({
                 />
                 <div className="flex-1 min-w-0">
                   <h4 className="font-heading font-bold text-xs sm:text-sm text-slate-900 truncate">
-                    {p.name}
+                    <a
+                      href={`#producto-${p.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => onClose()}
+                      className="hover:text-purple-700 hover:underline"
+                    >
+                      {p.name}
+                    </a>
                   </h4>
                   <div className="text-xs font-extrabold text-rose-600 mt-0.5">
                     {formatPrice(p.price)}
                   </div>
                   <div className="flex items-center gap-2 mt-2">
-                    <button
+                    <a
+                      href={`#producto-${p.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => {
-                        onCustomizeProduct(p);
                         onClose();
                       }}
                       className="px-2.5 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white text-[11px] font-bold transition-colors flex items-center gap-1 shadow-sm"
                     >
                       <Sparkles className="w-3 h-3 text-purple-200" />
                       <span>Personalizar</span>
-                    </button>
+                    </a>
                     <a
                       href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(`¡Hola VG Personalizados! Tengo en mis favoritos el producto: *${p.name}* a ${formatPrice(p.price)}. ¿Cómo acordamos el diseño?`)}`}
                       target="_blank"

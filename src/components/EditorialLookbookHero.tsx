@@ -127,9 +127,12 @@ export const EditorialLookbookHero: React.FC<EditorialLookbookHeroProps> = ({
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Card 1: Main Star Piece (Mug Silicona con Asa Corazón) */}
-              <div
+              <a
+                href={`#producto-${mugSilicona?.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => mugSilicona && onSelectProduct(mugSilicona)}
-                className="relative bg-white/95 backdrop-blur-md rounded-3xl p-5 sm:p-6 border-2 border-purple-300 shadow-2xl hover:border-pink-400 hover:shadow-soft transition-all duration-300 cursor-pointer group"
+                className="block relative bg-white/95 backdrop-blur-md rounded-3xl p-5 sm:p-6 border-2 border-purple-300 shadow-2xl hover:border-pink-400 hover:shadow-soft transition-all duration-300 cursor-pointer group text-slate-800"
               >
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <span className="px-3 py-1 rounded-full bg-pink-100 text-pink-900 text-xs font-black uppercase tracking-wider border border-pink-200">
@@ -165,12 +168,15 @@ export const EditorialLookbookHero: React.FC<EditorialLookbookHeroProps> = ({
                     <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
-              </div>
+              </a>
 
               {/* Card 2: Floating Satellite (Termo Inteligente LED) */}
-              <div
+              <a
+                href={`#producto-${termoPapa?.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => termoPapa && onSelectProduct(termoPapa)}
-                className="hidden sm:flex items-center gap-3 absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border-2 border-purple-200 shadow-xl hover:scale-105 transition-all cursor-pointer group max-w-xs"
+                className="hidden sm:flex items-center gap-3 absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border-2 border-purple-200 shadow-xl hover:scale-105 transition-all cursor-pointer group max-w-xs text-slate-800"
               >
                 <div className="w-14 h-14 rounded-xl overflow-hidden bg-slate-100 shrink-0 border border-purple-100 shadow-sm">
                   <img
@@ -189,12 +195,15 @@ export const EditorialLookbookHero: React.FC<EditorialLookbookHeroProps> = ({
                   </h4>
                   <span className="text-xs font-black text-purple-900">$35.000 COP</span>
                 </div>
-              </div>
+              </a>
 
               {/* Card 3: Floating Satellite (Mug Mágico Revelador) */}
-              <div
+              <a
+                href={`#producto-${mugMagico?.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => mugMagico && onSelectProduct(mugMagico)}
-                className="hidden sm:flex items-center gap-3 absolute -top-6 -right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border-2 border-purple-200 shadow-xl hover:scale-105 transition-all cursor-pointer group max-w-xs"
+                className="hidden sm:flex items-center gap-3 absolute -top-6 -right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border-2 border-purple-200 shadow-xl hover:scale-105 transition-all cursor-pointer group max-w-xs text-slate-800"
               >
                 <div className="w-14 h-14 rounded-xl overflow-hidden bg-slate-100 shrink-0 border border-purple-100 shadow-sm">
                   <img
@@ -213,7 +222,7 @@ export const EditorialLookbookHero: React.FC<EditorialLookbookHeroProps> = ({
                   </h4>
                   <span className="text-xs font-black text-purple-900">$25.000 COP</span>
                 </div>
-              </div>
+              </a>
 
             </div>
           </div>

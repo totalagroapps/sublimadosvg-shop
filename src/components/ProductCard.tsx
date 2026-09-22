@@ -105,11 +105,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           {/* Product Title */}
-          <h3 
-            onClick={() => onCustomize(product)}
-            className="font-heading font-bold text-sm text-slate-900 group-hover:text-purple-800 transition-colors cursor-pointer leading-snug"
-          >
-            {product.name}
+          <h3 className="font-heading font-bold text-sm text-slate-900 group-hover:text-purple-800 transition-colors leading-snug">
+            <a
+              href={`#producto-${product.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              className="hover:underline"
+            >
+              {product.name}
+            </a>
           </h3>
 
           {/* Product Description */}
@@ -148,13 +155,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
           {/* Dual Action Buttons */}
           <div className="grid grid-cols-2 gap-1.5">
-            <button
-              onClick={() => onCustomize(product)}
-              className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold text-xs shadow-sm shadow-purple-500/20 transition-all flex items-center justify-center gap-1 active:scale-95"
+            <a
+              href={`#producto-${product.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              className="py-2.5 px-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold text-xs shadow-sm shadow-purple-500/20 transition-all flex items-center justify-center gap-1 active:scale-95 text-center"
             >
               <Sparkles className="w-3.5 h-3.5 text-purple-200" />
               <span>Ver & Personalizar</span>
-            </button>
+            </a>
 
             <button
               onClick={handleQuickWhatsApp}
