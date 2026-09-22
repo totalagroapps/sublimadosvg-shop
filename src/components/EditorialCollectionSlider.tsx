@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Sparkles, ArrowRight, ChevronLeft, ChevronRight, Heart, Eye } from 'lucide-react';
+import { Sparkles, ArrowRight, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 import type { Product } from '../types';
 import { formatPrice } from '../data/products';
 

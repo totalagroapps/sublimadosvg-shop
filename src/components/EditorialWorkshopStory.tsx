@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, MapPin, CheckCircle2, MessageCircle, Heart, ShieldCheck, Truck } from 'lucide-react';
+import { MapPin, CheckCircle2, MessageCircle, ShieldCheck, Truck } from 'lucide-react';
 import { STORE_CONFIG } from '../data/products';
 
 export const EditorialWorkshopStory: React.FC = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Sparkles, ArrowRight, MessageCircle, Heart, Star, ShieldCheck, Coffee, Flame } from 'lucide-react';
-import type { Product, ProductCategory } from '../types';
+import { Sparkles, ArrowRight, MessageCircle, Heart, Flame } from 'lucide-react';
+import type { Product } from '../types';
 import { STORE_CONFIG } from '../data/products';
 
 interface EditorialLookbookHeroProps {

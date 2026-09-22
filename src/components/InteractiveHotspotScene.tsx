@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, ArrowRight, Plus, Check, Heart, Flame, Coffee, Shirt, BookOpen } from 'lucide-react';
+import { Sparkles, ArrowRight, Plus, Check, Heart, Flame, Shirt, BookOpen } from 'lucide-react';
 import type { Product } from '../types';
 
 interface InteractiveHotspotSceneProps {
