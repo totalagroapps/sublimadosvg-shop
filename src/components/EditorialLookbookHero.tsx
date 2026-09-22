@@ -75,14 +75,16 @@ export const EditorialLookbookHero: React.FC<EditorialLookbookHeroProps> = ({
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
-              <button
-                type="button"
+              <a
+                href="#catalogo"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={onExploreProducts}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 hover:from-purple-800 hover:to-pink-700 text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all active:scale-95 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 hover:from-purple-800 hover:to-pink-700 text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all active:scale-95 group text-center"
               >
-                <span>Ver Colección & Productos</span>
+                <span>Ver catálogo de personalizados</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
 
               <button
                 type="button"

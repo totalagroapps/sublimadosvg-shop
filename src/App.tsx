@@ -6,8 +6,7 @@ import { Navbar } from './components/Navbar';
 import { MarqueeTicker } from './components/MarqueeTicker';
 import { CategoryBubbles } from './components/CategoryBubbles';
 import { EditorialLookbookHero } from './components/EditorialLookbookHero';
-import { InteractiveHotspotScene } from './components/InteractiveHotspotScene';
-import { EditorialCollectionSlider } from './components/EditorialCollectionSlider';
+import { CinematicFilmReel } from './components/CinematicFilmReel';
 import { EditorialWorkshopStory } from './components/EditorialWorkshopStory';
 import { MagicFeatureShowcase } from './components/MagicFeatureShowcase';
 import { HowItWorksSteps } from './components/HowItWorksSteps';
@@ -15,7 +14,6 @@ import { TrustBar } from './components/TrustBar';
 import { CustomIdeaBanner } from './components/CustomIdeaBanner';
 import { ProductGrid } from './components/ProductGrid';
 import { ProductDetailPage } from './components/ProductDetailPage';
-import { HomeFeaturedProducts } from './components/HomeFeaturedProducts';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { WishlistModal } from './components/WishlistModal';
@@ -230,6 +228,20 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleOpenCatalog = () => {
+    const catalogUrl = `${window.location.origin}${window.location.pathname}#catalogo`;
+    const newWindow = window.open(catalogUrl, '_blank', 'noopener,noreferrer');
+
+    // Fallback if browser popup blocker interferes: open in current tab
+    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+      setSelectedProduct(null);
+      setSelectedCategory('todos');
+      setViewMode('catalog');
+      window.location.hash = 'catalogo';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const handleGoHome = () => {
     setViewMode('home');
     setSelectedProduct(null);
@@ -302,7 +314,7 @@ export function App() {
           />
         ) : isViewingCatalog ? (
           /* ======================================================== */
-          /* CATEGORY PRODUCTS VIEW (When a category is clicked)     */
+          /* CATEGORY PRODUCTS VIEW (When catalog or category opened) */
           /* ======================================================== */
           <ProductGrid
             products={filteredProducts}
@@ -317,64 +329,42 @@ export function App() {
           />
         ) : (
           /* ======================================================== */
-          /* ORIGINAL BOUTIQUE HOME PAGE                              */
+          /* EDITORIAL BOUTIQUE HOME PAGE WITH CINEMATIC FILM REEL    */
           /* ======================================================== */
           <>
-            {/* 1. Lookbook Editorial Hero con Composición Asimétrica */}
+            {/* 1. Lookbook Editorial Hero con Botón a Catálogo de Personalizados */}
             <EditorialLookbookHero
               products={products}
               onSelectProduct={handleOpenProduct}
-              onExploreProducts={() => {
-                const el = document.getElementById('productos-inicio');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onExploreProducts={handleOpenCatalog}
             />
 
-            {/* 2. Escena Interactiva con Puntos Mágicos (Hotspots) */}
-            <InteractiveHotspotScene
+            {/* 2. Rollo Cinematográfico 35mm / Película Horizontal con Avance y Botón de Catálogo */}
+            <CinematicFilmReel
               products={products}
               onSelectProduct={handleOpenProduct}
+              onOpenCatalog={handleOpenCatalog}
             />
 
-            {/* 3. Pasarela de Colección Numerada (#01 - #10) */}
-            <EditorialCollectionSlider
-              products={products}
-              onSelectProduct={handleOpenProduct}
-            />
-
-            {/* 4. Catálogo de Productos con Nombres, Fotos y Descripciones en la Página Principal */}
-            <HomeFeaturedProducts
-              products={products}
-              onSelectProduct={handleOpenProduct}
-              onSelectCategory={handleSelectCategory}
-              onViewAllCatalog={() => {
-                setViewMode('catalog');
-                window.location.hash = 'catalogo';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              wishlistIds={wishlistIds}
-              onToggleWishlist={handleToggleWishlist}
-            />
-
-            {/* 5. Demostración Interactiva del Efecto Térmico (Mug Mágico & Termo LED) */}
+            {/* 3. Demostración Interactiva del Efecto Térmico (Mug Mágico & Termo LED) */}
             <MagicFeatureShowcase
               onSelectCategory={handleSelectCategory}
             />
 
-            {/* 6. El Manifiesto y Credenciales del Taller en Pereira */}
+            {/* 4. El Manifiesto y Credenciales del Taller en Pereira */}
             <EditorialWorkshopStory />
 
-            {/* 7. Cómo Funciona la Magia en 3 Pasos */}
+            {/* 5. Cómo Funciona la Magia en 3 Pasos */}
             <HowItWorksSteps />
 
-            {/* 8. Interactive Callout: Cotizar / Diseñar desde Cero */}
+            {/* 6. Interactive Callout: Cotizar / Diseñar desde Cero */}
             <CustomIdeaBanner
               onOpenCustomizer={() => {
                 if (products.length > 0) handleOpenProduct(products[0]);
               }}
             />
 
-            {/* 9. Boutique Trust Bar */}
+            {/* 7. Boutique Trust Bar */}
             <TrustBar />
           </>
         )}
