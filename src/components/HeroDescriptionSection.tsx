@@ -106,7 +106,7 @@ export const HeroDescriptionSection: React.FC<HeroDescriptionSectionProps> = ({
           {/* Primary Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
             
-            {/* The Main Requested Button: "Ver catálogo de personalizados" */}
+            {/* The Main Requested Button: "Ver catálogo de productos personalizados" */}
             <a
               href="#catalogo"
               target="_blank"
@@ -115,7 +115,7 @@ export const HeroDescriptionSection: React.FC<HeroDescriptionSectionProps> = ({
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 sm:py-4.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-pink-600 hover:from-purple-800 hover:to-pink-700 text-white font-extrabold text-base sm:text-lg shadow-xl hover:shadow-2xl hover:scale-[1.03] active:scale-95 transition-all text-center group cursor-pointer"
             >
               <Grid className="w-5 h-5 text-pink-200 group-hover:rotate-12 transition-transform" />
-              <span>Ver catálogo de personalizados</span>
+              <span>Ver catálogo de productos personalizados</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
 
@@ -132,7 +132,7 @@ export const HeroDescriptionSection: React.FC<HeroDescriptionSectionProps> = ({
           </div>
 
           <p className="text-[11px] sm:text-xs text-slate-500 mt-4">
-            ✨ Al pulsar <strong>Ver catálogo de personalizados</strong> se abrirá la vista organizada por categorías en otra pestaña para que explores cómodamente.
+            ✨ Al pulsar <strong>Ver catálogo de productos personalizados</strong> se abrirá la vista organizada por categorías en otra pestaña para que explores cómodamente.
           </p>
 
         </div>

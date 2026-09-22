@@ -10,7 +10,7 @@ export const TopCatalogBanner: React.FC<TopCatalogBannerProps> = ({
 }) => {
   return (
     <section
-      aria-label="Acceso Directo al Catálogo de Personalizados"
+      aria-label="Acceso Directo al Catálogo de Productos Personalizados"
       className="pt-5 sm:pt-7 pb-2 px-4 max-w-5xl mx-auto text-center"
     >
       <div className="inline-block relative group">
@@ -28,7 +28,7 @@ export const TopCatalogBanner: React.FC<TopCatalogBannerProps> = ({
           <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-300 animate-spin" style={{ animationDuration: '4s' }} />
           <Grid className="w-5 h-5 sm:w-6 sm:h-6 text-pink-200 group-hover:rotate-12 transition-transform" />
           <span className="tracking-wide uppercase sm:normal-case font-heading font-extrabold">
-            Ver Catálogo de Personalizados
+            Ver Catálogo de Productos Personalizados
           </span>
           <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:translate-x-1.5 transition-transform" />
         </a>
