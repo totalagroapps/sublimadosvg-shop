@@ -55,31 +55,31 @@ export const MainTopHeroBanner: React.FC<MainTopHeroBannerProps> = ({
         </a>
       </div>
 
-      {/* Translucent Glassmorphic Action Ribbon */}
+      {/* Translucent Glassmorphic Action Ribbon with Brand Colors */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 mt-3 sm:mt-5">
-        <div className="p-3 sm:p-4 rounded-2xl sm:rounded-full bg-white/85 backdrop-blur-md border border-purple-200/90 shadow-lg flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
+        <div className="p-3.5 sm:p-4 rounded-2xl sm:rounded-full bg-gradient-to-r from-[#4a044e]/95 via-[#581c87]/95 via-[#6b21a8]/95 to-[#4a044e]/95 backdrop-blur-xl border-2 border-pink-400/50 shadow-[0_12px_35px_rgba(88,28,135,0.4)] flex flex-col md:flex-row items-center justify-between gap-3.5 text-center md:text-left">
           
           {/* Slogan details */}
-          <div className="px-2">
-            <div className="inline-flex items-center gap-1.5 text-[11px] font-black text-pink-600 uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5 text-pink-500" />
+          <div className="px-2 sm:px-3">
+            <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-pink-300 uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-pulse" />
               <span>Más que productos, creamos emociones · Pereira, Colombia</span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-700 font-medium mt-0.5">
+            <p className="text-xs sm:text-sm text-purple-100 font-medium mt-0.5">
               Mugs tapa silicona, termos LED, rompecabezas con fotos, camisetas familiares y agendas de lujo.
             </p>
           </div>
 
           {/* Action buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-2 shrink-0 w-full md:w-auto">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0 w-full md:w-auto">
             <a
               href="#catalogo"
               target="_blank"
               rel="noopener noreferrer"
               onClick={onOpenCatalog}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-gradient-to-r from-purple-700 via-pink-600 to-purple-800 hover:from-purple-800 hover:to-pink-700 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer text-center"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-pink-500 hover:from-pink-600 hover:to-purple-700 text-white font-extrabold text-xs sm:text-sm shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer text-center border border-white/40"
             >
-              <Grid className="w-4 h-4 text-pink-200" />
+              <Grid className="w-4 h-4 text-pink-100" />
               <span>Ver Catálogo de Productos Personalizados</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </a>
@@ -87,9 +87,9 @@ export const MainTopHeroBanner: React.FC<MainTopHeroBannerProps> = ({
             <button
               type="button"
               onClick={handleWhatsAppAdvice}
-              className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-3 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-bold text-xs sm:text-sm border border-purple-200 hover:border-pink-300 shadow-sm transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-3 rounded-full bg-white/15 hover:bg-white/25 text-white font-bold text-xs sm:text-sm border border-white/30 backdrop-blur-md shadow-sm transition-all active:scale-95 cursor-pointer"
             >
-              <MessageCircle className="w-4 h-4 text-pink-600" />
+              <MessageCircle className="w-4 h-4 text-pink-300" />
               <span>Asesoría</span>
             </button>
           </div>
