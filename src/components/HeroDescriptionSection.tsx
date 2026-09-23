@@ -123,11 +123,11 @@ export const HeroDescriptionSection: React.FC<HeroDescriptionSectionProps> = ({
             <button
               type="button"
               onClick={handleWhatsAppChat}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 sm:py-4.5 rounded-2xl sm:rounded-full bg-white hover:bg-purple-50 text-purple-950 font-extrabold text-sm sm:text-base border-2 border-purple-300 hover:border-pink-400 shadow-sm hover:shadow transition-all active:scale-95 text-center cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-4 sm:py-4.5 rounded-2xl sm:rounded-full bg-gradient-to-r from-purple-900 via-pink-900 to-purple-900 hover:from-purple-800 hover:to-pink-800 text-pink-100 font-extrabold text-sm sm:text-base border-2 border-pink-400/80 shadow-lg hover:shadow-xl transition-all active:scale-95 text-center cursor-pointer"
             >
-              <MessageCircle className="w-5 h-5 text-pink-600" />
+              <MessageCircle className="w-5 h-5 text-yellow-300" />
               <span>Asesoría o Cotización Inmediata</span>
-              <Send className="w-4 h-4 text-purple-400" />
+              <Send className="w-4 h-4 text-pink-300" />
             </button>
           </div>
 
