@@ -38,8 +38,8 @@ export const MainTopHeroBanner: React.FC<MainTopHeroBannerProps> = ({
           title="Ver Catálogo de Productos Personalizados"
         >
           <img
-            src="/banner-vg-logo-transparente.jpg"
-            alt="VG Personalizados - Detalles Únicos para Momentos Especiales - Más que productos, creamos emociones"
+            src="/banner-vg-sublimacion-limpio.jpg"
+            alt="VG Personalizados - Detalles Únicos para Momentos Especiales - Mugs, Termos, Rompecabezas y Camisetas"
             className="w-full h-auto max-h-[380px] sm:max-h-[440px] lg:max-h-[480px] object-cover sm:object-contain object-center mx-auto drop-shadow-xl group-hover:scale-[1.01] transition-transform duration-700 ease-out"
             loading="eager"
           />
