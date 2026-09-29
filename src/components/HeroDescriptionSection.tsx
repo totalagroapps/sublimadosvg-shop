@@ -168,10 +168,6 @@ export const HeroDescriptionSection: React.FC<HeroDescriptionSectionProps> = ({
             </button>
           </div>
 
-          <p className="text-[11px] sm:text-xs text-slate-500 mt-4">
-            ✨ Al pulsar <strong>Ver catálogo de productos personalizados</strong> se abrirá la vista organizada por categorías en otra pestaña para que explores cómodamente.
-          </p>
-
         </div>
       </div>
     </section>
