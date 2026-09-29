@@ -60,7 +60,7 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     name: 'Libretas Personalizadas',
     productId: 'prod-agenda-personalizada-fe',
     badge: 'Pasta Dura & Anillado Metálico 📓',
-    description: 'Libreta de pasta dura con anillado metálico de alta resistencia. La puedes personalizar como desees con tu nombre, fotos, dedicatorias o portada a tu gusto.',
+    description: 'Lleva tu inspiración, apuntes y grandes ideas a todas partes con una libreta que tenga tu propio sello. Olvídate de los diseños genéricos; ahora la portada de tu cuaderno puede reflejar exactamente tu personalidad, la identidad de tu emprendimiento o el concepto de ese evento especial.\n\nSon perfectas para el colegio, la oficina, un diario personal o como un regalo corporativo muy original. Ya sea que prefieras un estilo minimalista con tu nombre en letras cursivas, tu logo empresarial o un diseño lleno de color con tus gráficos favoritos, nos aseguramos de que la portada luzca profesional, vibrante y lista para acompañarte en tu día a día.',
     price: 45000,
     image: '/forma-producto-libreta.jpg',
   },
@@ -69,7 +69,7 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     name: 'Cojines Personalizados',
     productId: 'prod-cojin-personalizado',
     badge: 'Felpa Suave con Relleno Incluido 🛋️',
-    description: 'Cojín decorativo en tela suave con relleno esponjoso incluido. Lo puedes personalizar como desees con tus fotos familiares, fechas especiales o dedicatorias.',
+    description: 'Dale un toque único y acogedor a cualquier espacio con nuestros cojines personalizados. Son el detalle ideal para decorar una habitación, hacer un regalo entrañable o darle identidad a tu sala de estar. Desde tiernas fotografías familiares y dedicatorias con tipografías elegantes, hasta ilustraciones divertidas y personajes animados; todo es posible.\n\nAl utilizar nuestra técnica de transferencia térmica, la tinta se funde directamente con la tela. Esto significa que tu diseño no solo tendrá colores vivos y una resolución increíble, sino que el cojín mantendrá su textura suave al tacto y los estampados no se borrarán con los lavados. ¡Comodidad y estilo diseñados a tu medida!',
     price: 42000,
     image: '/forma-producto-cojin.jpg',
   },
@@ -118,7 +118,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                 className="group relative rounded-3xl bg-gradient-to-b from-white/95 via-purple-50/70 to-pink-50/80 backdrop-blur-md border-2 border-purple-200/90 hover:border-pink-500 p-5 sm:p-6 shadow-[0_8px_25px_rgba(88,28,135,0.08)] hover:shadow-[0_16px_35px_rgba(219,39,119,0.3)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between text-slate-800"
               >
                 {/* Floating Badge */}
-                <div className="flex items-center justify-between gap-2 mb-2">
+                <div className="flex items-center justify-center gap-2 mb-2">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-purple-800 via-pink-700 to-purple-800 text-white text-[11px] font-extrabold shadow-sm border border-pink-300/60">
                     <Heart className="w-3 h-3 text-pink-200 fill-pink-200" />
                     <span>{item.badge}</span>
@@ -140,21 +140,22 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                 </div>
 
                 {/* Product Info & Action CTA */}
-                <div className="pt-4 border-t border-purple-200/80 flex flex-col justify-between flex-1">
-                  <div>
-                    <div className="flex items-start justify-between gap-2">
-                      <h3
-                        onClick={() => handleItemClick(item.productId)}
-                        className="font-heading font-black text-lg sm:text-xl text-slate-900 group-hover:text-pink-600 transition-colors leading-tight cursor-pointer"
-                      >
-                        {item.name}
-                      </h3>
-                      <span className="shrink-0 px-3 py-1 rounded-full bg-gradient-to-r from-purple-800 via-purple-700 to-pink-600 text-white font-black text-xs sm:text-sm shadow-md">
+                <div className="pt-4 border-t border-purple-200/80 flex flex-col justify-between flex-1 text-center">
+                  <div className="flex flex-col items-center text-center">
+                    <h3
+                      onClick={() => handleItemClick(item.productId)}
+                      className="font-heading font-black text-lg sm:text-xl text-slate-900 group-hover:text-pink-600 transition-colors leading-tight cursor-pointer text-center"
+                    >
+                      {item.name}
+                    </h3>
+                    
+                    <div className="my-2.5">
+                      <span className="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-purple-800 via-purple-700 to-pink-600 text-white font-black text-xs sm:text-sm shadow-md">
                         {formatPrice(item.price)}
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal whitespace-pre-line">
+                    <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed font-normal whitespace-pre-line text-center">
                       {item.description}
                     </p>
                   </div>
