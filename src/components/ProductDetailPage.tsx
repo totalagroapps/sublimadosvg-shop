@@ -497,22 +497,22 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   </span>
                 </div>
 
-                {/* BOTÓN Y TARJETA DIRECTA A WHATSAPP PARA PERSONALIZAR */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50/70 to-emerald-50 border-2 border-emerald-300 shadow-sm space-y-3">
+                {/* BOTÓN Y TARJETA DIRECTA A WHATSAPP PARA PERSONALIZAR (Paleta de Marca: Morado, Fucsia y Oro) */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-purple-50/90 via-pink-50/70 to-purple-100/60 border-2 border-purple-300/80 shadow-[0_6px_20px_rgba(88,28,135,0.06)] space-y-3.5">
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 text-white flex items-center justify-center shadow-md shrink-0">
-                      <MessageCircle className="w-5 h-5 fill-white/20" />
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-purple-800 via-pink-600 to-purple-900 text-white flex items-center justify-center shadow-md shrink-0 border border-pink-300/50">
+                      <MessageCircle className="w-6 h-6 fill-white/20 text-white" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h4 className="text-sm sm:text-base font-heading font-extrabold text-emerald-950">
+                        <h4 className="text-sm sm:text-base font-heading font-extrabold text-purple-950">
                           Personalización Directa por WhatsApp
                         </h4>
-                        <span className="px-2.5 py-0.5 rounded-full bg-emerald-200/90 text-emerald-900 text-[10px] font-black uppercase tracking-wider">
-                          Recomendado
+                        <span className="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-purple-800 via-pink-600 to-purple-800 text-white text-[10px] font-black uppercase tracking-wider shadow-sm border border-pink-300/50">
+                          Asesoría 1 a 1 ✨
                         </span>
                       </div>
-                      <p className="text-xs text-emerald-900/90 mt-1 leading-relaxed">
+                      <p className="text-xs text-purple-900/85 mt-1 leading-relaxed">
                         ¡Personalízalo como desees! Envíanos tus fotos, imágenes, nombres o dedicatorias directamente a nuestro WhatsApp. Nuestro equipo diseñará y te enviará una vista previa digital aprobada por ti antes de estampar.
                       </p>
                     </div>
@@ -521,10 +521,13 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   <button
                     type="button"
                     onClick={handleWhatsAppPersonalization}
-                    className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-600 hover:from-emerald-700 hover:via-green-700 hover:to-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 active:scale-[0.98]"
+                    className="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-purple-800 via-pink-600 to-purple-800 hover:from-purple-900 hover:via-pink-700 hover:to-purple-900 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-purple-900/25 hover:shadow-pink-500/40 hover:scale-[1.01] transition-all flex items-center justify-center gap-2.5 active:scale-[0.98] border border-pink-300/60"
                   >
-                    <MessageCircle className="w-4 h-4 text-white fill-white/20" />
-                    <span>Realizar Personalización por WhatsApp (Enviar Fotos y Detalles)</span>
+                    <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 border border-white/40">
+                      <MessageCircle className="w-3.5 h-3.5 text-white fill-white/40" />
+                    </span>
+                    <span>Realizar Personalización por WhatsApp (Enviar Fotos & Detalles)</span>
+                    <Sparkles className="w-4 h-4 text-yellow-300" />
                   </button>
                 </div>
 
@@ -642,10 +645,13 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 <button
                   type="button"
                   onClick={handleWhatsAppOrder}
-                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 hover:from-pink-600 hover:via-rose-600 hover:to-pink-700 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-pink-500/25 transition-all flex items-center justify-center gap-2.5 active:scale-[0.98]"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-purple-800 via-pink-600 to-purple-800 hover:from-purple-900 hover:via-pink-700 hover:to-purple-900 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-purple-900/25 hover:shadow-pink-500/35 transition-all flex items-center justify-center gap-2.5 active:scale-[0.98] border border-pink-300/60"
                 >
-                  <MessageCircle className="w-5 h-5 text-white" />
+                  <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 border border-white/40">
+                    <MessageCircle className="w-4 h-4 text-white fill-white/40" />
+                  </span>
                   <span>Pedir directamente por WhatsApp</span>
+                  <Sparkles className="w-4 h-4 text-yellow-300" />
                 </button>
 
                 {/* Botón Añadir al Carrito */}

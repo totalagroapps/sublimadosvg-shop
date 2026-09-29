@@ -24,7 +24,7 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     name: 'Camisetas Personalizadas',
     productId: 'prod-camiseta-ajolote-cumple',
     badge: 'Tallas desde Pequeños hasta Adultos 👕',
-    description: 'Camiseta personalizada de excelente calidad y tacto suave. La puedes personalizar como desees con tus fotos, frases o diseños favoritos, manejando varias tallas desde pequeños hasta adultos.',
+    description: 'Transforma una prenda básica en una pieza única que hable por ti. Ya sea que busques estampar tus personajes animados favoritos, ilustraciones divertidas, tipografías creativas para un evento especial o el logo de tu empresa, logramos que cada detalle destaque con calidad profesional.\n\nGracias a nuestra técnica de transferencia térmica de alta precisión, la tinta se integra perfectamente a la tela, garantizando que los diseños no se sientan pesados, no se cuarteen y conserven sus colores vibrantes lavada tras lavada. Además, para que el ajuste sea siempre el ideal, ofrecemos una amplia variedad de colores y una curva de tallas completa pensada para todas las edades y complexiones. ¡Viste tus ideas y marca la diferencia con un estilo 100% tuyo!',
     price: 25000,
     image: '/forma-producto-camiseta.jpg',
   },
@@ -154,36 +154,38 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal whitespace-pre-line">
                       {item.description}
                     </p>
                   </div>
 
-                  {/* Actions: View Details & WhatsApp Personalization */}
+                  {/* Actions: View Details & WhatsApp Personalization (Paleta de Marca: Morado Imperial, Fucsia y Oro) */}
                   <div className="mt-4 pt-2 flex flex-col gap-2">
                     {/* Botón para ver ficha completa con tallas, colores y configuración */}
                     <button
                       type="button"
                       onClick={() => handleItemClick(item.productId)}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-pink-500 hover:from-pink-600 hover:via-purple-700 hover:to-pink-500 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-xl group-hover:scale-[1.02] transition-all border border-pink-200/60 text-center"
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-white/95 hover:bg-purple-50 text-purple-950 font-extrabold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all border-2 border-purple-200/90 hover:border-purple-400 text-center group/btn"
                     >
-                      <Palette className="w-4 h-4 text-pink-100" />
+                      <Palette className="w-4 h-4 text-pink-500 group-hover/btn:scale-110 transition-transform" />
                       <span>Ver Detalles & Opciones</span>
-                      <ArrowRight className="w-4 h-4 text-white" />
+                      <ArrowRight className="w-4 h-4 text-purple-700 group-hover/btn:translate-x-0.5 transition-transform" />
                     </button>
 
-                    {/* Botón directo a WhatsApp para personalizar */}
+                    {/* Botón directo a WhatsApp para personalizar (Gama de Colores Oficial VG: Morado Real, Fucsia y Oro) */}
                     <a
                       href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
                         `¡Hola VG Personalizados! 👋 Deseo personalizar el producto "${item.name}". ¿Me pueden ayudar con el diseño?`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-bold text-xs shadow-sm hover:shadow-md transition-all text-center"
+                      className="w-full inline-flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-full bg-gradient-to-r from-purple-800 via-pink-600 to-purple-800 hover:from-purple-900 hover:via-pink-700 hover:to-purple-900 text-white font-extrabold text-xs sm:text-sm shadow-[0_4px_16px_rgba(219,39,119,0.3)] hover:shadow-[0_6px_22px_rgba(147,51,234,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all border border-pink-300/60 text-center"
                     >
-                      <MessageCircle className="w-3.5 h-3.5 text-white" />
+                      <span className="w-5 h-5 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shrink-0 border border-white/40">
+                        <MessageCircle className="w-3.5 h-3.5 text-white fill-white/30" />
+                      </span>
                       <span>Personalizar por WhatsApp</span>
-                      <ExternalLink className="w-3 h-3 text-emerald-100" />
+                      <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-pulse" />
                     </a>
                   </div>
                 </div>
