@@ -42,7 +42,7 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     name: 'Rompecabezas Personalizados',
     productId: 'prod-rompecabezas-a4',
     badge: 'Piezas Troqueladas de Alta Calidad 🧩',
-    description: 'Rompecabezas con piezas troqueladas de alta calidad. Lo puedes personalizar como desees con tus fotos familiares, recuerdos o momentos favoritos.',
+    description: '¡Convierte tus recuerdos favoritos en una experiencia interactiva! Nuestros rompecabezas personalizados son la manera más original y divertida de sorprender a alguien especial. Son perfectos para regalos de graduación, invitaciones creativas, anuncios sorpresa o simplemente para pasar un buen rato armando esa fotografía, personaje animado o diseño que tanto te gusta.\n\nGracias a nuestro proceso de transferencia térmica de alta resolución, cada pieza ofrece un acabado brillante con colores vivos que no se desvanecen con el uso. Regala más que un detalle: regala un momento inolvidable que se construye pieza por pieza.',
     price: 30000,
     image: '/forma-producto-rompecabezas.jpg',
   },
