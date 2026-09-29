@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   ArrowLeft,
   Sparkles,
@@ -7,8 +7,6 @@ import {
   Heart,
   ShoppingBag,
   MessageCircle,
-  Upload,
-  Trash2,
   ShieldCheck,
   Truck,
   Palette,
@@ -17,11 +15,9 @@ import {
   Minus,
   Plus,
   CheckCircle2,
-  Eye,
 } from 'lucide-react';
 import type { Product, CustomizationData, ProductCategory } from '../types';
 import { STORE_CONFIG, formatPrice, CATEGORIES } from '../data/products';
-import { compressImage } from '../utils/compressImage';
 
 interface ProductDetailPageProps {
   product: Product;
@@ -53,27 +49,22 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   const [selectedColor, setSelectedColor] = useState<{ name: string; hex: string } | undefined>(
     product.availableColors?.[0]
   );
-  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [customText, setCustomText] = useState<string>('');
   const [textColor, setTextColor] = useState<string>('#ffffff');
   const [fontFamily, setFontFamily] = useState<string>('sans-serif');
   const [notes, setNotes] = useState<string>('');
   const [quantity, setQuantity] = useState<number>(1);
   const [isAddedNotice, setIsAddedNotice] = useState<boolean>(false);
-  const [activeImageTab, setActiveImageTab] = useState<'product' | 'custom'>('product');
   const [selectedGalleryImage, setSelectedGalleryImage] = useState<string>(product.image);
 
   React.useEffect(() => {
     setSelectedGalleryImage(product.image);
-    setActiveImageTab('product');
     const prevTitle = document.title;
     document.title = `${product.name} | VG Personalizados Pereira`;
     return () => {
       document.title = prevTitle;
     };
   }, [product.id, product.image, product.name]);
-
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Discount computation
   const discount = product.originalPrice
@@ -83,37 +74,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   const categoryObj = CATEGORIES.find((c) => c.id === product.category);
   const categoryName = categoryObj?.name || product.category;
 
-  // Handle image upload with auto-compression
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      if (file.size > 15 * 1024 * 1024) {
-        alert('Por favor selecciona una imagen menor a 15MB.');
-        return;
-      }
-      compressImage(file)
-        .then((compressed) => {
-          setUploadedImage(compressed);
-          setActiveImageTab('custom');
-        })
-        .catch(() => {
-          alert('No pudimos leer esa imagen. Intenta con otra o envíanosla directamente por WhatsApp.');
-        });
-    }
-  };
-
-  const handleRemoveImage = () => {
-    setUploadedImage(null);
-    setActiveImageTab('product');
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
   // Add to cart handler
   const handleAddToCartClick = () => {
     const customization: CustomizationData = {
-      uploadedImage,
+      uploadedImage: null,
       customText,
       textColor,
       fontFamily,
@@ -127,7 +91,33 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     setTimeout(() => setIsAddedNotice(false), 3000);
   };
 
-  // WhatsApp order builder
+  // Dedicated WhatsApp personalization handler
+  const handleWhatsAppPersonalization = () => {
+    let msg = `¡Hola VG Personalizados! 👋 Deseo realizar la personalización de este producto:\n\n`;
+    msg += `✨ *${product.name}*\n`;
+    msg += `💰 *Precio:* ${formatPrice(product.price)} ${STORE_CONFIG.currencyCode}\n`;
+    if (selectedSize) {
+      msg += `📏 *Talla:* ${selectedSize}\n`;
+    }
+    if (selectedColor) {
+      msg += `🎨 *Color:* ${selectedColor.name}\n`;
+    }
+    if (customText.trim()) {
+      msg += `✍️ *Texto o dedicatoria:* "${customText.trim()}"\n`;
+    }
+    if (notes.trim()) {
+      msg += `📝 *Notas:* ${notes.trim()}\n`;
+    }
+    msg += `\nQuiero enviarles mis fotos, imágenes e indicaciones por aquí para coordinar el diseño y la vista previa digital. ¿Me pueden asesorar? 😊`;
+
+    window.open(
+      `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  };
+
+  // WhatsApp full order builder
   const handleWhatsAppOrder = () => {
     let msg = `¡Hola VG Personalizados! 👋 Deseo ordenar el siguiente producto:\n\n`;
     msg += `✨ *${product.name}*\n`;
@@ -144,13 +134,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     if (customText.trim()) {
       msg += `✍️ *Texto o dedicatoria:* "${customText.trim()}"\n`;
     }
-    if (uploadedImage) {
-      msg += `📸 *Foto o diseño:* Sí, adjuntaré mi foto por este chat.\n`;
-    }
     if (notes.trim()) {
       msg += `📝 *Instrucciones especiales:* ${notes.trim()}\n`;
     }
 
+    msg += `\n📸 *Fotos / Diseño:* Te las enviaré por este chat de WhatsApp para coordinar la vista previa antes de estampar.\n`;
     msg += `\n¿Me confirman disponibilidad y el proceso para acordar el diseño? ¡Muchas gracias! 😊`;
 
     window.open(
@@ -248,14 +236,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
           {/* ============================================================ */}
-          {/* LEFT COLUMN: Large Photo, Preview Tabs, & Quality Guarantees */}
+          {/* LEFT COLUMN: Large Photo, Badges & Quality Guarantees         */}
           {/* ============================================================ */}
           <div className="lg:col-span-5 flex flex-col space-y-4">
             
             {/* Main Image Container */}
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-slate-50 border border-purple-100 shadow-md group">
               <img
-                src={activeImageTab === 'custom' && uploadedImage ? uploadedImage : selectedGalleryImage}
+                src={selectedGalleryImage}
                 alt={product.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -289,7 +277,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               </button>
 
               {/* Live Mockup Text Overlay if custom text is provided */}
-              {customText && activeImageTab === 'product' && (
+              {customText && (
                 <div className="absolute inset-x-6 bottom-8 pointer-events-none text-center">
                   <div className="inline-block bg-black/60 backdrop-blur-sm px-4 py-1.5 rounded-xl border border-white/30 shadow-lg">
                     <span
@@ -303,35 +291,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               )}
             </div>
 
-            {/* If user uploaded image, show toggle pills */}
-            {uploadedImage && (
-              <div className="flex items-center justify-center gap-2 p-1.5 bg-purple-50/80 rounded-2xl border border-purple-100">
-                <button
-                  type="button"
-                  onClick={() => setActiveImageTab('product')}
-                  className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all ${
-                    activeImageTab === 'product'
-                      ? 'bg-purple-700 text-white shadow-sm'
-                      : 'text-purple-800 hover:bg-purple-100/60'
-                  }`}
-                >
-                  Ver Producto Oficial
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveImageTab('custom')}
-                  className={`flex-1 py-1.5 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-                    activeImageTab === 'custom'
-                      ? 'bg-pink-600 text-white shadow-sm'
-                      : 'text-pink-700 hover:bg-pink-100/60'
-                  }`}
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>Tu Foto Subida</span>
-                </button>
-              </div>
-            )}
-
             {/* Gallery Thumbnails if product has multiple images */}
             {product.gallery && product.gallery.length > 1 && (
               <div className="pt-1">
@@ -343,12 +302,9 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     <button
                       key={idx}
                       type="button"
-                      onClick={() => {
-                        setSelectedGalleryImage(img);
-                        setActiveImageTab('product');
-                      }}
+                      onClick={() => setSelectedGalleryImage(img)}
                       className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 transition-all shrink-0 ${
-                        selectedGalleryImage === img && activeImageTab === 'product'
+                        selectedGalleryImage === img
                           ? 'border-purple-600 ring-2 ring-purple-300 shadow-md scale-105'
                           : 'border-purple-200/80 hover:border-purple-400 opacity-75 hover:opacity-100'
                       }`}
@@ -467,7 +423,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-700">
                       Selecciona la Talla: <span className="text-purple-700 font-extrabold">{selectedSize}</span>
                     </label>
-                    <span className="text-[11px] text-purple-600 font-medium">Manejamos para toda la familia</span>
+                    <span className="text-[11px] text-purple-600 font-medium">Manejamos desde bebés hasta adultos</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {product.availableSizes.map((size) => (
@@ -532,83 +488,56 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                         Personaliza tu Producto
                       </h3>
                       <p className="text-[11px] text-slate-500">
-                        Opcional: puedes adjuntarla aquí o enviárnosla por WhatsApp
+                        Coordinamos tu diseño directamente por WhatsApp
                       </p>
                     </div>
                   </div>
                   <span className="text-[10px] font-extrabold bg-purple-200/80 text-purple-900 px-2 py-0.5 rounded-md uppercase">
-                    Paso Fácil
+                    Asesoría Directa
                   </span>
                 </div>
 
-                {/* 1. Subir Foto */}
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                    <span>1. Sube tu foto o imagen favorita</span>
-                  </label>
-
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="hidden"
-                    id="product-photo-upload"
-                  />
-
-                  {uploadedImage ? (
-                    <div className="flex items-center justify-between p-3 bg-white rounded-xl border border-purple-200">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={uploadedImage}
-                          alt="Tu foto personalizada"
-                          className="w-12 h-12 rounded-lg object-cover border border-purple-200"
-                        />
-                        <div>
-                          <p className="text-xs font-bold text-purple-800 flex items-center gap-1">
-                            <Check className="w-3.5 h-3.5 text-purple-600" />
-                            <span>Foto cargada correctamente</span>
-                          </p>
-                          <p className="text-[11px] text-slate-400">
-                            La adaptaremos a tu producto antes de estampar
-                          </p>
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={handleRemoveImage}
-                        className="p-2 text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
-                        title="Quitar foto"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
+                {/* BOTÓN Y TARJETA DIRECTA A WHATSAPP PARA PERSONALIZAR */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50/70 to-emerald-50 border-2 border-emerald-300 shadow-sm space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 text-white flex items-center justify-center shadow-md shrink-0">
+                      <MessageCircle className="w-5 h-5 fill-white/20" />
                     </div>
-                  ) : (
-                    <label
-                      htmlFor="product-photo-upload"
-                      className="cursor-pointer flex flex-col items-center justify-center p-4 border-2 border-dashed border-purple-300 hover:border-purple-500 rounded-xl bg-white/80 hover:bg-white transition-all text-center group"
-                    >
-                      <Upload className="w-6 h-6 text-purple-600 group-hover:scale-110 transition-transform mb-1" />
-                      <span className="text-xs font-bold text-purple-900">
-                        Haz clic aquí para seleccionar tu foto
-                      </span>
-                      <span className="text-[10px] text-slate-400 mt-0.5">
-                        Formatos JPG, PNG, WEBP (hasta 15MB)
-                      </span>
-                    </label>
-                  )}
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-sm sm:text-base font-heading font-extrabold text-emerald-950">
+                          Personalización Directa por WhatsApp
+                        </h4>
+                        <span className="px-2.5 py-0.5 rounded-full bg-emerald-200/90 text-emerald-900 text-[10px] font-black uppercase tracking-wider">
+                          Recomendado
+                        </span>
+                      </div>
+                      <p className="text-xs text-emerald-900/90 mt-1 leading-relaxed">
+                        ¡Personalízalo como desees! Envíanos tus fotos, imágenes, nombres o dedicatorias directamente a nuestro WhatsApp. Nuestro equipo diseñará y te enviará una vista previa digital aprobada por ti antes de estampar.
+                      </p>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleWhatsAppPersonalization}
+                    className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-600 hover:from-emerald-700 hover:via-green-700 hover:to-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 active:scale-[0.98]"
+                  >
+                    <MessageCircle className="w-4 h-4 text-white fill-white/20" />
+                    <span>Realizar Personalización por WhatsApp (Enviar Fotos y Detalles)</span>
+                  </button>
                 </div>
 
-                {/* 2. Texto o Dedicatoria */}
+                {/* Texto o Dedicatoria opcional */}
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-700">
-                    2. Texto, nombre o frase a estampar
+                    Texto, nombre o frase a estampar (Opcional)
                   </label>
                   <input
                     type="text"
                     value={customText}
                     onChange={(e) => setCustomText(e.target.value)}
-                    placeholder="Ej: Te Amo Mamá, Valentina #1, Feliz Cumpleaños..."
+                    placeholder="Ej: Te Amo Mamá, Valentina, Feliz Cumpleaños..."
                     className="w-full px-3.5 py-2.5 rounded-xl border border-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white text-xs text-slate-800 placeholder:text-slate-400"
                   />
 
@@ -650,10 +579,10 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   )}
                 </div>
 
-                {/* 3. Indicaciones o Notas */}
+                {/* Indicaciones o Notas opcionales */}
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold text-slate-700">
-                    3. Notas o instrucciones especiales para el diseño (Opcional)
+                    Notas o instrucciones especiales para el diseño (Opcional)
                   </label>
                   <textarea
                     rows={2}
@@ -785,7 +714,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           <div className="p-4 rounded-2xl bg-purple-50/50 border border-purple-100 space-y-1.5">
             <h4 className="font-bold text-slate-900 text-sm">¿Cómo les envío mi foto o diseño?</h4>
             <p className="leading-relaxed">
-              Puedes subirla aquí mismo antes de añadir al carrito o darle al botón verde de WhatsApp y enviárnosla directamente por el chat. Nuestro diseñador te confirmará que tenga excelente resolución.
+              Nos la envías directamente por WhatsApp dándole al botón de personalización o al botón flotante. Nuestro equipo te confirmará que tenga excelente resolución y te enviará una vista previa digital aprobada por ti antes de estampar.
             </p>
           </div>
 

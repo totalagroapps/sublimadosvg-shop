@@ -1,7 +1,7 @@
 import React from 'react';
-import { Sparkles, ArrowRight, ExternalLink, Heart, Palette } from 'lucide-react';
+import { Sparkles, ArrowRight, ExternalLink, Heart, Palette, MessageCircle } from 'lucide-react';
 import type { Product } from '../types';
-import { formatPrice } from '../data/products';
+import { formatPrice, STORE_CONFIG } from '../data/products';
 
 interface HeroCarouselProps {
   products: Product[];
@@ -23,8 +23,8 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     id: 'shape-camisetas',
     name: 'Camisetas Personalizadas',
     productId: 'prod-camiseta-ajolote-cumple',
-    badge: 'Tallas Familiares (Bebés a Adultos)',
-    description: 'Sublimación de tacto ultrasuave y colores vivos. Estampado nítido centrado para eventos familiares y cumpleaños.',
+    badge: 'Tallas desde Pequeños hasta Adultos 👕',
+    description: 'Camiseta personalizada de excelente calidad y tacto suave. La puedes personalizar como desees con tus fotos, frases o diseños favoritos, manejando varias tallas desde pequeños hasta adultos.',
     price: 25000,
     image: '/forma-producto-camiseta.jpg',
   },
@@ -32,8 +32,8 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     id: 'shape-mugs',
     name: 'Mug Personalizados',
     productId: 'prod-mug-tapa-silicona-imparable',
-    badge: 'Tapa Silicona & Asa Corazón ❤️',
-    description: 'Cerámica AAA con tapa térmica antiderrames, base protectora de silicona y asa ergonómica de corazón.',
+    badge: 'Tapa Silicona Antiderrames ☕',
+    description: 'Mug en cerámica con tapa térmica de silicona y base protectora. Lo puedes personalizar como desees con tus fotos, frases o el diseño de tu elección.',
     price: 25000,
     image: '/forma-producto-mug.jpg',
   },
@@ -41,8 +41,8 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     id: 'shape-rompecabezas',
     name: 'Rompecabezas Personalizados',
     productId: 'prod-rompecabezas-a4',
-    badge: 'Amor en Cada Pieza ♡',
-    description: 'Sublimación fotográfica full color con piezas troqueladas de alta precisión para armar tus fotos familiares.',
+    badge: 'Piezas Troqueladas de Alta Calidad 🧩',
+    description: 'Rompecabezas con piezas troqueladas de alta calidad. Lo puedes personalizar como desees con tus fotos familiares, recuerdos o momentos favoritos.',
     price: 30000,
     image: '/forma-producto-rompecabezas.jpg',
   },
@@ -50,8 +50,8 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     id: 'shape-termos',
     name: 'Termos Personalizados',
     productId: 'prod-termo-inteligente-cero',
-    badge: 'Sensor Digital LED 🌡️',
-    description: 'Acero inoxidable 304 de doble pared con sensor digital de temperatura táctil en la tapa y aislamiento al vacío.',
+    badge: 'Pantalla Táctil LED 500ml 🌡️',
+    description: 'Termo inteligente en acero inoxidable con sensor digital de temperatura LED. Lo puedes personalizar como desees con tus fotos, nombres o diseños favoritos.',
     price: 35000,
     image: '/forma-producto-termo.jpg',
   },
@@ -59,8 +59,8 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     id: 'shape-libretas',
     name: 'Libretas Personalizadas',
     productId: 'prod-agenda-personalizada-fe',
-    badge: 'Pasta Dura & Anillado Oro 📓',
-    description: 'Pasta dura plastificada de lujo con anillado metálico dorado doble y portada personalizada con tu nombre.',
+    badge: 'Pasta Dura & Anillado Metálico 📓',
+    description: 'Libreta de pasta dura con anillado metálico de alta resistencia. La puedes personalizar como desees con tu nombre, fotos, dedicatorias o portada a tu gusto.',
     price: 45000,
     image: '/forma-producto-libreta.jpg',
   },
@@ -68,8 +68,8 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
     id: 'shape-cojines',
     name: 'Cojines Personalizados',
     productId: 'prod-cojin-personalizado',
-    badge: 'Felpa Suave con Relleno Incluido',
-    description: 'Microfibra satinada y felpa ultrasuave con cremallera oculta y relleno hipoalergénico esponjoso.',
+    badge: 'Felpa Suave con Relleno Incluido 🛋️',
+    description: 'Cojín decorativo en tela suave con relleno esponjoso incluido. Lo puedes personalizar como desees con tus fotos familiares, fechas especiales o dedicatorias.',
     price: 42000,
     image: '/forma-producto-cojin.jpg',
   },
@@ -105,7 +105,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
           </h2>
           
           <p className="text-xs sm:text-sm md:text-base text-slate-700 mt-2 font-medium">
-            Cada producto presentado en su forma física exacta, con su diseño centrado y nítido. Toca cualquier artículo para abrir su ficha completa y comenzar a personalizar con tus fotos y frases en otra pestaña.
+            Cada producto en su silueta física auténtica con estampado centrado y nítido. Puedes personalizarlo como desees y coordinar tu diseño directamente por WhatsApp.
           </p>
         </div>
 
@@ -113,14 +113,9 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {SHAPED_PRODUCTS.map((item) => {
             return (
-              <a
+              <div
                 key={item.id}
-                href={`#producto-${item.productId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleItemClick(item.productId)}
-                className="group relative rounded-3xl bg-gradient-to-b from-white/95 via-purple-50/70 to-pink-50/80 backdrop-blur-md border-2 border-purple-200/90 hover:border-pink-500 p-5 sm:p-6 shadow-[0_8px_25px_rgba(88,28,135,0.08)] hover:shadow-[0_16px_35px_rgba(219,39,119,0.3)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer text-slate-800"
-                title={`Personalizar ${item.name} en otra pestaña`}
+                className="group relative rounded-3xl bg-gradient-to-b from-white/95 via-purple-50/70 to-pink-50/80 backdrop-blur-md border-2 border-purple-200/90 hover:border-pink-500 p-5 sm:p-6 shadow-[0_8px_25px_rgba(88,28,135,0.08)] hover:shadow-[0_16px_35px_rgba(219,39,119,0.3)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between text-slate-800"
               >
                 {/* Floating Badge */}
                 <div className="flex items-center justify-between gap-2 mb-2">
@@ -131,7 +126,11 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                 </div>
 
                 {/* The Pure Product Shape Visual (No oval frame, perfectly straight and centered) */}
-                <div className="relative w-full aspect-square max-w-[240px] sm:max-w-[260px] mx-auto flex items-center justify-center p-2 my-2">
+                <div
+                  onClick={() => handleItemClick(item.productId)}
+                  className="relative w-full aspect-square max-w-[240px] sm:max-w-[260px] mx-auto flex items-center justify-center p-2 my-2 cursor-pointer"
+                  title={`Ver detalle de ${item.name}`}
+                >
                   <img
                     src={item.image}
                     alt={item.name}
@@ -144,7 +143,10 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                 <div className="pt-4 border-t border-purple-200/80 flex flex-col justify-between flex-1">
                   <div>
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="font-heading font-black text-lg sm:text-xl text-slate-900 group-hover:text-pink-600 transition-colors leading-tight">
+                      <h3
+                        onClick={() => handleItemClick(item.productId)}
+                        className="font-heading font-black text-lg sm:text-xl text-slate-900 group-hover:text-pink-600 transition-colors leading-tight cursor-pointer"
+                      >
                         {item.name}
                       </h3>
                       <span className="shrink-0 px-3 py-1 rounded-full bg-gradient-to-r from-purple-800 via-purple-700 to-pink-600 text-white font-black text-xs sm:text-sm shadow-md">
@@ -152,26 +154,40 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-slate-600 mt-2 line-clamp-3 leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
 
-                  {/* High Impact Brand Button (No plain white) */}
-                  <div className="mt-4 pt-2">
-                    <div className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-pink-500 group-hover:from-pink-600 group-hover:via-purple-700 group-hover:to-pink-500 text-white font-extrabold text-xs sm:text-sm shadow-md group-hover:shadow-xl group-hover:scale-[1.02] transition-all border border-pink-200/60 text-center">
+                  {/* Actions: View Details & WhatsApp Personalization */}
+                  <div className="mt-4 pt-2 flex flex-col gap-2">
+                    {/* Botón para ver ficha completa con tallas, colores y configuración */}
+                    <button
+                      type="button"
+                      onClick={() => handleItemClick(item.productId)}
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-pink-500 via-purple-600 to-pink-500 hover:from-pink-600 hover:via-purple-700 hover:to-pink-500 text-white font-extrabold text-xs sm:text-sm shadow-md hover:shadow-xl group-hover:scale-[1.02] transition-all border border-pink-200/60 text-center"
+                    >
                       <Palette className="w-4 h-4 text-pink-100" />
-                      <span>Personalizar {item.name}</span>
-                      <ExternalLink className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
+                      <span>Ver Detalles & Opciones</span>
                       <ArrowRight className="w-4 h-4 text-white" />
-                    </div>
-                    
-                    <span className="block text-center text-[10px] text-purple-900/70 font-semibold mt-1.5">
-                      ✨ Abre la ficha con todas las fotos y opciones en otra pestaña
-                    </span>
+                    </button>
+
+                    {/* Botón directo a WhatsApp para personalizar */}
+                    <a
+                      href={`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
+                        `¡Hola VG Personalizados! 👋 Deseo personalizar el producto "${item.name}". ¿Me pueden ayudar con el diseño?`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-bold text-xs shadow-sm hover:shadow-md transition-all text-center"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5 text-white" />
+                      <span>Personalizar por WhatsApp</span>
+                      <ExternalLink className="w-3 h-3 text-emerald-100" />
+                    </a>
                   </div>
                 </div>
-              </a>
+              </div>
             );
           })}
         </div>
