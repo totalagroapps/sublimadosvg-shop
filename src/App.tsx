@@ -8,7 +8,6 @@ import { CategoryBubbles } from './components/CategoryBubbles';
 import { MainTopHeroBanner } from './components/MainTopHeroBanner';
 import { HeroCarousel } from './components/HeroCarousel';
 import { HeroDescriptionSection } from './components/HeroDescriptionSection';
-import { MagicFeatureShowcase } from './components/MagicFeatureShowcase';
 import { ProductGrid } from './components/ProductGrid';
 import { ProductDetailPage } from './components/ProductDetailPage';
 import { Footer } from './components/Footer';
@@ -343,11 +342,6 @@ export function App() {
             {/* 3. Descripción de la tienda y botón Ver catálogo de personalizados */}
             <HeroDescriptionSection
               onOpenCatalog={handleOpenCatalog}
-            />
-
-            {/* 3. Demostración Interactiva del Efecto Térmico (Mug Mágico & Termo LED) */}
-            <MagicFeatureShowcase
-              onSelectCategory={handleSelectCategory}
             />
           </>
         )}
