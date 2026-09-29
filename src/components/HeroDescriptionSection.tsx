@@ -1,5 +1,14 @@
 import React from 'react';
-import { Sparkles, ArrowRight, Grid, MessageCircle, ShieldCheck, Heart, Coffee, Send } from 'lucide-react';
+import {
+  Sparkles,
+  ArrowRight,
+  Grid,
+  MessageCircle,
+  Palette,
+  CheckCircle2,
+  Truck,
+  Send,
+} from 'lucide-react';
 import { STORE_CONFIG } from '../data/products';
 
 interface HeroDescriptionSectionProps {
@@ -18,13 +27,43 @@ export const HeroDescriptionSection: React.FC<HeroDescriptionSectionProps> = ({
     );
   };
 
+  const steps = [
+    {
+      step: '01',
+      title: 'Elige tu Producto Favorito',
+      description:
+        'Selecciona entre mugs mágicos con revelado térmico, camisetas familiares con tallas para todos, termos con sensor LED o agendas de lujo.',
+      icon: Palette,
+      badge: 'Paso 1 · Elección',
+      accent: 'from-purple-600 to-indigo-600',
+    },
+    {
+      step: '02',
+      title: 'Te Enviamos Muestra Previa por WhatsApp',
+      description:
+        'Envíanos tu foto, logo o frase. Nuestro diseñador prepara una vista previa digital exacta de cómo lucirá para que nos des tu visto bueno antes de estampar.',
+      icon: CheckCircle2,
+      badge: 'Paso 2 · Aprobación',
+      accent: 'from-pink-500 to-rose-600',
+    },
+    {
+      step: '03',
+      title: 'Recibe en Casa Listo para Sorprender',
+      description:
+        'Estampamos con calor y tintas termoactivas de alta durabilidad. Empaque especial protegido para envíos rápidos en Pereira y toda Colombia.',
+      icon: Truck,
+      badge: 'Paso 3 · Entrega Feliz',
+      accent: 'from-purple-700 to-pink-600',
+    },
+  ];
+
   return (
     <section aria-label="Descripción de la Tienda y Catálogo" className="py-8 sm:py-12 relative overflow-hidden">
       {/* Decorative Pastel Background Glows */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-pink-300/30 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 bg-purple-300/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Content Box with Glassmorphism */}
         <div className="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-purple-200/90 shadow-xl p-6 sm:p-10 md:p-12 text-center relative overflow-hidden">
@@ -52,55 +91,53 @@ export const HeroDescriptionSection: React.FC<HeroDescriptionSectionProps> = ({
             Trabajamos con insumos premium AAA de alta definición y <strong className="text-pink-700 font-semibold">siempre te enviamos una vista previa digital aprobada por ti antes de estampar</strong>. Envíos 100% seguros a Pereira, el Eje Cafetero y toda Colombia.
           </p>
 
-          {/* 4 Trust Value Pillars */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 my-8 text-left">
-            <div className="p-3.5 rounded-2xl bg-purple-50/80 border border-purple-200/80 shadow-sm flex flex-col justify-between">
-              <div className="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700 mb-2">
-                <Sparkles className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-xs sm:text-sm text-slate-900 leading-tight">
-                Vista Previa Digital
-              </h3>
-              <p className="text-[11px] sm:text-xs text-slate-600 mt-1">
-                Apruebas diseño y fotos antes de fabricar.
-              </p>
-            </div>
+          {/* Subtitle intro to the 3 steps */}
+          <div className="mt-8 mb-2 text-center">
+            <span className="inline-block text-xs sm:text-sm font-semibold text-purple-900 bg-purple-50 px-4 py-1.5 rounded-full border border-purple-200/80">
+              No tienes que preocuparte por el diseño. Te acompañamos paso a paso para que tu regalo quede exactamente como lo sueñas.
+            </span>
+          </div>
 
-            <div className="p-3.5 rounded-2xl bg-pink-50/80 border border-pink-200/80 shadow-sm flex flex-col justify-between">
-              <div className="w-8 h-8 rounded-xl bg-pink-100 flex items-center justify-center text-pink-700 mb-2">
-                <Coffee className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-xs sm:text-sm text-slate-900 leading-tight">
-                Cerámica & Acero AAA
-              </h3>
-              <p className="text-[11px] sm:text-xs text-slate-600 mt-1">
-                Insumos de alto brillo y máxima durabilidad.
-              </p>
-            </div>
+          {/* 3 Pasos de Personalización (Paso 1, 2 y 3) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 my-6 text-left">
+            {steps.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white/95 backdrop-blur-md rounded-3xl border-2 border-purple-200/90 p-6 sm:p-7 shadow-sm hover:shadow-md hover:border-pink-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative group"
+                >
+                  {/* Step number watermark */}
+                  <span className="absolute top-4 right-5 text-4xl font-heading font-black text-purple-100 group-hover:text-pink-100 transition-colors pointer-events-none">
+                    {item.step}
+                  </span>
 
-            <div className="p-3.5 rounded-2xl bg-purple-50/80 border border-purple-200/80 shadow-sm flex flex-col justify-between">
-              <div className="w-8 h-8 rounded-xl bg-purple-100 flex items-center justify-center text-purple-700 mb-2">
-                <ShieldCheck className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-xs sm:text-sm text-slate-900 leading-tight">
-                Envíos Protegidos
-              </h3>
-              <p className="text-[11px] sm:text-xs text-slate-600 mt-1">
-                Empaque anti-roturas a toda Colombia.
-              </p>
-            </div>
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-50 text-purple-900 text-[11px] font-bold mb-4 border border-purple-100">
+                      <span>{item.badge}</span>
+                    </div>
 
-            <div className="p-3.5 rounded-2xl bg-pink-50/80 border border-pink-200/80 shadow-sm flex flex-col justify-between">
-              <div className="w-8 h-8 rounded-xl bg-pink-100 flex items-center justify-center text-pink-700 mb-2">
-                <Heart className="w-4 h-4" />
-              </div>
-              <h3 className="font-bold text-xs sm:text-sm text-slate-900 leading-tight">
-                Hecho con Amor
-              </h3>
-              <p className="text-[11px] sm:text-xs text-slate-600 mt-1">
-                Cuidado artesanal en cada detalle y foto.
-              </p>
-            </div>
+                    <div
+                      className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${item.accent} text-white flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform`}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
+
+                    <h3 className="font-heading font-extrabold text-base sm:text-lg text-slate-900 mb-2 group-hover:text-purple-900 transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-purple-100 flex items-center gap-1.5 text-xs font-bold text-purple-700">
+                    <span>Asesoría 100% personalizada</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* Primary Action Buttons */}
