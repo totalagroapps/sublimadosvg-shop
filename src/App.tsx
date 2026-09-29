@@ -8,7 +8,6 @@ import { CategoryBubbles } from './components/CategoryBubbles';
 import { MainTopHeroBanner } from './components/MainTopHeroBanner';
 import { HeroCarousel } from './components/HeroCarousel';
 import { HeroDescriptionSection } from './components/HeroDescriptionSection';
-import { EditorialWorkshopStory } from './components/EditorialWorkshopStory';
 import { MagicFeatureShowcase } from './components/MagicFeatureShowcase';
 import { HowItWorksSteps } from './components/HowItWorksSteps';
 import { TrustBar } from './components/TrustBar';
@@ -354,10 +353,7 @@ export function App() {
               onSelectCategory={handleSelectCategory}
             />
 
-            {/* 4. El Manifiesto y Credenciales del Taller en Pereira */}
-            <EditorialWorkshopStory />
-
-            {/* 5. Cómo Funciona la Magia en 3 Pasos */}
+            {/* 4. Cómo Funciona la Magia en 3 Pasos */}
             <HowItWorksSteps />
 
             {/* 6. Interactive Callout: Cotizar / Diseñar desde Cero */}
