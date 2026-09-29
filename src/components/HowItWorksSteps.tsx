@@ -1,16 +1,7 @@
 import React from 'react';
-import { Sparkles, MessageCircle, ArrowRight, Palette, CheckCircle2, Truck } from 'lucide-react';
-import { STORE_CONFIG } from '../data/products';
+import { Sparkles, Palette, CheckCircle2, Truck } from 'lucide-react';
 
 export const HowItWorksSteps: React.FC = () => {
-  const handleWhatsAppConsult = () => {
-    const message = `¡Hola VG Personalizados! 👋 Deseo asesoría para personalizar un detalle. ¿Cómo acordamos el diseño de mi foto o frase? 😊`;
-    window.open(
-      `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`,
-      '_blank',
-      'noopener,noreferrer'
-    );
-  };
 
   const steps = [
     {
@@ -98,28 +89,6 @@ export const HowItWorksSteps: React.FC = () => {
               </div>
             );
           })}
-        </div>
-
-        {/* Direct consultation CTA */}
-        <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-purple-800 via-purple-700 to-pink-600 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1 text-center sm:text-left">
-            <h3 className="font-heading font-extrabold text-xl sm:text-2xl">
-              ¿Tienes una foto o idea y no sabes cómo quedará?
-            </h3>
-            <p className="text-xs sm:text-sm text-purple-100 max-w-xl">
-              Escríbenos directamente a WhatsApp. Te armamos el montaje digital previo sin costo de compromiso para que veas el resultado.
-            </p>
-          </div>
-
-          <button
-            type="button"
-            onClick={handleWhatsAppConsult}
-            className="shrink-0 py-3.5 px-6 rounded-2xl bg-white text-purple-950 font-extrabold text-xs sm:text-sm shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
-          >
-            <MessageCircle className="w-4 h-4 text-pink-600" />
-            <span>Hablar con un Diseñador</span>
-            <ArrowRight className="w-3.5 h-3.5 text-purple-900" />
-          </button>
         </div>
 
       </div>

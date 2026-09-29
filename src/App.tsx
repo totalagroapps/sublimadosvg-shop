@@ -11,7 +11,6 @@ import { HeroDescriptionSection } from './components/HeroDescriptionSection';
 import { MagicFeatureShowcase } from './components/MagicFeatureShowcase';
 import { HowItWorksSteps } from './components/HowItWorksSteps';
 import { TrustBar } from './components/TrustBar';
-import { CustomIdeaBanner } from './components/CustomIdeaBanner';
 import { ProductGrid } from './components/ProductGrid';
 import { ProductDetailPage } from './components/ProductDetailPage';
 import { Footer } from './components/Footer';
@@ -356,14 +355,7 @@ export function App() {
             {/* 4. Cómo Funciona la Magia en 3 Pasos */}
             <HowItWorksSteps />
 
-            {/* 6. Interactive Callout: Cotizar / Diseñar desde Cero */}
-            <CustomIdeaBanner
-              onOpenCustomizer={() => {
-                if (products.length > 0) handleOpenProduct(products[0]);
-              }}
-            />
-
-            {/* 7. Boutique Trust Bar */}
+            {/* 5. Boutique Trust Bar */}
             <TrustBar />
           </>
         )}
