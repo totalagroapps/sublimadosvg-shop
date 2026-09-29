@@ -30,10 +30,10 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
   },
   {
     id: 'shape-mugs',
-    name: 'Mug Personalizados',
+    name: 'Mugs y Tazas Personalizadas',
     productId: 'prod-mug-tapa-silicona-imparable',
-    badge: 'Tapa Silicona Antiderrames ☕',
-    description: 'Mug en cerámica con tapa térmica de silicona y base protectora. Lo puedes personalizar como desees con tus fotos, frases o el diseño de tu elección.',
+    badge: 'Cerámica Clásica & Tapa Silicona ☕',
+    description: 'El detalle perfecto para empezar el día con buena energía. Nuestros mugs de cerámica clásica y nuestras prácticas opciones con tapa de silicona son el lienzo ideal para dar vida a tus ideas. Ya sea una fotografía inolvidable, personajes animados, una dedicatoria especial para un ser querido o la identidad visual de tu marca, garantizamos un acabado brillante y colores vibrantes. Gracias a nuestra impresión de alta calidad, tus diseños resistirán el uso diario y las lavadas, convirtiendo cada sorbo de café en una experiencia única.',
     price: 25000,
     image: '/forma-producto-mug.jpg',
   },
@@ -48,10 +48,10 @@ const SHAPED_PRODUCTS: ShapedProductItem[] = [
   },
   {
     id: 'shape-termos',
-    name: 'Termos Personalizados',
+    name: 'Termos Inteligentes Personalizados',
     productId: 'prod-termo-inteligente-cero',
-    badge: 'Pantalla Táctil LED 500ml 🌡️',
-    description: 'Termo inteligente en acero inoxidable con sensor digital de temperatura LED. Lo puedes personalizar como desees con tus fotos, nombres o diseños favoritos.',
+    badge: 'Sensor LED & Acero Inoxidable 🌡️',
+    description: 'Lleva tu estilo a todas partes y mantén tus bebidas en la temperatura ideal. Nuestros termos no solo destacan por su capacidad para conservar el frío o el calor por horas, sino por convertirse en un accesorio completamente tuyo. Personalízalos con tu nombre, un diseño elegante, tu logo corporativo o esa frase que te motiva a entrenar o trabajar. Son resistentes, modernos y el compañero perfecto para la oficina, el gimnasio o tus trayectos diarios, garantizando que tu diseño luzca impecable vayas donde vayas.',
     price: 35000,
     image: '/forma-producto-termo.jpg',
   },
@@ -154,7 +154,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 line-clamp-3 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
                       {item.description}
                     </p>
                   </div>
