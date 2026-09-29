@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ArrowRight, ExternalLink, Heart, Palette, MessageCircle } from 'lucide-react';
+import { Sparkles, ArrowRight, Heart, Palette, MessageCircle } from 'lucide-react';
 import type { Product } from '../types';
 import { formatPrice, STORE_CONFIG } from '../data/products';
 
